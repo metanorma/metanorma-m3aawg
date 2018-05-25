@@ -101,6 +101,7 @@ module Asciidoctor
             gsub(%r{^.*/}, "")
           File.open(filename, "w") { |f| f.write(ret) }
           html_converter(node).convert filename unless node.attr("nodoc")
+          word_converter(node).convert filename unless node.attr("nodoc")
         end
         @files_to_delete.each { |f| system "rm #{f}" }
         ret
@@ -138,6 +139,18 @@ module Asciidoctor
 
       def html_converter(node)
         IsoDoc::M3d::Convert.new(
+          script: node.attr("script"),
+          bodyfont: node.attr("body-font"),
+          headerfont: node.attr("header-font"),
+          monospacefont: node.attr("monospace-font"),
+          titlefont: node.attr("title-font"),
+          i18nyaml: node.attr("i18nyaml"),
+          scope: node.attr("scope"),
+        )
+      end
+
+      def word_converter(node)
+        IsoDoc::M3d::WordConvert.new(
           script: node.attr("script"),
           bodyfont: node.attr("body-font"),
           headerfont: node.attr("header-font"),
