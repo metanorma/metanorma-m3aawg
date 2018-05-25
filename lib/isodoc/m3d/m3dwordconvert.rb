@@ -58,13 +58,6 @@ module IsoDoc
         end
         from_xhtml(h1)
       end
-
-      def word_cleanup(docxml)
-        word_preface(docxml)
-        word_annex_cleanup(docxml)
-        title_cleanup(docxml.at('//div[@class="WordSection2"]'))
-        docxml
-      end
     end
   end
 end
