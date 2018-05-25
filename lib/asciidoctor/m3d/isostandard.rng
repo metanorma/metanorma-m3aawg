@@ -166,7 +166,7 @@
         <ref name="ics"/>
       </zeroOrMore>
     </define>
-    <define name="bfrom">
+    <define name="date_on">
       <element name="from">
         <choice>
           <data type="gYear"/>
@@ -867,7 +867,7 @@
   </define>
   <define name="termdocsource">
     <element name="termdocsource">
-      <ref name="erefType"/>
+      <ref name="CitationType"/>
     </element>
   </define>
   <define name="ics">
