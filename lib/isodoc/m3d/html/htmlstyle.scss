@@ -13,20 +13,89 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
+ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font-family: $bodyfont;
-	vertical-align: baseline;
+        border: 0;
+        font-size: 100%;
 }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        vertical-align: baseline;
+}
+
+
+html, body, div, span, applet, object, iframe,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  font-family: $bodyfont;
+}
+
+h1, h2, h3, h4, h5, h6, .h2Annex {
+  font-family: $headerfont;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dt {
+  grid-column-start: 1;
+}
+
+dd {
+  grid-column-start: 2;
+}
+
+dd p {
+  margin-top: 0px;
+}
+
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -35,11 +104,6 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-/*
-ol, ul {
-	list-style: none;
-}
-*/
 blockquote, q {
 	quotes: none;
 }
@@ -366,10 +430,17 @@ p.document-stage {
       margin-top: 2em;
   }
   
-  h2 {font-size: 1.3em; }
+  h2 {
+    font-size: 1.3em; 
+    font-weight: 400;
+  }
   
-  h3 {font-size: 1.1em;}
+  h3 {
+    font-size: 1.1em;
+    font-weight: 400;   
+  }
 
+  /*
   span[id^="toc"]:after {
     float: left;
     padding-right: 4px;
@@ -380,10 +451,9 @@ p.document-stage {
     color: #cfcfcf;
     content: "\f0c1";
   }
+  */
 
- 
-
-  p.TermNum, p.Terms, p.AltTerms {
+  .TermNum, .Terms, .AltTerms {
     color: #485094;
     font-weight: 400;
   }
@@ -401,10 +471,17 @@ p.document-stage {
     margin: 0;
   }
   
+  /*
   p.AltTerms {
     font-style: italic;
     margin: 0;
   }
+  */
+
+span.obligation {
+    font-weight: 400;
+}
+
 
 /*
     3.2 Links
@@ -444,11 +521,43 @@ p.document-stage {
     3.3 Lists
 */
         
-    ul {margin-left: 0.5em;}
+    ul {
+    margin-left: 1.2em;
+  }
       
-    #toc-list ul {margin-bottom: 0.25em;}
-      
-    #toc-list li {list-style-type: none;}
+ul {
+  margin-left: 1.2em; }
+
+ul > li {
+  list-style: none;
+}
+
+  ul > li:before {
+    content: "—";
+    display: inline-block; width: 1em;
+    margin-left: -1.2em;
+  }
+  
+  li p {
+    display: inline;
+  }
+
+li:first-child {
+  margin-top: 1em;
+}
+
+#toc ul {
+  margin-bottom: 0.25em; }
+
+#toc li {
+  list-style-type: none; }
+
+#toc li:before {
+  content: " ";
+  display: none;
+}
+
+
 
 /*
     3.4 Rules
@@ -461,13 +570,18 @@ p.document-stage {
         margin: 2em 0;
       }
 
+h2 p {
+  display: inline;
+}
+
 /*
     3.5 Bibliograhy
 */
 
-p.Biblio {
+p.Biblio, p.NormRef {
     margin-top: 1em;
     margin-left: 2em;
+    text-indent:-2em;
 }
 
 /*
@@ -579,12 +693,15 @@ a.footnote-number {
     margin-right: auto;
 }
 
+.QuoteAttribution
+        {text-align:right;}
+
 
 /*
     3.12 Formulas
 */
 
-.formula {
+.formula, .Formula {
     background-color: #f7f7f7;
     padding: 1.5em;
     margin-top: 2em;
@@ -639,6 +756,21 @@ p {
     margin-bottom: 1em;
 }
 
+/* Admonitions */
+
+.Admonition, .admonition {
+    background-color: #ffb3b3;
+    /* color: #47430c;*/
+    padding: 0.5em;
+    margin: 1.5em 0 1.5em 0;
+    text-align: left;
+}
+
+.Admonition p, .admonition p {
+    margin: 0;
+}
+
+
 /*
     4.0 Page header
 */
@@ -650,7 +782,7 @@ p {
 .wrapper-top {
     background-color:#0e1a85;
     /* background-image: url("img/dots@2x.png"); */
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAACXBIWXMAABYlAAAWJQFJUiTwAAADwUlEQVR4nO3YgQ2AMAwDwcAiWZ1NizrH30lIeIEq9nPOGSDqPgC7+93v/suy3Mmvhx+6VAAIcwFAmc4nyzYAIMgGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAEM3DQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAEM3DQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAEM3DQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAFTNzA9ggAr9aahO8QAAAABJRU5ErkJggg==');
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAACXBIWXMAABYlAAAWJQFJUiTwAAADwUlEQVR4nO3YgQ2AMAwDwcAiWZ1NizrH30lIeIEq9nPOGSDqPgC7+93v/suy3Mmvhx+6VAAIcwFAmc4nyzYAIMgGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAFTNzA9ggAr9aahO8QAAAABJRU5ErkJggg==');
     color: #ffffff;
     padding: 2em 0;
 }
@@ -663,8 +795,11 @@ p {
   .coverpage-title {
       padding-bottom: 0.5em;
       font-family: $headerfont;
-      font-size: 1.5em;
-      font-weight: 900;
+      font-size: 1.2em;
+	line-height: 1.2em;
+	font-weight: 900; 
+	padding-left: 1em;
+	padding-right: 1em;
   }
   
   .WordSection11 {
@@ -683,6 +818,7 @@ p {
 
   .coverpage {
     text-align: center;
+    padding-left: 1.5em;
   }
 
   .coverpage-logo span, .coverpage-tc-name span {
@@ -791,3 +927,9 @@ To top button
   #myBtn:hover {
     opacity: 1;
   }
+
+a.anchorjs-link:hover {
+  background: none;
+  color: #485094;
+  box-shadow: none;
+}
