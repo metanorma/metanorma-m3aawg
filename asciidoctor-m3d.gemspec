@@ -4,7 +4,7 @@ require "asciidoctor/m3d/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "asciidoctor-m3d"
-  spec.version       = Asciidoctor::Csand::VERSION
+  spec.version       = Asciidoctor::M3d::VERSION
   spec.authors       = ["Ribose Inc."]
   spec.email         = ["open.source@ribose.com"]
 

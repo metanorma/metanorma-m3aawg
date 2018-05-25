@@ -1,8 +1,8 @@
 require "spec_helper"
 
-RSpec.describe Asciidoctor::Csand do
+RSpec.describe Asciidoctor::M3d do
   it "processes default metadata" do
-    expect(Hash[Asciidoctor::Csand::CsandConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
+    expect(Hash[Asciidoctor::M3d::M3dConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
   <title language="en" format="plain">Main Title</title>
@@ -46,7 +46,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "abbreviates committee-draft" do
-    expect(Hash[Asciidoctor::Csand::CsandConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
+    expect(Hash[Asciidoctor::M3d::M3dConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
   <status format="plain">committee-draft</status>
@@ -63,7 +63,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "abbreviates draft-standard" do
-    expect(Hash[Asciidoctor::Csand::CsandConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
+    expect(Hash[Asciidoctor::M3d::M3dConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
   <status format="plain">draft-standard</status>
@@ -80,7 +80,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "ignores unrecognised status" do
-    expect(Hash[Asciidoctor::Csand::CsandConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
+    expect(Hash[Asciidoctor::M3d::M3dConvert.new({}).info(Nokogiri::XML(<<~"INPUT"), nil).sort]).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
   <status format="plain">standard</status>
@@ -97,7 +97,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "processes pre" do
-    expect(Asciidoctor::Csand::CsandConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
+    expect(Asciidoctor::M3d::M3dConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <preface><foreword>
 <pre>ABC</pre>
@@ -131,7 +131,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "processes keyword" do
-    expect(Asciidoctor::Csand::CsandConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
+    expect(Asciidoctor::M3d::M3dConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <preface><foreword>
 <keyword>ABC</keyword>
@@ -165,7 +165,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "processes simple terms & definitions" do
-    expect(Asciidoctor::Csand::CsandConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
+    expect(Asciidoctor::M3d::M3dConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
        <sections>
        <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
@@ -203,7 +203,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "processes terms & definitions with external source" do
-    expect(Asciidoctor::Csand::CsandConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
+    expect(Asciidoctor::M3d::M3dConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
          <termdocsource type="inline" target="ISO712"/>
        <sections>
@@ -260,7 +260,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "processes empty terms & definitions" do
-    expect(Asciidoctor::Csand::CsandConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
+    expect(Asciidoctor::M3d::M3dConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
        <sections>
        <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
@@ -292,7 +292,7 @@ RSpec.describe Asciidoctor::Csand do
   end
 
   it "processes section names" do
-    expect(Asciidoctor::Csand::CsandConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
+    expect(Asciidoctor::M3d::M3dConvert.new({}).convert_file(<<~"INPUT", "test", true)).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
       <preface>
       <foreword obligation="informative">

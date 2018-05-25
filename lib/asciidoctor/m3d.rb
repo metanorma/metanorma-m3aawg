@@ -1,7 +1,7 @@
 require "asciidoctor/m3d/version"
 
 module Asciidoctor
-  module Csand
+  module M3d
     # Your code goes here...
   end
 end

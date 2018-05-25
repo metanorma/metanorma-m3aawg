@@ -5,9 +5,9 @@ require "asciidoctor/iso/converter"
 
 module Asciidoctor
   module M3d
-        M3D_NAMESPACE = "https://open.ribose.com/standards/m3d"
+    M3D_NAMESPACE = "https://open.ribose.com/standards/m3d"
 
-    # A {Converter} implementation that generates CSD output, and a document
+    # A {Converter} implementation that generates M3D output, and a document
     # schema encapsulation of the document for validation
     class Converter < ISO::Converter
 
@@ -137,7 +137,7 @@ module Asciidoctor
       end
 
       def html_converter(node)
-        IsoDoc::Csand::Convert.new(
+        IsoDoc::M3d::Convert.new(
           script: node.attr("script"),
           bodyfont: node.attr("body-font"),
           headerfont: node.attr("header-font"),
@@ -170,7 +170,6 @@ module Asciidoctor
           end
         end.join
       end
-
     end
   end
 end
