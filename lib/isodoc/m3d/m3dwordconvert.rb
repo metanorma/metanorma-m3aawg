@@ -17,23 +17,33 @@ module IsoDoc
         @wordstylesheet = generate_css(html_doc_path("wordstyle.scss"), false, default_fonts(options))
         @standardstylesheet = generate_css(html_doc_path("m3d.scss"), false, default_fonts(options))
         @header = html_doc_path("header.html")
-        @wordcoverpage = html_doc_path("word_m3d_titlepage.html")
+        #@wordcoverpage = html_doc_path("word_m3d_titlepage.html")
         @wordintropage = html_doc_path("word_m3d_intro.html")
         @ulstyle = "l7"
         @olstyle = "l10"
+        system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
+        # @files_to_delete << "logo.jpg"
       end
 
-      ENDLINE = <<~END.freeze
-      <v:line id="_x0000_s1026"
- alt="" style='position:absolute;left:0;text-align:left;z-index:251662848;
- mso-wrap-edited:f;mso-width-percent:0;mso-height-percent:0;
- mso-width-percent:0;mso-height-percent:0'
- from="6.375cm,20.95pt" to="10.625cm,20.95pt"
- strokeweight="1.5pt"/>
-      END
+      def make_body(xml, docxml)
+        body_attr = { lang: "EN-US", link: "blue", vlink: "#954F72" }
+        xml.body **body_attr do |body|
+          make_body2(body, docxml)
+          make_body3(body, docxml)
+        end
+      end
 
-      def end_line(_isoxml, out)
-        out.parent.add_child(ENDLINE)
+      def make_body2(body, docxml)
+        body.div **{ class: "WordSection2" } do |div2|
+          info docxml, div2
+          div2.p { |p| p << "&nbsp;" } # placeholder
+        end
+        body.br **{ clear: "all", style: "page-break-before:auto;mso-break-type:section-break;" }
+      end
+
+      def title(isoxml, _out)
+        main = isoxml&.at(ns("//title[@language='en']"))&.text
+        set_metadata(:doctitle, main)
       end
 
       def generate_header(filename, dir)
