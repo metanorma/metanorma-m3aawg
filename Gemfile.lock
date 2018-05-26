@@ -14,6 +14,20 @@ GIT
       uuidtools
 
 GIT
+  remote: https://github.com/riboseinc/html2doc
+  revision: 6c69bb488b9adc2654276986c657b05bfa82f34d
+  specs:
+    html2doc (0.7.1)
+      asciimath
+      htmlentities (~> 4.3.4)
+      image_size
+      mime-types
+      nokogiri
+      ruby-xslt
+      thread_safe
+      uuidtools
+
+GIT
   remote: https://github.com/riboseinc/isodoc
   revision: dd0a6487ae6c65b01f14889964e01652410ed593
   specs:
@@ -76,15 +90,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    html2doc (0.7.0)
-      asciimath
-      htmlentities (~> 4.3.4)
-      image_size
-      mime-types
-      nokogiri
-      ruby-xslt
-      thread_safe
-      uuidtools
     htmlentities (4.3.4)
     image_size (2.0.0)
     json (2.1.0)
@@ -172,6 +177,7 @@ DEPENDENCIES
   equivalent-xml (~> 0.6)
   guard (~> 2.14)
   guard-rspec (~> 4.7)
+  html2doc!
   isodoc!
   rake (~> 12.0)
   rspec (~> 3.6)

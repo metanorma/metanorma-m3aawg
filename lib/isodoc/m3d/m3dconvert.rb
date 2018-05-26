@@ -16,7 +16,7 @@ module IsoDoc
         @htmlintropage = html_doc_path("html_m3d_intro.html")
         @scripts = html_doc_path("scripts.html")
         system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
-        # @files_to_delete << "logo.jpg"
+        @files_to_delete << "logo.jpg"
         set_metadata(:status, "XXX")
       end
 

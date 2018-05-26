@@ -19,8 +19,8 @@ module IsoDoc
         @header = html_doc_path("header.html")
         #@wordcoverpage = html_doc_path("word_m3d_titlepage.html")
         @wordintropage = html_doc_path("word_m3d_intro.html")
-        @ulstyle = "l7"
-        @olstyle = "l10"
+        @ulstyle = "l3"
+        @olstyle = "l2"
         system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
         # @files_to_delete << "logo.jpg"
       end
