@@ -85,9 +85,9 @@ module Asciidoctor
 
       def doctype(node)
         d = node.attr("doctype")
-        unless %w{guidance proposal standard report whitepaper charter policy glossary case-study}.include? d
-          warn "#{d} is not a legal document type: reverting to 'standard'"
-          d = "standard"
+        unless %w{policy best-practices supporting-document report}.include? d
+          warn "#{d} is not a legal document type: reverting to 'report'"
+          d = "report"
         end
         d
       end
