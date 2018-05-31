@@ -35,13 +35,6 @@ module IsoDoc
         super
       end
 
-      def make_body(xml, docxml)
-        body_attr = { lang: "EN-US", link: "blue", vlink: "#954F72" }
-        xml.body **body_attr do |body|
-          make_body3(body, docxml)
-        end
-      end
-
       def title(isoxml, _out)
         main = isoxml&.at(ns("//title[@language='en']"))&.text
         set_metadata(:doctitle, main)
@@ -170,12 +163,23 @@ module IsoDoc
         HEAD
       end
 
+      def colophon(body, docxml)
+        body.div **{ class: "colophon" } do |div|
+          div << <<~"COLOPHON"
+          <p>As with all M3AAWG documents that we publish, please check the M3AAWG website 
+          (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
+          <p>&copy; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+          COLOPHON
+        end
+      end
+
       def make_body(xml, docxml)
         body_attr = { lang: "EN-US", link: "blue", vlink: "#954F72", "xml:lang": "EN-US", class: "container" }
         xml.body **body_attr do |body|
           make_body1(body, docxml)
           make_body2(body, docxml)
           make_body3(body, docxml)
+          colophon(body, docxml)
         end
       end
 
