@@ -11,6 +11,7 @@ require "asciidoctor/m3d/m3dconvert"
 require "asciidoctor/iso/converter"
 require "rspec/matchers"
 require "equivalent-xml"
+require "htmlentities"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -26,6 +27,12 @@ end
 
 def strip_guid(x)
   x.gsub(%r{ id="_[^"]+"}, ' id="_"').gsub(%r{ target="_[^"]+"}, ' target="_"')
+end
+
+def htmlencode(x)
+  HTMLEntities.new.encode(x, :hexadecimal).gsub(/&#x3e;/, ">").gsub(/&#xa;/, "\n").
+    gsub(/&#x22;/, '"').gsub(/&#x3c;/, "<").gsub(/&#x26;/, '&').gsub(/&#x27;/, "'").
+    gsub(/\\u(....)/) { |s| "&#x#{$1.downcase};" }
 end
 
 ASCIIDOC_BLANK_HDR = <<~"HDR"
@@ -48,7 +55,7 @@ HDR
 BLANK_HDR = <<~"HDR"
        <?xml version="1.0" encoding="UTF-8"?>
        <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-       <bibdata type="article">
+       <bibdata type="report">
 
 
          <contributor>
@@ -75,7 +82,7 @@ BLANK_HDR = <<~"HDR"
            </owner>
          </copyright>
          <editorialgroup>
-           <technical-committee/>
+           <committee/>
          </editorialgroup>
        </bibdata>
 HDR

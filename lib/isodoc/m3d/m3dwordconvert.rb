@@ -1,13 +1,12 @@
 require "isodoc"
-require_relative "./m3dconvert"
+require_relative "m3wordrender"
 
 module IsoDoc
   module M3d
     # A {Converter} implementation that generates GB output, and a document
     # schema encapsulation of the document for validation
 
-    class WordConvert < IsoDoc::M3d::Convert
-      include IsoDoc::WordConvertModule
+    class WordConvert < IsoDoc::WordConvert
       def html_doc_path(file)
         File.join(File.dirname(__FILE__), File.join("html", file))
       end
@@ -17,12 +16,21 @@ module IsoDoc
         @wordstylesheet = generate_css(html_doc_path("wordstyle.scss"), false, default_fonts(options))
         @standardstylesheet = generate_css(html_doc_path("m3d.scss"), false, default_fonts(options))
         @header = html_doc_path("header.html")
-        #@wordcoverpage = html_doc_path("word_m3d_titlepage.html")
         @wordintropage = html_doc_path("word_m3d_intro.html")
         @ulstyle = "l3"
         @olstyle = "l2"
         system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
-        # @files_to_delete << "logo.jpg"
+      end
+
+      def default_fonts(options)
+        b = options[:bodyfont] ||
+          (options[:script] == "Hans" ? '"SimSun",serif' :
+           '"Garamond",serif')
+        h = options[:headerfont] ||
+          (options[:script] == "Hans" ? '"SimHei",sans-serif' :
+           '"Garamond",serif')
+        m = options[:monospacefont] || '"Courier New",monospace'
+        "$bodyfont: #{b};\n$headerfont: #{h};\n$monospacefont: #{m};\n"
       end
 
       def colophon(body, docxml)
@@ -56,7 +64,7 @@ module IsoDoc
       def generate_header(filename, dir)
         return unless @header
         template = Liquid::Template.parse(File.read(@header, encoding: "UTF-8"))
-        meta = get_metadata
+        meta = @meta.get
         meta[:filename] = filename
         params = meta.map { |k, v| [k.to_s, v] }.to_h
         File.open("header.html", "w") { |f| f.write(template.render(params)) }

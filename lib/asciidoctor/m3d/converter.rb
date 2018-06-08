@@ -1,6 +1,7 @@
 require "asciidoctor"
 require "asciidoctor/m3d/version"
-require "isodoc/m3d/m3dconvert"
+require "isodoc/m3d/m3dhtmlconvert"
+require "isodoc/m3d/m3dwordconvert"
 require "asciidoctor/iso/converter"
 
 module Asciidoctor
