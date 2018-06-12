@@ -112,16 +112,7 @@ RSpec.describe IsoDoc::M3d do
 </foreword></preface>
 </m3d-standard>
     INPUT
-           <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
-           <div class="WordSection1">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection2">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection3">
+    #{HTML_HDR}
              <br/>
              <div>
                <h1 class="ForewordTitle">Foreword</h1>
@@ -145,16 +136,7 @@ RSpec.describe IsoDoc::M3d do
 </foreword></preface>
 </m3d-standard>
     INPUT
-           <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
-           <div class="WordSection1">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection2">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection3">
+        #{HTML_HDR}
              <br/>
              <div>
                <h1 class="ForewordTitle">Foreword</h1>
@@ -182,16 +164,7 @@ RSpec.describe IsoDoc::M3d do
         </sections>
         </m3d-standard>
     INPUT
-           <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
-           <div class="WordSection1">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection2">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection3">
+        #{HTML_HDR}
              <p class="zzSTDTitle1"/>
              <div id="H"><h1>1.&#160; Terms and Definitions</h1><p>For the purposes of this document,
            the following terms and definitions apply.</p>
@@ -233,16 +206,7 @@ RSpec.describe IsoDoc::M3d do
 </bibliography>
         </m3d-standard>
     INPUT
-           <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
-           <div class="WordSection1">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection2">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection3">
+        #{HTML_HDR}
              <p class="zzSTDTitle1"/>
              <div>
                <h1>1.&#160; Normative References</h1>
@@ -272,16 +236,7 @@ RSpec.describe IsoDoc::M3d do
         </sections>
         </m3d-standard>
     INPUT
-           <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
-           <div class="WordSection1">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection2">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection3">
+        #{HTML_HDR}
              <p class="zzSTDTitle1"/>
              <div id="H"><h1>1.&#160; Terms and Definitions</h1><p>No terms and definitions are listed in this document.</p>
        </div>
@@ -362,16 +317,7 @@ RSpec.describe IsoDoc::M3d do
        </bibliography>
        </m3d-standard>
     INPUT
-           <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
-           <div class="WordSection1">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection2">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="WordSection3">
+        #{HTML_HDR}
              <br/>
              <div>
                <h1 class="ForewordTitle">Foreword</h1>

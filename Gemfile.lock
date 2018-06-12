@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/riboseinc/asciidoctor-iso
-  revision: 12eff92dd63a43e79a49d50220b23cc6a54308df
+  revision: f09dade3af894db3a8a44f32ef193499abc6c52a
   specs:
     asciidoctor-iso (0.8.1)
       asciidoctor (~> 1.5.7)
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/riboseinc/isodoc
-  revision: d36a6658ada20ce5d96d00df40cbc2887005801a
+  revision: 566d8fffaddd5c82acd729a9b5f3e8645a11bb78
   specs:
     isodoc (0.7.0)
       asciimath
@@ -91,10 +91,10 @@ GEM
     htmlentities (4.3.4)
     httpclient (2.8.3)
     image_size (2.0.0)
-    iso-bib-item (0.1.4)
+    iso-bib-item (0.1.5)
       isoics (~> 0.1.6)
       nokogiri
-    isobib (0.1.4)
+    isobib (0.1.5)
       algoliasearch
       iso-bib-item (~> 0.1.2)
     isoics (0.1.6)
@@ -121,7 +121,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
-    powerpack (0.1.1)
+    powerpack (0.1.2)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -144,7 +144,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    rubocop (0.57.1)
+    rubocop (0.57.2)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5)
