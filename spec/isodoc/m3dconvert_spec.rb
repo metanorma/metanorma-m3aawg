@@ -2,7 +2,7 @@ require "spec_helper"
 
 RSpec.describe IsoDoc::M3d do
   it "processes default metadata" do
-        csdc = IsoDoc::M3d::Convert.new({})
+        csdc = IsoDoc::M3d::HtmlConvert.new({})
     docxml, filename, dir = csdc.convert_init(<<~"INPUT", "test", true)
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
@@ -48,7 +48,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "abbreviates committee-draft" do
-            csdc = IsoDoc::M3d::Convert.new({})
+            csdc = IsoDoc::M3d::HtmlConvert.new({})
     docxml, filename, dir = csdc.convert_init(<<~"INPUT", "test", true)
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
@@ -67,7 +67,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "abbreviates draft-standard" do
-                csdc = IsoDoc::M3d::Convert.new({})
+                csdc = IsoDoc::M3d::HtmlConvert.new({})
     docxml, filename, dir = csdc.convert_init(<<~"INPUT", "test", true)
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
@@ -86,7 +86,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "ignores unrecognised status" do
-                    csdc = IsoDoc::M3d::Convert.new({})
+                    csdc = IsoDoc::M3d::HtmlConvert.new({})
     docxml, filename, dir = csdc.convert_init(<<~"INPUT", "test", true)
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
@@ -105,7 +105,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes pre" do
-    expect(IsoDoc::M3d::Convert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <preface><foreword>
 <pre>ABC</pre>
@@ -129,7 +129,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes keyword" do
-    expect(IsoDoc::M3d::Convert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <preface><foreword>
 <keyword>ABC</keyword>
@@ -153,7 +153,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes simple terms & definitions" do
-    expect(IsoDoc::M3d::Convert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
        <sections>
        <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
@@ -181,7 +181,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes terms & definitions with external source" do
-    expect(IsoDoc::M3d::Convert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
          <termdocsource type="inline" bibitemid="ISO712"/>
        <sections>
@@ -228,7 +228,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes empty terms & definitions" do
-    expect(IsoDoc::M3d::Convert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
        <sections>
        <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
@@ -250,7 +250,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes section names" do
-    expect(IsoDoc::M3d::Convert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
       <preface>
       <foreword obligation="informative">

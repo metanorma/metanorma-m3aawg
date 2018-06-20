@@ -6,7 +6,7 @@ module IsoDoc
   module M3d
     # A {Converter} implementation that generates CSAND output, and a document
     # schema encapsulation of the document for validation
-    class Convert < IsoDoc::Convert
+    class HtmlConvert < IsoDoc::HtmlConvert
       def html_doc_path(file)
         File.join(File.dirname(__FILE__), File.join("html", file))
       end
@@ -110,7 +110,7 @@ module IsoDoc
       def error_parse(node, out)
         # catch elements not defined in ISO
         case node.name
-        when "pre" 
+        when "pre"
           pre_parse(node, out)
         when "keyword"
           out.span node.text, **{ class: "keyword" }
