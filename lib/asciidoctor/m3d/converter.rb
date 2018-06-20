@@ -139,7 +139,7 @@ module Asciidoctor
       end
 
       def html_converter(node)
-        IsoDoc::M3d::Convert.new(
+        IsoDoc::M3d::HtmlConvert.new(
           script: node.attr("script"),
           bodyfont: node.attr("body-font"),
           headerfont: node.attr("header-font"),
