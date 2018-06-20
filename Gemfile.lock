@@ -44,7 +44,7 @@ GIT
 PATH
   remote: .
   specs:
-    asciidoctor-m3d (0.2.7)
+    asciidoctor-m3d (0.3.0)
       asciidoctor (~> 1.5.7)
       asciidoctor-iso (>= 0.9.0)
       asciimath
