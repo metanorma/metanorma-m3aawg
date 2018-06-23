@@ -17,6 +17,10 @@ module Metanorma
         }
       end
 
+      def version
+        "Asciidoctor::M3d #{Asciidoctor::M3d::VERSION}"
+      end
+
       def input_to_isodoc(file)
         Metanorma::Input::Asciidoc.new.process(file, @asciidoctor_backend)
       end
