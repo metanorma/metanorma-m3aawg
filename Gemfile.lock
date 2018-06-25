@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/riboseinc/asciidoctor-iso
-  revision: 8878a2c5e31a3c3b33a292989e5c0c7ec346e230
+  revision: b6d297d28b85a10bba67b0602beebbb74a5dbba2
   specs:
     asciidoctor-iso (0.9.0)
       asciidoctor (~> 1.5.7)

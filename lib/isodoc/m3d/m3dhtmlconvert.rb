@@ -34,7 +34,7 @@ module IsoDoc
         h = options[:headerfont] ||
           (options[:script] == "Hans" ? '"SimHei",sans-serif' :
            '"Overpass",sans-serif')
-        m = options[:monospacefont] || '"Space New",monospace'
+        m = options[:monospacefont] || '"Space Mono",monospace'
         "$bodyfont: #{b};\n$headerfont: #{h};\n$monospacefont: #{m};\n"
       end
 
