@@ -7,6 +7,14 @@
    License: none (public domain)
 */
 
+/* Colors
+Orange: #EE9C4F
+Blue: #69C5DC
+Drak Gray: #A5A8AB
+Gray: #69C5DC
+Light Gray: #F5F6F6
+*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -164,7 +172,7 @@ table {
         position: fixed;
         height: 100%;
         width: 30px;
-        background-color:#1d1d1d;
+        background-color:#69C5DC;
         color: white!important;
         cursor: pointer;
         z-index: 100;
@@ -178,7 +186,6 @@ table {
         transform: translate(0, -50%);
         
     }
-
 
     .container {
         padding-left: 360px;
@@ -203,9 +210,12 @@ table {
         padding: 0 1.5em 0 1.5em;
         overflow: visible;
     }
+
+    nav {
+         padding-left: 3em;
+    }
 }
   
-
 
 #toc ul {
     margin: 0;
@@ -218,7 +228,7 @@ table {
 }
 
 #toc a {
-    color: #485094;
+    color: #69C5DC;
     text-decoration: none;
     display: block;
 }
@@ -240,9 +250,8 @@ table {
 }
 
 #toc .toc-active, #toc li:hover {
-    background: #1d1d1d;
-    box-shadow: inset -5px 0px 10px -5px #1d1d1d!important;
-
+    background: #69C5DC;
+    box-shadow: inset -5px 0px 10px -5px #69C5DC!important;
 }
 
 #toc li:hover a {
@@ -303,7 +312,7 @@ p.document-type, p.document-stage {
 
 p.document-type {
     font-weight: 400;
-    height: 210px;
+    height: 120;
 }
 
 #governance-band p.document-type {
@@ -361,7 +370,7 @@ p.document-stage {
 }
 
 #working-draft-band {
-    background-color: #fda706;
+    background-color: #F22E15;
 }
 
 #committee-draft {
@@ -388,20 +397,20 @@ p.document-stage {
     background-color: #7e0d13;
 }
 
-#published {
-    border-bottom: solid 3px #0ac442;
+#standard {
+    border-bottom: solid 3px #69C5DC;
 }
 
 #published-band {
-    background-color: #0ac442;
+    background-color: #69C5DC;
 }
 
-#withdrawn {
-    border-bottom: solid 3px #a0a0a0;
+#obsolete {
+    border-bottom: solid 3px #7e0d13;
 }
 
-#withdrawn-band {
-    background-color: #a0a0a0;
+#obsolete-band {
+    background-color: #7e0d13;
 }
 
 /*
@@ -414,7 +423,7 @@ p.document-stage {
   
   h1,h2,h3,h4,h5,h6 {
     font-family: $headerfont;
-    color: #0e1a85;
+    color: black;
     font-weight: 600;
     margin-top: 2em;
     margin-bottom: 0.3em;
@@ -432,15 +441,12 @@ p.document-stage {
   
   h2 {
     font-size: 1.3em; 
-    font-weight: 400;
   }
   
   h3 {
     font-size: 1.1em;
-    font-weight: 400;   
   }
 
-  /*
   span[id^="toc"]:after {
     float: left;
     padding-right: 4px;
@@ -451,10 +457,9 @@ p.document-stage {
     color: #cfcfcf;
     content: "\f0c1";
   }
-  */
 
   .TermNum, .Terms, .AltTerms {
-    color: #485094;
+    color: black;
     font-weight: 400;
   }
 
@@ -471,17 +476,16 @@ p.document-stage {
     margin: 0;
   }
   
-  /*
   p.AltTerms {
     font-style: italic;
     margin: 0;
   }
-  */
 
+  /*
 span.obligation {
     font-weight: 400;
 }
-
+*/
 
 /*
     3.2 Links
@@ -489,27 +493,27 @@ span.obligation {
   
     a, a:visited{
         text-decoration: none;
-        color: #485094;
+        color: #69C5DC;
     }
       
     a:hover {
         color: white;
-        background: #1d1d1d;
-        box-shadow: 3px 0 0 #1d1d1d, -3px 0 0 #1d1d1d;
+        background: #69C5DC;
+        box-shadow: 3px 0 0 #69C5DC, -3px 0 0 #69C5DC;
         /* padding: 2px 0 2px 0; */
     }
 
     ::selection {
-        background: #1d1d1d; /* WebKit/Blink Browsers */
+        background: #69C5DC; /* WebKit/Blink Browsers */
         color: white;
       }
       ::-moz-selection {
-        background: #1d1d1d; /* Gecko Browsers */
+        background: #69C5DC; /* Gecko Browsers */
         color: white;
       }
 
       .contact-info a:hover {
-          color: #485094;
+          color: #69C5DC;
           text-decoration: underline;
           background: none;
           box-shadow: 0 0 0 0;
@@ -522,41 +526,14 @@ span.obligation {
 */
         
     ul {
-    margin-left: 1.2em;
+    margin-left: 0.5em;
   }
       
-ul {
-  margin-left: 1.2em; }
-
-ul > li {
-  list-style: none;
-}
-
-  ul > li:before {
-    content: "—";
-    display: inline-block; width: 1em;
-    margin-left: -1.2em;
-  }
-  
-  li p {
-    display: inline;
-  }
-
-li:first-child {
-  margin-top: 1em;
-}
-
 #toc ul {
   margin-bottom: 0.25em; }
 
 #toc li {
   list-style-type: none; }
-
-#toc li:before {
-  content: " ";
-  display: none;
-}
-
 
 
 /*
@@ -566,13 +543,9 @@ li:first-child {
     .rule {
         width: 100%;
         height: 1px;
-        background-color: #0e1a85;
+        background-color: #F22E15;
         margin: 2em 0;
       }
-
-h2 p {
-  display: inline;
-}
 
 /*
     3.5 Bibliograhy
@@ -581,7 +554,6 @@ h2 p {
 p.Biblio, p.NormRef {
     margin-top: 1em;
     margin-left: 2em;
-    text-indent:-2em;
 }
 
 /*
@@ -590,11 +562,14 @@ p.Biblio, p.NormRef {
 
 .figure, .Sourcecode {
     font-family: $monospacefont;
-    background-color: #f7f7f7;
     font-size: 0.8em;
     line-height: 1.6em;
     padding: 1.5em;
-    margin: 2em 0 1em 0;
+    background-color: #F5F6F6;
+    border-left: solid 5px #69C5DC;
+    color: rgb(91, 94, 95);
+    padding: 1.2em 1.2em 1.2em 2.2em;
+    margin: 2em 0 2em -1em;;
     overflow: auto;
 }
 
@@ -609,10 +584,11 @@ p.Biblio, p.NormRef {
 */
 
 .Note {
-    background-color: #fff495;
-    color: #47430c;
-    padding: 1.2em;
-    margin: 2em 0 1em 0;
+    background-color: #F5F6F6;
+    border-left: solid 5px #69C5DC;
+    color: rgb(91, 94, 95);
+    padding: 1.2em 1.2em 1.2em 2.2em;
+    margin: 2em 0 2em -1em;
 }
 
 /*
@@ -620,9 +596,11 @@ p.Biblio, p.NormRef {
 */
 
 .example {
-    background-color: #e1eef1;
-    padding: 1.2em;
-    margin: 2em 0 1em 0;
+    background-color: #F5F6F6;
+    border-left: solid 5px #69C5DC;
+    color: rgb(91, 94, 95);
+    padding: 1.2em 1.2em 1.2em 2.2em;
+    margin: 2em 0 2em -1em;
 }
 
 .example .example-title {
@@ -636,6 +614,11 @@ p.Biblio, p.NormRef {
     3.9 Tables
 */
 
+table, th, td {
+  border: none!important;
+  font-size: 0.95em;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -644,11 +627,7 @@ table {
   margin-left: auto;
   margin-right: auto;
   padding-right: 2em;
-}
-
-table, th, td {
-  border: 1px solid black;
-  font-size: 0.95em;
+  border: solid 1px #F5F6F6!important;
 }
 
 td, th {
@@ -657,6 +636,16 @@ td, th {
 
 td.header {
   font-weight: 400;
+}
+
+tr:nth-child(even) {
+    background-color: #FBF9F8;
+}
+
+thead {
+    background-color: #69C5DC;
+    color: white;
+    border: none;
 }
 
 p.TableTitle {
@@ -684,13 +673,12 @@ a.footnote-number {
 */
 
 .Quote {
-    background-color: #f7f7f7;
+    background-color: #F5F6F6;
+    border-left: solid 5px #69C5DC;
+    color: rgb(91, 94, 95);
+    padding: 1.2em 1.2em 1.2em 2.2em;
+    margin: 2em 0 2em -1em;;
     font-style: italic;
-    width: 80%;
-    padding: 1.5em;
-    margin-top: 2em;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .QuoteAttribution
@@ -702,9 +690,11 @@ a.footnote-number {
 */
 
 .formula, .Formula {
-    background-color: #f7f7f7;
-    padding: 1.5em;
-    margin-top: 2em;
+    background-color: #F5F6F6;
+    border-left: solid 5px #69C5DC;
+    color: rgb(91, 94, 95);
+    padding: 1.2em 1.2em 1.2em 2.2em;
+    margin: 2em 0 2em -1em;;
     text-align: center;
 }
 
@@ -779,12 +769,12 @@ p {
     4.1 Top Logo
 */
 
-.wrapper-top {
-    background-color:#0e1a85;
-    /* background-image: url("img/dots@2x.png"); */
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAACXBIWXMAABYlAAAWJQFJUiTwAAADwUlEQVR4nO3YgQ2AMAwDwcAiWZ1NizrH30lIeIEq9nPOGSDqPgC7+93v/suy3Mmvhx+6VAAIcwFAmc4nyzYAIMgGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAIS5AKCs3oFk2QYAJNkAIMwFAGX1DiTLNgAgyQYAYS4AKKt3IFm2AQBJNgAIcwFAWb0DybINAEiyAUCYCwDK6h1Ilm0AQJINAMJcAFBW70CybAMAkmwAEOYCgLJ6B5JlGwCQZAOAMBcAlNU7kCzbAIAkGwCEuQCgrN6BZNkGACTZACDMBQBl9Q4kyzYAIMkGAGEuACirdyBZtgEASTYACHMBQFm9A8myDQBIsgFAmAsAyuodSJZtAECSDQDCXABQVu9AsmwDAJJsABDmAoCyegeSZRsAkGQDgDAXAJTVO5As2wCAJBsAhLkAoKzegWTZBgAk2QAgzAUAZfUOJMs2ACDJBgBhLgAoq3cgWbYBAEk2AAhzAUBZvQPJsg0ASLIBQJgLAMrqHUiWbQBAkg0AwlwAUFbvQLJsAwCSbAAQ5gKAsnoHkmUbAJBkA4AwFwCU1TuQLNsAgCQbAFTNzA9ggAr9aahO8QAAAABJRU5ErkJggg==');
-    color: #ffffff;
-    padding: 2em 0;
+
+.coverpage {
+    /*background: radial-gradient(#2D5D8E, #0D1E2B);*/
+    /*background-image: url("img/dots@2x.png");*/
+    color: black;
+    padding: 2em 0 0 2em;
 }
 
   .doc-number {
@@ -795,11 +785,8 @@ p {
   .coverpage-title {
       padding-bottom: 0.5em;
       font-family: $headerfont;
-      font-size: 1.2em;
-	line-height: 1.2em;
+      font-size: 1.5em;
 	font-weight: 900; 
-	padding-left: 1em;
-	padding-right: 1em;
   }
 
   .coverpage-date {
@@ -807,12 +794,8 @@ p {
 	font-weight: 900; 
   }
   
-  .title-section1 {
-    padding: 0 2em 0 3em;
-  }
-
   .prefatory-section {
-    padding: 0 3em 0 6em;
+    padding: 0 2em 0 3em;
   }
   
   
@@ -823,28 +806,73 @@ p {
 
   .coverpage {
     text-align: center;
-    padding-left: 1.5em;
   }
+
+    .coverpage-logo {
+      margin-top: 2em;
+      margin-bottom: 2em;
+      background-color: white;
+  }
+
+  .coverpage-logo img {
+      width: 400px;
+  }
+
 
   .coverpage-logo span, .coverpage-tc-name span {
     font-family: $bodyfont;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 300;
+      display: block;
   }
-  
+ 
+ /* 
   .coverpage-tc-name {
     font-size: 1.2em;
     line-height: 1.2em;
     margin: 0.25em 0;
   }
+  */
   
 /*
     4.2 Document Identity
 */
 
-  .coverpage-doc-identity {
+.titles {
+    background-color: #69C5DC;
+}
+
+  .title-first {
     font-size: 2em;
     line-height: 2em;
+    padding-bottom: 1em;
+    font-weight: 900;
+    text-transform: uppercase;
+    background-color: #69C5DC;
+    color: white;
+  }
+
+  .title-second {
+      font-size: 1.5em;
+      line-height: 2em;
+      margin-top: 3em;
+      padding-top: 1em;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+  }
+
+   .docinfo {
+      margin-top: 2em;
+      margin-bottom: 3em;
+  }
+
+
+  .coverpage-doc-identity {
+    height: 100px;
+    width: 100%;
+    background-size: 240px 80px;
+    margin: auto;
   }
   
   
@@ -855,12 +883,33 @@ p {
   .coverpage-stage-block {
     font-family: $bodyfont;
     font-weight: 700;
-    font-size: 1.25em;
-    margin: 2em 0em 2em 0em;
+    font-size: 1em;
+    margin: 1em 0em 1em 0em;
     text-transform: uppercase;
   }
 
+.section-title {
+    background-color: #69C5DC;
+    padding: 1em 2em 1em 5.5em;
+    margin: 4em -3em 3em -5em;
+    border-bottom: 4px solid #F22E15;
+}
 
+
+.section-title h1 {
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    color: white;
+    text-transform: none;
+}
+
+h2 {
+    border-bottom: solid 1px #69C5DC;
+    color: black;
+}
   
   
 /*
@@ -869,15 +918,15 @@ p {
 
   
   .coverpage-warning {
-    border-top: solid 1px #f36f36;
-    border-bottom: solid 1px #f36f36;
+    border-top: solid 1px #F22E15;
+    border-bottom: solid 1px #F22E15;
     margin: 1em 2em;
-    color: #485094;
+    color: black;
     padding: 1em;
   }
   
   .coverpage-warning .title {
-    color: #f36f36;
+    color: #F22E15;
     font-family: $headerfont;
     font-weight: 700;
     text-transform: uppercase;
@@ -897,7 +946,7 @@ p {
   }
   
   
-  .copyright .name, .copyright .address {color: #485094;}
+  .copyright .name, .copyright .address {color: black;}
   
 
 
@@ -921,7 +970,7 @@ To top button
     font-size: 12px;
     border: none;
     outline: none;
-    background-color: #1d1d1d;
+    background-color: #69C5DC;
     opacity: 0.15;
     color: white;
     cursor: pointer;
@@ -937,4 +986,16 @@ a.anchorjs-link:hover {
   background: none;
   color: #485094;
   box-shadow: none;
+}
+
+@page {
+    margin: 1cm;
+}
+
+@media print {
+    .section-title {page-break-before: always;}
+    nav, #toc, #toggle, .document-stage-band,
+    .document-type-band {display: none;}
+    .container {padding-left: 0;}
+
 }

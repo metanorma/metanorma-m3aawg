@@ -16,6 +16,7 @@
   <div class="coverpage">
     <div class="wrapper-top">
 
+  <div class="coverpage-logo"> <img src="m3-logo.png" alt="m3 logo"/> </div>
   <div class="coverpage-doc-identity">
     <div class="doc-number">
       <span class="docnumber">{{ docnumber }}</span>
@@ -24,13 +25,19 @@
     </div>
 
     <div class="coverpage-title">
-      <span class="title-first">{{ doctitle }}</span>
-      <!--<span class="title-second">{{ docsubtitle }}</span>-->
+      <div class="titles">
+        <div class="title-second">{{ docsubtitle }}</div>
+      <div class="title-first">{{ doctitle }}</div>
+      </div>
     </div>
   </div>
 
-  <div class="coverpage-logo">
-    <span>The Calendaring and Scheduling Consortium</span>
+  <div class="docinfo">
+    Updated <span class="date">{{ revdate_monthyear }}</span>,
+    Version <span class="version">{{ draft }}</span> <br/>
+    {% if url %}
+    Shortened URL to this document:  <a href="{{ url }}">{{ url }}</a>
+    {% endif %}
   </div>
 
   <div class="coverpage-tc-name">
@@ -52,7 +59,7 @@
     <span class="title">Warning for Drafts</span>
 
     <p class="content">
-    This document is not a Ribose Standard. It is distributed for review and
+    This document is not an M3AAWG Standard. It is distributed for review and
     comment, and is subject to change without notice and may not be referred to as
     a Standard. Recipients of this draft are invited to submit, with their
     comments, notification of any relevant patent rights of which they are aware
@@ -63,7 +70,7 @@
 
 <div class="copyright">
   <p class="year">
-    &copy; {{ docyear }} The Calendaring and Scheduling Consortium, Inc.
+    &copy; {{ docyear }} Messaging, Malware and Mobile Anti-Abuse Working Group
   </p>
 
   <p class="message">
@@ -75,15 +82,15 @@
   </p>
 
 <div class="contact-info">
-  <p class="name">The Calendaring and Scheduling Consortium, Inc.</p>
+  <p class="name">Messaging, Malware and Mobile Anti-Abuse Working Group</p>
   <p class="address">
-    4390 Chaffin Lane<br />
-    McKinleyville<br />
-    California 95519<br />
+    781 Beach Street, Suite 302<br />
+    San Francisco<br />
+    California 94109<br />
     United States of America<br />
     <br />
-    <a href="mailto:copyright@ribose.com">copyright@ribose.com</a><br />
-    <a href="open.ribose.com">open.ribose.com</a>
+    <!--<a href="mailto:copyright@ribose.com">copyright@ribose.com</a><br />-->
+    <a href="https://www.m3aawg.org">www.m3aawg.org</a>
   </p>
 </div>
 </div>
