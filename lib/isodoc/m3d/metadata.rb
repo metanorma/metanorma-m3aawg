@@ -77,6 +77,11 @@ module IsoDoc
         return isodate unless m && m[:yr] && m[:mo]
         return "#{MONTHS[m[:mo].to_sym]} #{m[:yr]}"
       end
+
+      def url(isoxml, _out)
+        url = isoxml.at(ns("//bibdata/source"))
+        set(:url, url.text) if url
+      end
     end
   end
 end

@@ -33,6 +33,10 @@ module IsoDoc
         "$bodyfont: #{b};\n$headerfont: #{h};\n$monospacefont: #{m};\n"
       end
 
+      def metadata_init(lang, script, labels)
+        @meta = Metadata.new(lang, script, labels)
+      end
+
       def colophon(body, docxml)
         section_break(body)
         body.div **{ class: "colophon" } do |div|
@@ -83,6 +87,11 @@ module IsoDoc
           x.replace(x.children) if x.name == "a"
         end
         from_xhtml(h1)
+      end
+
+      def info(isoxml, out)
+        @meta.url isoxml, out
+        super
       end
     end
   end

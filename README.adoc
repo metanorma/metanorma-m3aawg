@@ -142,6 +142,8 @@ report:: report
 
 `:language:` :: The language of the document (only `en` for now)  (mandatory)
 
+`:url:` :: The URL that the HTML version of the document will be published to
+(optional)
 
 The attribute `:draft:`, if present, includes review notes in the XML output;
 these are otherwise suppressed.

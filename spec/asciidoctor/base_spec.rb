@@ -63,11 +63,13 @@ RSpec.describe Asciidoctor::M3d do
       :iteration: 3
       :language: en
       :title: Main Title
+      :url: http://www.m3aawg.org/BlocklistHelp
     INPUT
     <?xml version="1.0" encoding="UTF-8"?>
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="report">
   <title language="en" format="plain">Main Title</title>
+  <source>http://www.m3aawg.org/BlocklistHelp</source>
   <docidentifier>1000</docidentifier>
   <contributor>
     <role type="author"/>

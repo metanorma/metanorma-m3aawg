@@ -11,14 +11,20 @@ module IsoDoc
         File.join(File.dirname(__FILE__), File.join("html", file))
       end
 
+      def add_image(filenames)
+        filenames.each do |filename|
+          system "cp #{html_doc_path(filename)} #{filename}"
+          @files_to_delete << filename
+        end
+      end
+
       def initialize(options)
         super
         @htmlstylesheet = generate_css(html_doc_path("htmlstyle.scss"), true, default_fonts(options))
         @htmlcoverpage = html_doc_path("html_m3d_titlepage.html")
         @htmlintropage = html_doc_path("html_m3d_intro.html")
         @scripts = html_doc_path("scripts.html")
-        system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
-        @files_to_delete << "logo.jpg"
+        add_image(%w(logo.jpg m3-logo.png))
       end
 
       def default_fonts(options)
@@ -135,6 +141,11 @@ module IsoDoc
           h2.add_child(d.remove)
         end
         docxml
+      end
+
+      def info(isoxml, out)
+        @meta.url isoxml, out
+        super
       end
     end
   end
