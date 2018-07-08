@@ -450,6 +450,10 @@ p.document-stage {
       
     #toc-list li {list-style-type: none;}
 
+    dd p, dt p {
+      margin-top: 0em;
+    }
+
 /*
     3.4 Rules
 */
