@@ -57,7 +57,9 @@ module IsoDoc
           info docxml, div2
           div2.p { |p| p << "&nbsp;" } # placeholder
         end
-        body.br **{ clear: "all", style: "page-break-before:auto;mso-break-type:section-break;" }
+        # body.br **{ clear: "all", style: "page-break-before:auto;mso-break-type:section-break;" }
+        # apparently that was not intended: enforce page break between ToC and body
+        section_break(body)
       end
 
       def title(isoxml, _out)
