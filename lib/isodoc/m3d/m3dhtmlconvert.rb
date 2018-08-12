@@ -7,10 +7,6 @@ module IsoDoc
     # A {Converter} implementation that generates CSAND output, and a document
     # schema encapsulation of the document for validation
     class HtmlConvert < IsoDoc::HtmlConvert
-      def html_doc_path(file)
-        File.join(File.dirname(__FILE__), File.join("html", file))
-      end
-
       def add_image(filenames)
         filenames.each do |filename|
           system "cp #{html_doc_path(filename)} #{filename}"
@@ -20,6 +16,7 @@ module IsoDoc
 
       def initialize(options)
         super
+        @libdir = File.dirname(__FILE__)
         @htmlstylesheet = generate_css(html_doc_path("htmlstyle.scss"), true, default_fonts(options))
         @htmlcoverpage = html_doc_path("html_m3d_titlepage.html")
         @htmlintropage = html_doc_path("html_m3d_intro.html")
