@@ -8,26 +8,32 @@ module IsoDoc
 
     class WordConvert < IsoDoc::WordConvert
       def initialize(options)
-        super
         @libdir = File.dirname(__FILE__)
-        @wordstylesheet = generate_css(html_doc_path("wordstyle.scss"), false, default_fonts(options))
-        @standardstylesheet = generate_css(html_doc_path("m3d.scss"), false, default_fonts(options))
-        @header = html_doc_path("header.html")
-        @wordintropage = html_doc_path("word_m3d_intro.html")
+        super
         @ulstyle = "l3"
         @olstyle = "l2"
         system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
       end
 
       def default_fonts(options)
-        b = options[:bodyfont] ||
-          (options[:script] == "Hans" ? '"SimSun",serif' :
-           '"Garamond",serif')
-        h = options[:headerfont] ||
-          (options[:script] == "Hans" ? '"SimHei",sans-serif' :
-           '"Garamond",serif')
-        m = options[:monospacefont] || '"Courier New",monospace'
-        "$bodyfont: #{b};\n$headerfont: #{h};\n$monospacefont: #{m};\n"
+        {
+          bodyfont: (options[:script] == "Hans" ? '"SimSun",serif' : '"Garamond",serif'),
+          headerfont: (options[:script] == "Hans" ? '"SimHei",sans-serif' : '"Garamond",serif'),
+          monospacefont: '"Courier New",monospace'
+        }
+      end
+
+      def default_file_locations(_options)
+        {
+          htmlstylesheet: html_doc_path("htmlstyle.scss"),
+          htmlcoverpage: html_doc_path("html_m3d_titlepage.html"),
+          htmlintropage: html_doc_path("html_m3d_intro.html"),
+          scripts: html_doc_path("scripts.html"),
+          wordstylesheet: html_doc_path("wordstyle.scss"),
+          standardstylesheet: html_doc_path("m3d.scss"),
+          header: html_doc_path("header.html"),
+          wordintropage: html_doc_path("word_m3d_intro.html"),
+        }
       end
 
       def metadata_init(lang, script, labels)
