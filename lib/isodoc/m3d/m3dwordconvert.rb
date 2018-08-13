@@ -1,5 +1,6 @@
 require "isodoc"
 require_relative "m3wordrender"
+require "fileutils"
 
 module IsoDoc
   module M3d
@@ -10,9 +11,8 @@ module IsoDoc
       def initialize(options)
         @libdir = File.dirname(__FILE__)
         super
-        @ulstyle = "l3"
-        @olstyle = "l2"
-        system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
+        #system "cp #{html_doc_path('logo.jpg')}  logo.jpg"
+        FileUtils.cp html_doc_path("logo.jpg"), "logo.jpg"
       end
 
       def default_fonts(options)
@@ -33,6 +33,8 @@ module IsoDoc
           standardstylesheet: html_doc_path("m3d.scss"),
           header: html_doc_path("header.html"),
           wordintropage: html_doc_path("word_m3d_intro.html"),
+          ulstyle: "l3",
+          olstyle: "l2",
         }
       end
 

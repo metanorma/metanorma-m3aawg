@@ -1,6 +1,7 @@
 require "isodoc"
 require_relative "metadata"
 require_relative "m3dhtmlrender"
+require "fileutils"
 
 module IsoDoc
   module M3d
@@ -9,7 +10,8 @@ module IsoDoc
     class HtmlConvert < IsoDoc::HtmlConvert
       def add_image(filenames)
         filenames.each do |filename|
-          system "cp #{html_doc_path(filename)} #{filename}"
+          #system "cp #{html_doc_path(filename)} #{filename}"
+          FileUtils.cp html_doc_path(filename), filename
           @files_to_delete << filename
         end
       end
@@ -34,11 +36,6 @@ module IsoDoc
           htmlcoverpage: html_doc_path("html_m3d_titlepage.html"),
           htmlintropage: html_doc_path("html_m3d_intro.html"),
           scripts: html_doc_path("scripts.html"),
-          wordstylesheet: html_doc_path("wordstyle.scss"),
-          standardstylesheet: html_doc_path("m3d.scss"),
-          header: html_doc_path("header.html"),
-          wordcoverpage: html_doc_path("word_m3d_titlepage.html"),
-          wordintropage: html_doc_path("word_m3d_intro.html"),
         }
       end
 
