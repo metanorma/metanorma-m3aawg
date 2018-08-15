@@ -2,7 +2,7 @@ require "asciidoctor"
 require "asciidoctor/m3d/version"
 require "isodoc/m3d/m3dhtmlconvert"
 require "isodoc/m3d/m3dwordconvert"
-require "asciidoctor/iso/converter"
+require "asciidoctor/standoc/converter"
 
 module Asciidoctor
   module M3d
@@ -10,7 +10,7 @@ module Asciidoctor
 
     # A {Converter} implementation that generates M3D output, and a document
     # schema encapsulation of the document for validation
-    class Converter < ISO::Converter
+    class Converter < Standoc::Converter
 
       register_for "m3d"
 
@@ -154,38 +154,11 @@ module Asciidoctor
       end
 
       def html_converter(node)
-        IsoDoc::M3d::HtmlConvert.new(
-          script: node.attr("script"),
-          bodyfont: node.attr("body-font"),
-          headerfont: node.attr("header-font"),
-          monospacefont: node.attr("monospace-font"),
-          titlefont: node.attr("title-font"),
-          i18nyaml: node.attr("i18nyaml"),
-          scope: node.attr("scope"),
-          htmlstylesheet: node.attr("htmlstylesheet"),
-          htmlcoverpage: node.attr("htmlcoverpage"),
-          htmlintropage: node.attr("htmlintropage"),
-          scripts: node.attr("scripts"),
-        )
+        IsoDoc::M3d::HtmlConvert.new(html_extract_attributes(node))
       end
 
       def word_converter(node)
-        IsoDoc::M3d::WordConvert.new(
-          script: node.attr("script"),
-          bodyfont: node.attr("body-font"),
-          headerfont: node.attr("header-font"),
-          monospacefont: node.attr("monospace-font"),
-          titlefont: node.attr("title-font"),
-          i18nyaml: node.attr("i18nyaml"),
-          scope: node.attr("scope"),
-          wordstylesheet: node.attr("wordstylesheet"),
-          standardstylesheet: node.attr("standardstylesheet"),
-          header: node.attr("header"),
-          wordcoverpage: node.attr("wordcoverpage"),
-          wordintropage: node.attr("wordintropage"),
-          ulstyle: node.attr("ulstyle"),
-          olstyle: node.attr("olstyle"),
-        )
+        IsoDoc::M3d::WordConvert.new(doc_extract_attributes(node))
       end
 
       def inline_quoted(node)

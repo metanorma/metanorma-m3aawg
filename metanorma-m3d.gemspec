@@ -3,19 +3,21 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "asciidoctor/m3d/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "asciidoctor-m3d"
+  spec.name          = "metanorma-m3d"
   spec.version       = Asciidoctor::M3d::VERSION
   spec.authors       = ["Ribose Inc."]
   spec.email         = ["open.source@ribose.com"]
 
-  spec.summary       = "asciidoctor-m3d lets you write M3AAWG Documents (M3D) in AsciiDoc."
+  spec.summary       = "metanorma-m3d lets you write M3AAWG Documents (M3D) in AsciiDoc."
   spec.description   = <<~DESCRIPTION
-    asciidoctor-m3d lets you write M3AAWG Documents (M3D) in AsciiDoc syntax.
+    metanorma-m3d lets you write M3AAWG Documents (M3D) in AsciiDoc syntax.
 
     This gem is in active development.
+
+    Formerly known as asciidoctor-m3d.
   DESCRIPTION
 
-  spec.homepage      = "https://github.com/riboseinc/asciidoctor-m3d"
+  spec.homepage      = "https://github.com/riboseinc/metanorma-m3d"
   spec.license       = "BSD-2-Clause"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
@@ -36,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thread_safe"
   spec.add_dependency "uuidtools"
 
-  spec.add_dependency "asciidoctor-iso", "~> 0.10.2"
+  spec.add_dependency "metanorma-standoc", "~> 1.0.0"
   spec.add_dependency "isodoc", "~> 0.8.8"
 
   spec.add_development_dependency "bundler", "~> 1.15"
