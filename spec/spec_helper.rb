@@ -5,7 +5,7 @@ end
 
 require "bundler/setup"
 require "asciidoctor"
-require "asciidoctor-m3d"
+require "metanorma-m3d"
 require "asciidoctor/m3d"
 require "isodoc/m3d/m3dhtmlconvert"
 require "isodoc/m3d/m3dwordconvert"
