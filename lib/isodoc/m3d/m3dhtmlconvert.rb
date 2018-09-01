@@ -48,7 +48,7 @@ module IsoDoc
           div << <<~"COLOPHON"
           <p>As with all M3AAWG documents that we publish, please check the M3AAWG website
           (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-          <p>&copy; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+          <p>&copy; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
           COLOPHON
         end
       end

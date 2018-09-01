@@ -34,7 +34,7 @@ module IsoDoc
           htmlstylesheet: html_doc_path("htmlstyle.scss"),
           htmlcoverpage: html_doc_path("html_m3d_titlepage.html"),
           htmlintropage: html_doc_path("html_m3d_intro.html"),
-          scripts: html_doc_path("scripts.html"),
+          scripts: html_doc_path("scripts.pdf.html"),
         }
       end
 
@@ -47,7 +47,7 @@ module IsoDoc
           div << <<~"COLOPHON"
           <p>As with all M3AAWG documents that we publish, please check the M3AAWG website
           (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-          <p>&copy; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+          <p>&copy; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
           COLOPHON
         end
       end

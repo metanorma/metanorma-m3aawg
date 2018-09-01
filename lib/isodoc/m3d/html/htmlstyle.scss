@@ -820,6 +820,7 @@ p {
 
   .coverpage-logo img {
       width: 400px;
+      height: auto;
   }
 
 
@@ -1002,4 +1003,7 @@ a.anchorjs-link:hover {
     .document-type-band {display: none;}
     .container {padding-left: 0;}
 
+    a.anchorjs-link {
+      display: none;
+    }
 }
