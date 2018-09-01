@@ -121,7 +121,6 @@ module Asciidoctor
             gsub(%r{^.*/}, "")
           File.open(filename, "w") { |f| f.write(ret) }
           html_converter(node).convert filename unless node.attr("nodoc")
-          require "byebug"; byebug
           pdf_converter(node).convert filename unless node.attr("nodoc")
           word_converter(node).convert filename unless node.attr("nodoc")
         end
