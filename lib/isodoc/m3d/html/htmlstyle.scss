@@ -451,6 +451,7 @@ p.document-stage {
     font-size: 1.1em;
   }
 
+@media screen {
   span[id^="toc"]:after {
     float: left;
     padding-right: 4px;
@@ -461,6 +462,7 @@ p.document-stage {
     color: #cfcfcf;
     content: "\f0c1";
   }
+}
 
   .TermNum, .Terms, .AltTerms {
     color: black;
@@ -1003,7 +1005,4 @@ a.anchorjs-link:hover {
     .document-type-band {display: none;}
     .container {padding-left: 0;}
 
-    a.anchorjs-link {
-      display: none;
-    }
 }

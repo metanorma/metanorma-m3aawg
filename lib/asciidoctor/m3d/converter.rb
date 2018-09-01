@@ -121,6 +121,7 @@ module Asciidoctor
             gsub(%r{^.*/}, "")
           File.open(filename, "w") { |f| f.write(ret) }
           html_converter(node).convert filename unless node.attr("nodoc")
+          require "byebug"; byebug
           pdf_converter(node).convert filename unless node.attr("nodoc")
           word_converter(node).convert filename unless node.attr("nodoc")
         end
@@ -163,7 +164,7 @@ module Asciidoctor
       end
 
       def pdf_converter(node)
-        IsoDoc::M3d::PdfConvert.new(doc_extract_attributes(node))
+        IsoDoc::M3d::PdfConvert.new(html_extract_attributes(node))
       end
 
       def inline_quoted(node)

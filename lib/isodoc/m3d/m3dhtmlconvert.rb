@@ -35,6 +35,7 @@ module IsoDoc
           htmlstylesheet: html_doc_path("htmlstyle.scss"),
           htmlcoverpage: html_doc_path("html_m3d_titlepage.html"),
           htmlintropage: html_doc_path("html_m3d_intro.html"),
+          standardstylesheet: nil,
           scripts: html_doc_path("scripts.html"),
         }
       end
