@@ -370,6 +370,7 @@ p.document-stage {
   
   h3 {font-size: 1.1em;}
 
+@media screen {
   span[id^="toc"]:after {
     float: left;
     padding-right: 4px;
@@ -380,7 +381,7 @@ p.document-stage {
     color: #cfcfcf;
     content: "\f0c1";
   }
-
+}
  
 
   p.TermNum, p.Terms, p.AltTerms {
