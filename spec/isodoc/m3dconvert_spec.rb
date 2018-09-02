@@ -44,7 +44,7 @@ RSpec.describe IsoDoc::M3d do
 </m3d-standard>
     INPUT
         expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
-           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"1000(wd)", :doctitle=>"Main Title", :doctype=>"Standard", :docyear=>"2001", :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Working Draft", :tc=>"TC", :updateddate=>"XXX", :url=>"http://www.m3aawg.org/BlocklistHelp", :wg=>"XXXX"}
+           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"1000(wd)", :doctitle=>"Main Title", :doctype=>"Standard", :docyear=>"2001", :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Working Draft", :tc=>nil, :updateddate=>"XXX", :url=>"http://www.m3aawg.org/BlocklistHelp", :wg=>"XXXX"}
     OUTPUT
   end
 
@@ -63,7 +63,7 @@ RSpec.describe IsoDoc::M3d do
 </m3d-standard>
     INPUT
             expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
-           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"(cd)", :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Committee Draft", :tc=>"XXXX", :updateddate=>"XXX", :wg=>"XXXX"}
+           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"(cd)", :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Committee Draft", :tc=>nil, :updateddate=>"XXX", :wg=>"XXXX"}
     OUTPUT
   end
 
@@ -82,7 +82,7 @@ RSpec.describe IsoDoc::M3d do
 </m3d-standard>
     INPUT
                 expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
-           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"(d)", :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Draft Standard", :tc=>"XXXX", :updateddate=>"XXX", :wg=>"XXXX"}
+           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"(d)", :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Draft Standard", :tc=>nil, :updateddate=>"XXX", :wg=>"XXXX"}
     OUTPUT
   end
 
@@ -101,7 +101,7 @@ RSpec.describe IsoDoc::M3d do
 </m3d-standard>
     INPUT
                     expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
-           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>nil, :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Standard", :tc=>"XXXX", :updateddate=>"XXX", :wg=>"XXXX"}
+           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>nil, :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Standard", :tc=>nil, :updateddate=>"XXX", :wg=>"XXXX"}
     OUTPUT
   end
 
@@ -123,7 +123,7 @@ RSpec.describe IsoDoc::M3d do
            </div>
            <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
        </div>
          </body>
     OUTPUT
@@ -147,7 +147,7 @@ RSpec.describe IsoDoc::M3d do
            </div>
            <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
        </div>
          </body>
     OUTPUT
@@ -175,7 +175,7 @@ RSpec.describe IsoDoc::M3d do
            </div>
            <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
        </div>
          </body>
     OUTPUT
@@ -222,7 +222,7 @@ RSpec.describe IsoDoc::M3d do
            </div>
            <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
        </div>
          </body>
     OUTPUT
@@ -244,7 +244,7 @@ RSpec.describe IsoDoc::M3d do
            </div>
            <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
        </div>
          </body>
     OUTPUT
@@ -382,7 +382,7 @@ RSpec.describe IsoDoc::M3d do
            </div>
            <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; 2017 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
        </div>
          </body>
     OUTPUT
