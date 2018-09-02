@@ -33,21 +33,23 @@
   </div>
 
   <div class="docinfo">
-    Updated <span class="date">{{ revdate_monthyear }}</span>,
-    Version <span class="version">{{ draft }}</span> <br/>
+    {% if revdate_monthyear -%}Updated <span class="date">{{ revdate_monthyear }}</span>{%- endif -%}{%- if revdate_monthyear and draft -%},{%- endif -%}{%- if draft -%}Version <span class="version">{{ draft }}</span>{%- endif -%}
+    <br/>
     {% if url %}
     Shortened URL to this document:  <a href="{{ url }}">{{ url }}</a>
     {% endif %}
   </div>
 
+  {% if tc %}
   <div class="coverpage-tc-name">
     <span>TC {{ tc }}</span>
   </div>
+  {% endif %}
   </div>
 
   <div class="title-section1">
   <div class="coverpage-stage-block" >
-    <span class="coverpage-stage" id="{{ doctype | replace: ' ', '-' | downcase }}">Ribose {{ doctype }}</span>
+    <span class="coverpage-stage" id="{{ doctype | replace: ' ', '-' | downcase }}">{{ doctype }}</span>
   </div>
 
   <div class="coverpage-stage-block" >
