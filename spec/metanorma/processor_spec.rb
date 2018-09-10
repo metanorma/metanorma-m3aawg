@@ -19,7 +19,7 @@ RSpec.describe Metanorma::M3d::Processor do
   end
 
   it "registers version against metanorma" do
-    expect(processor.version.to_s).to match(%r{^Asciidoctor::M3d })
+    expect(processor.version.to_s).to match(%r{^Metanorma::M3d })
   end
 
   it "generates IsoDoc XML from a blank document" do

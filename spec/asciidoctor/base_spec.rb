@@ -2,7 +2,7 @@ require "spec_helper"
 
 RSpec.describe Asciidoctor::M3d do
   it "has a version number" do
-    expect(Asciidoctor::M3d::VERSION).not_to be nil
+    expect(Metanorma::M3d::VERSION).not_to be nil
   end
 
   it "generates output for the Rice document" do
