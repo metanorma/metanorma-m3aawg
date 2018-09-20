@@ -52,6 +52,9 @@ RSpec.describe Asciidoctor::M3d do
       :technical-committee: TC
       :technical-committee-number: 1
       :technical-committee-type: A
+      :technical-committee_2: TC1
+      :technical-committee-number_2: 11
+      :technical-committee-type_2: A1
       :subcommittee: SC
       :subcommittee-number: 2
       :subcommittee-type: B
@@ -97,6 +100,7 @@ RSpec.describe Asciidoctor::M3d do
   </copyright>
   <editorialgroup>
     <committee type="A">TC</committee>
+    <committee type="A1">TC1</committee>
   </editorialgroup>
 </bibdata><version>
   <edition>2</edition>
