@@ -3,6 +3,7 @@ require "metanorma/m3d/version"
 require "isodoc/m3d/m3dhtmlconvert"
 require "isodoc/m3d/m3dwordconvert"
 require "asciidoctor/standoc/converter"
+require "fileutils"
 
 module Asciidoctor
   module M3d
@@ -130,7 +131,7 @@ module Asciidoctor
           pdf_converter(node).convert filename unless node.attr("nodoc")
           word_converter(node).convert filename unless node.attr("nodoc")
         end
-        @files_to_delete.each { |f| system "rm #{f}" }
+        @files_to_delete.each { |f| FileUtils.rm f }
         ret
       end
 
