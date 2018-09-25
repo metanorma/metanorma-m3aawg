@@ -10,7 +10,6 @@ module IsoDoc
     class HtmlConvert < IsoDoc::HtmlConvert
       def add_image(filenames)
         filenames.each do |filename|
-          #system "cp #{html_doc_path(filename)} #{filename}"
           FileUtils.cp html_doc_path(filename), filename
           @files_to_delete << filename
         end
