@@ -3,12 +3,13 @@ module IsoDoc
     # A {Converter} implementation that generates CSAND output, and a document
     # schema encapsulation of the document for validation
     class WordConvert < IsoDoc::WordConvert
-            def annex_name(annex, name, div)
+      def annex_name(annex, name, div)
         div.h1 **{ class: "Annex" } do |t|
           t << "#{get_anchors[annex['id']][:label]} "
+          t.br
           t.b do |b|
-          name&.children&.each { |c2| parse(c2, b) }
-        end
+            name&.children&.each { |c2| parse(c2, b) }
+          end
         end
       end
 
