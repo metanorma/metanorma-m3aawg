@@ -8,13 +8,12 @@ RSpec.describe Asciidoctor::M3d do
 
   it "generates output for the Rice document" do
     FileUtils.rm_f %w(spec/examples/rfc6350.doc spec/examples/rfc6350.html spec/examples/rfc6350.pdf)
-    #system "cd spec/examples; asciidoctor --trace -b m3d -r 'metanorma-m3d' rfc6350.adoc; cd ../.."
     FileUtils.cd "spec/examples"
     Asciidoctor.convert_file "rfc6350.adoc", {:attributes=>{"backend"=>"m3d"}, :safe=>0, :header_footer=>true, :requires=>["metanorma-m3d"], :failure_level=>4, :mkdirs=>true, :to_file=>nil}
     FileUtils.cd "../.."
-  expect(File.exist?("spec/examples/rfc6350.doc")).to be true
-  expect(File.exist?("spec/examples/rfc6350.html")).to be true
-  expect(File.exist?("spec/examples/rfc6350.pdf")).to be true
+    expect(File.exist?("spec/examples/rfc6350.doc")).to be true
+    expect(File.exist?("spec/examples/rfc6350.html")).to be true
+    expect(File.exist?("spec/examples/rfc6350.pdf")).to be true
   end
 
   it "processes a blank document" do
@@ -72,7 +71,7 @@ RSpec.describe Asciidoctor::M3d do
       :iteration: 3
       :language: en
       :title: Main Title
-      :url: http://www.m3aawg.org/BlocklistHelp
+      :uri: http://www.m3aawg.org/BlocklistHelp
     INPUT
     <?xml version="1.0" encoding="UTF-8"?>
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">

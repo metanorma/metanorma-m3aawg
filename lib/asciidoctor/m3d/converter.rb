@@ -29,11 +29,6 @@ module Asciidoctor
         metadata_ics(node, xml)
       end
 
-      def metadata_source(node, xml)
-        return unless node.attr("url")
-        xml.source node.attr("url")
-      end
-
       def metadata_author(node, xml)
         xml.contributor do |c|
           c.role **{ type: "author" }
