@@ -19,6 +19,7 @@ module Asciidoctor
         title node, xml
         metadata_source(node, xml)
         metadata_id(node, xml)
+        metadata_date(node, xml)
         metadata_author(node, xml)
         metadata_publisher(node, xml)
         xml.language node.attr("language")
@@ -56,14 +57,6 @@ module Asciidoctor
             a.committee node.attr("technical-committee_#{i}"),
               **attr_code(type: node.attr("technical-committee-type_#{i}"))
             i += 1
-          end
-        end
-      end
-
-      def title(node, xml)
-        ["en"].each do |lang|
-          xml.title **{ language: lang, format: "plain" } do |t|
-            t << asciidoc_sub(node.attr("title"))
           end
         end
       end
