@@ -9,7 +9,7 @@ RSpec.describe IsoDoc::M3d do
 <bibdata type="standard">
   <title language="en" format="plain">Main Title</title>
   <source>http://www.m3aawg.org/BlocklistHelp</source>
-  <docidentifier>1000</docidentifier>
+  <docidentifier>1000(wd)</docidentifier>
   <contributor>
     <role type="author"/>
     <organization>
@@ -46,63 +46,6 @@ RSpec.describe IsoDoc::M3d do
     INPUT
         expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
            {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"1000(wd)", :doctitle=>"Main Title", :doctype=>"Standard", :docyear=>"2001", :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Working Draft", :tc=>nil, :updateddate=>"XXX", :url=>"http://www.m3aawg.org/BlocklistHelp", :wg=>"XXXX"}
-    OUTPUT
-  end
-
-  it "abbreviates committee-draft" do
-            csdc = IsoDoc::M3d::HtmlConvert.new({})
-    docxml, filename, dir = csdc.convert_init(<<~"INPUT", "test", true)
-<m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-<bibdata type="standard">
-  <status format="plain">committee-draft</status>
-</bibdata><version>
-  <edition>2</edition>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
-<sections/>
-</m3d-standard>
-    INPUT
-            expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
-           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"(cd)", :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Committee Draft", :tc=>nil, :updateddate=>"XXX", :wg=>"XXXX"}
-    OUTPUT
-  end
-
-  it "abbreviates draft-standard" do
-                csdc = IsoDoc::M3d::HtmlConvert.new({})
-    docxml, filename, dir = csdc.convert_init(<<~"INPUT", "test", true)
-<m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-<bibdata type="standard">
-  <status format="plain">draft-standard</status>
-</bibdata><version>
-  <edition>2</edition>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
-<sections/>
-</m3d-standard>
-    INPUT
-                expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
-           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>"(d)", :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Draft Standard", :tc=>nil, :updateddate=>"XXX", :wg=>"XXXX"}
-    OUTPUT
-  end
-
-  it "ignores unrecognised status" do
-                    csdc = IsoDoc::M3d::HtmlConvert.new({})
-    docxml, filename, dir = csdc.convert_init(<<~"INPUT", "test", true)
-<m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-<bibdata type="standard">
-  <status format="plain">standard</status>
-</bibdata><version>
-  <edition>2</edition>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
-<sections/>
-</m3d-standard>
-    INPUT
-                    expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
-           {:accesseddate=>"XXX", :confirmeddate=>"XXX", :createddate=>"XXX", :docnumber=>nil, :doctitle=>nil, :doctype=>"Standard", :docyear=>nil, :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :editorialgroup=>[], :ics=>"XXX", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :obsoletes=>nil, :obsoletes_part=>nil, :publisheddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :sc=>"XXXX", :secretariat=>"XXXX", :status=>"Standard", :tc=>nil, :updateddate=>"XXX", :wg=>"XXXX"}
     OUTPUT
   end
 
