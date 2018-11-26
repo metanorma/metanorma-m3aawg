@@ -84,11 +84,6 @@ module IsoDoc
       def html_toc(docxml)
         docxml
       end
-
-      def info(isoxml, out)
-        @meta.url isoxml, out
-        super
-      end
     end
   end
 end

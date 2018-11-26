@@ -40,6 +40,10 @@ module IsoDoc
         end
       end
 
+            def unpublished(status)
+        %w(published withdrawn).include? status.downcase
+      end
+
       def version(isoxml, _out)
         super
         revdate = get[:revdate]
@@ -65,11 +69,6 @@ module IsoDoc
         m = /(?<yr>\d\d\d\d)-(?<mo>\d\d)/.match isodate
         return isodate unless m && m[:yr] && m[:mo]
         return "#{MONTHS[m[:mo].to_sym]} #{m[:yr]}"
-      end
-
-      def url(isoxml, _out)
-        url = isoxml.at(ns("//bibdata/source"))
-        set(:url, url.text) if url
       end
     end
   end

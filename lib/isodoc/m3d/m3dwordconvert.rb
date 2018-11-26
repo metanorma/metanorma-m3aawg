@@ -60,11 +60,6 @@ module IsoDoc
         main = isoxml&.at(ns("//title[@language='en']"))&.text
         set_metadata(:doctitle, main)
       end
-
-      def info(isoxml, out)
-        @meta.url isoxml, out
-        super
-      end
     end
   end
 end
