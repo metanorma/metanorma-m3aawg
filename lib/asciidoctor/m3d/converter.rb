@@ -138,15 +138,6 @@ module Asciidoctor
                         File.join(File.dirname(__FILE__), "m3d.rng"))
       end
 
-      def literal(node)
-        noko do |xml|
-          xml.figure **id_attr(node) do |f|
-            figure_title(node, f)
-            f.pre node.lines.join("\n")
-          end
-        end
-      end
-
       def sections_cleanup(x)
         super
         x.xpath("//*[@inline-header]").each do |h|
@@ -168,29 +159,6 @@ module Asciidoctor
 
       def pdf_converter(node)
         IsoDoc::M3d::PdfConvert.new(html_extract_attributes(node))
-      end
-
-      def inline_quoted(node)
-        noko do |xml|
-          case node.type
-          when :emphasis then xml.em node.text
-          when :strong then xml.strong node.text
-          when :monospaced then xml.tt node.text
-          when :double then xml << "\"#{node.text}\""
-          when :single then xml << "'#{node.text}'"
-          when :superscript then xml.sup node.text
-          when :subscript then xml.sub node.text
-          when :asciimath then stem_parse(node.text, xml)
-          else
-            case node.role
-            when "strike" then xml.strike node.text
-            when "smallcap" then xml.smallcap node.text
-            when "keyword" then xml.keyword node.text
-            else
-              xml << node.text
-            end
-          end
-        end.join
       end
     end
   end

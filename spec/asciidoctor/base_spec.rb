@@ -292,31 +292,6 @@ OUTPUT
     OUTPUT
   end
 
-  it "processes figures" do
-    expect(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~"OUTPUT"
-      #{ASCIIDOC_BLANK_HDR}
-
-      [[id]]
-      .Figure 1
-      ....
-      This is a literal
-
-      Amen
-      ....
-      INPUT
-    #{BLANK_HDR}
-       <sections>
-                <figure id="id">
-         <name>Figure 1</name>
-         <pre>This is a literal
-
-       Amen</pre>
-       </figure>
-       </sections>
-       </m3d-standard>
-    OUTPUT
-  end
-
   it "strips inline header" do
     expect(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~"OUTPUT"
       #{ASCIIDOC_BLANK_HDR}
