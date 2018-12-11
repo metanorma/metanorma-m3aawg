@@ -60,7 +60,7 @@ BLANK_HDR = <<~"HDR"
        <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
        <bibdata type="report">
 
-
+        <title language="en" format="text/plain">Document title</title>
          <contributor>
            <role type="author"/>
            <organization>
@@ -73,7 +73,7 @@ BLANK_HDR = <<~"HDR"
              <name>Ribose</name>
            </organization>
          </contributor>
-
+        <language>en</language>
          <script>Latn</script>
 
          <copyright>

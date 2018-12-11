@@ -15,21 +15,6 @@ module Asciidoctor
 
       register_for "m3d"
 
-      def metadata(node, xml)
-        title node, xml
-        metadata_source(node, xml)
-        metadata_id(node, xml)
-        metadata_date(node, xml)
-        metadata_author(node, xml)
-        metadata_publisher(node, xml)
-        xml.language node.attr("language")
-        xml.script (node.attr("script") || "Latn")
-        metadata_status(node, xml)
-        metadata_copyright(node, xml)
-        metadata_committee(node, xml)
-        metadata_ics(node, xml)
-      end
-
       def metadata_author(node, xml)
         xml.contributor do |c|
           c.role **{ type: "author" }

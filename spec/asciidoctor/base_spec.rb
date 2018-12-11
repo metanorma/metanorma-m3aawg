@@ -80,6 +80,11 @@ RSpec.describe Asciidoctor::M3d do
   <source>http://www.m3aawg.org/BlocklistHelp</source>
 <docidentifier type="m3d">1000(wd):2001</docidentifier>
 <docnumber>1000</docnumber>
+<edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -107,11 +112,7 @@ RSpec.describe Asciidoctor::M3d do
     <committee type="A">TC</committee>
     <committee type="A1">TC1</committee>
   </editorialgroup>
-</bibdata><version>
-  <edition>2</edition>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
+</bibdata>
 <sections/>
 </m3d-standard>
     OUTPUT
@@ -139,6 +140,11 @@ RSpec.describe Asciidoctor::M3d do
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(cd)</docidentifier>
   <docnumber>1000</docnumber>
+  <edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -165,11 +171,7 @@ RSpec.describe Asciidoctor::M3d do
   <editorialgroup>
     <committee/>
   </editorialgroup>
-</bibdata><version>
-  <edition>2</edition>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
+</bibdata>
 <sections/>
 </m3d-standard>
         OUTPUT
@@ -197,6 +199,11 @@ RSpec.describe Asciidoctor::M3d do
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(d)</docidentifier>
   <docnumber>1000</docnumber>
+  <edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -223,11 +230,7 @@ RSpec.describe Asciidoctor::M3d do
   <editorialgroup>
     <committee/>
   </editorialgroup>
-</bibdata><version>
-  <edition>2</edition>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
+</bibdata>
 <sections/>
 </m3d-standard>
 OUTPUT
@@ -256,6 +259,11 @@ OUTPUT
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000:2001</docidentifier>
   <docnumber>1000</docnumber>
+  <edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -282,11 +290,7 @@ OUTPUT
   <editorialgroup>
     <committee/>
   </editorialgroup>
-</bibdata><version>
-  <edition>2</edition>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
+</bibdata>
 <sections/>
 </m3d-standard>
     OUTPUT
@@ -384,8 +388,8 @@ OUTPUT
         <p id="_"><em>emphasis</em>
        <strong>strong</strong>
        <tt>monospace</tt>
-       "double quote"
-       'single quote'
+       “double quote”
+       ‘single quote’
        super<sup>script</sup>
        sub<sub>script</sub>
        <stem type="AsciiMath">a_90</stem>
