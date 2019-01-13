@@ -1,7 +1,7 @@
 = AsciiM3D: Asciidoctor processor for Ribose Standard Documents (M3D)
 
 image:https://img.shields.io/gem/v/metanorma-m3d.svg["Gem Version", link="https://rubygems.org/gems/metanorma-m3d"]
-image:https://img.shields.io/travis/riboseinc/metanorma-m3d/master.svg["Build Status", link="https://travis-ci.org/riboseinc/metanorma-m3d"]
+image:https://img.shields.io/travis/riboseinc/metanorma-m3d/master.svg["Build Status", link="https://travis-ci.com/riboseinc/metanorma-m3d"]
 image:https://codeclimate.com/github/riboseinc/metanorma-m3d/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/riboseinc/metanorma-m3d"]
 
 WARNING: This gem is still under development.
