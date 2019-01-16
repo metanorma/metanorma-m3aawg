@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thread_safe"
   spec.add_dependency "uuidtools"
 
-  spec.add_dependency "metanorma-standoc", "~> 1.0.0"
+  spec.add_dependency "metanorma-standoc", "~> 1.1.0"
   spec.add_dependency "isodoc", "~> 0.9.0"
 
   spec.add_development_dependency "bundler", "~> 2.0.1"

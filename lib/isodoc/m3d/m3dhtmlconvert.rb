@@ -18,7 +18,11 @@ module IsoDoc
       def initialize(options)
         @libdir = File.dirname(__FILE__)
         super
+      end
+
+      def convert1(docxml, filename, dir)
         add_image(%w(logo.jpg m3-logo.png))
+        super
       end
 
       def default_fonts(options)
