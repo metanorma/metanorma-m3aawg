@@ -629,15 +629,20 @@ p.Biblio, p.NormRef {
     background-color: #F5F6F6;
     border-left: solid 5px #69C5DC;
     color: rgb(91, 94, 95);
-    padding: 1.2em 1.2em 1.2em 2.2em;
+    padding: 1.2em;
     margin: 2em 0 2em -1em;
+    padding-left: 2em;
+}
+
+.example p {
+    margin: 0;
 }
 
 .example .example-title {
     font-weight: 700;
     text-transform: uppercase;
-    text-align: center;
     margin-top:0;
+    margin-left:-1.5em;
 }
 
 /*

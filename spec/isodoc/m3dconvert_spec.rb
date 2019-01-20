@@ -8,7 +8,7 @@ RSpec.describe IsoDoc::M3d do
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="standard">
   <title language="en" format="plain">Main Title</title>
-  <source>http://www.m3aawg.org/BlocklistHelp</source>
+  <uri>http://www.m3aawg.org/BlocklistHelp</uri>
   <docidentifier>1000(wd)</docidentifier>
   <contributor>
     <role type="author"/>

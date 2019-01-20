@@ -77,7 +77,7 @@ RSpec.describe Asciidoctor::M3d do
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <bibdata type="report">
   <title language="en" format="text/plain">Main Title</title>
-  <source>http://www.m3aawg.org/BlocklistHelp</source>
+  <uri>http://www.m3aawg.org/BlocklistHelp</uri>
 <docidentifier type="m3d">1000(wd):2001</docidentifier>
 <docnumber>1000</docnumber>
 <edition>2</edition>
