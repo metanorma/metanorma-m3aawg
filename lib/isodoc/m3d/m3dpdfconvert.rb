@@ -10,8 +10,8 @@ module IsoDoc
     class PdfConvert < IsoDoc::PdfConvert
       def add_image(filenames)
         filenames.each do |filename|
-          FileUtils.cp html_doc_path(filename), filename
-          @files_to_delete << filename
+          FileUtils.cp html_doc_path(filename), File.join(@localdir, filename)
+          @files_to_delete << File.join(@localdir, filename)
         end
       end
 
