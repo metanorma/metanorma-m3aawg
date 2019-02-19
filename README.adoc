@@ -1,4 +1,4 @@
-= AsciiM3D: Asciidoctor processor for Ribose Standard Documents (M3D)
+= Metanorma processor for M3AAWG documents (M3D)
 
 image:https://img.shields.io/gem/v/metanorma-m3d.svg["Gem Version", link="https://rubygems.org/gems/metanorma-m3d"]
 image:https://img.shields.io/travis/riboseinc/metanorma-m3d/master.svg["Build Status", link="https://travis-ci.org/riboseinc/metanorma-m3d"]
