@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
     Formerly known as asciidoctor-m3d.
   DESCRIPTION
 
-  spec.homepage      = "https://github.com/riboseinc/metanorma-m3d"
+  spec.homepage      = "https://github.com/metanorma/metanorma-m3d"
   spec.license       = "BSD-2-Clause"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

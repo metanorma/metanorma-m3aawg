@@ -1,8 +1,8 @@
 = Metanorma processor for M3AAWG documents (M3D)
 
 image:https://img.shields.io/gem/v/metanorma-m3d.svg["Gem Version", link="https://rubygems.org/gems/metanorma-m3d"]
-image:https://img.shields.io/travis/riboseinc/metanorma-m3d/master.svg["Build Status", link="https://travis-ci.org/riboseinc/metanorma-m3d"]
-image:https://codeclimate.com/github/riboseinc/metanorma-m3d/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/riboseinc/metanorma-m3d"]
+image:https://img.shields.io/travis/metanorma/metanorma-m3d/master.svg["Build Status", link="https://travis-ci.org/metanorma/metanorma-m3d"]
+image:https://codeclimate.com/github/metanorma/metanorma-m3d/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/metanorma-m3d"]
 
 WARNING: This gem is still under development.
 
@@ -13,9 +13,9 @@ _Formerly known as_ `asciidoctor-m3d`.
 This gem processes http://asciidoctor.org/[Asciidoctor] documents following
 a template for generating M3D documents.
 
-The gem currently inherits from the https://github.com/riboseinc/metanorma-standoc
+The gem currently inherits from the https://github.com/metanorma/metanorma-standoc
 gem, and aligns closely to it. Refer to the ISO gem documentation
-for guidance, including https://github.com/riboseinc/metanorma-iso/wiki/Guidance-for-authoring
+for guidance, including https://github.com/metanorma/metanorma-iso/wiki/Guidance-for-authoring
 
 The following outputs are generated.
 
@@ -64,13 +64,13 @@ $ asciidoctor -b m3d -r 'metanorma-m3d' a.adoc
 
 === Installation
 
-If you are using a Mac, the https://github.com/riboseinc/metanorma-macos-setup
+If you are using a Mac, the https://github.com/metanorma/metanorma-macos-setup
 repository has instructions on setting up your machine to run Metanorma
 scripts such as this one. You need only run the following in a Terminal console:
 
 [source,console]
 ----
-$ bash <(curl -s https://raw.githubusercontent.com/riboseinc/metanorma-macos-setup/master/metanorma-setup)
+$ bash <(curl -s https://raw.githubusercontent.com/metanorma/metanorma-macos-setup/master/metanorma-setup)
 $ gem install metanorma-m3d
 ----
 
@@ -80,7 +80,7 @@ $ gem install metanorma-m3d
 === Document model
 
 The Ribose Standard Document model is an instance of the
-https://github.com/riboseinc/isodoc-models[StandardDocument model].
+https://github.com/metanorma/metanorma-model-standoc[StandardDocument model].
 
 The M3D format ("M3D XML") intends to introduce rigor into the M3D
 standards authoring process, and is prescribed in a separate document.
@@ -108,7 +108,7 @@ tables etc, and automatically generating references and citations.
 === Common attributes
 
 The gem relies on Asciidoctor document attributes to provide necessary
-metadata about the document. The https://github.com/riboseinc/metanorma-standoc[metanorma-standoc]
+metadata about the document. The https://github.com/metanorma/metanorma-standoc[metanorma-standoc]
 gem documents the Asciidoctor document attributes common to all metanorma gems. These include:
 
 `:edition:`:: The document edition
@@ -147,7 +147,7 @@ these are otherwise suppressed.
 
 == Asciidoctor features specific to CSAND
 
-The https://github.com/riboseinc/metanorma-standoc[metanorma-standoc]
+The https://github.com/metanorma/metanorma-standoc[metanorma-standoc]
 gem documents the customisations of Asciidoctor markup common to all metanorma gems.
 The following markup is specific to this gem:
 
@@ -157,9 +157,9 @@ The following markup is specific to this gem:
 == Data Models
 
 The M3D Standard Document format is an instance of the
-https://github.com/riboseinc/isodoc-models[StandardDocument model]. Details of
+https://github.com/metanorma/metanorma-model-standoc[StandardDocument model]. Details of
 this general model can be found on its page. Details of the M3D modifications
-to this general model can be found on the https://github.com/riboseinc/m3d[M3D model]
+to this general model can be found on the https://github.com/metanorma/metanorma-model-m3d[M3D model]
 repository.
 
 == Examples
