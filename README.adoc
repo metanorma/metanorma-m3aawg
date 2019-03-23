@@ -2,6 +2,7 @@
 
 image:https://img.shields.io/gem/v/metanorma-m3d.svg["Gem Version", link="https://rubygems.org/gems/metanorma-m3d"]
 image:https://img.shields.io/travis/metanorma/metanorma-m3d/master.svg["Build Status", link="https://travis-ci.org/metanorma/metanorma-m3d"]
+image:https://ci.appveyor.com/api/projects/status/k09hlrs4njm7o2mv?svg=true["Appveyor Build Status", link="https://ci.appveyor.com/project/ribose/metanorma-m3d"]
 image:https://codeclimate.com/github/metanorma/metanorma-m3d/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/metanorma-m3d"]
 
 WARNING: This gem is still under development.
@@ -74,85 +75,9 @@ $ bash <(curl -s https://raw.githubusercontent.com/metanorma/metanorma-macos-set
 $ gem install metanorma-m3d
 ----
 
+== Documentation
 
-== Approach
-
-=== Document model
-
-The Ribose Standard Document model is an instance of the
-https://github.com/metanorma/metanorma-model-standoc[StandardDocument model].
-
-The M3D format ("M3D XML") intends to introduce rigor into the M3D
-standards authoring process, and is prescribed in a separate document.
-
-M3D XML is still under development, but it already contains all the markup
-needed to render a M3D document into HTML.
-
-=== Asciidoctor
-
-Asciidoctor has been selected as the authoring tool to generate the document
-model representation of M3D standards. It is a document formatting tool like
-Markdown and DocBook, which combines the relative ease of use of the former
-(using relatively lightweight markup), and the rigor and expressively of the
-latter (it has a well-defined syntax, and was in fact initially developed as a
-DocBook document authoring tool). Asciidoctor has built-in capability to output
-Text, DocBook and HTML; so it can be used to preview the file as it is being
-authored.
-
-Generating documents via a document model substantially automated formatting
-associated with the document, including automating numbering of headings, figures,
-tables etc, and automatically generating references and citations.
-
-== Document Attributes
-
-=== Common attributes
-
-The gem relies on Asciidoctor document attributes to provide necessary
-metadata about the document. The https://github.com/metanorma/metanorma-standoc[metanorma-standoc]
-gem documents the Asciidoctor document attributes common to all metanorma gems. These include:
-
-`:edition:`:: The document edition
-
-`:revdate:`:: The date the document was last updated
-
-`:copyright-year:`:: The year which will be claimed as when the copyright for
-the document was issued
-
-`:title:`:: The main component of the English title of the document
-(mandatory). (The first line of the AsciiDoc document, which contains the title
-introduced with `=`, is ignored)
-
-`:doctype:`:: The document type (see M3D deliverables: The different types of
-M3D publications) (mandatory). The permitted types are:
-+
---
-code:: Code Artifact
-presentation:: Presentation
-proposal:: Proposal; includes IETF DRAFT
-standard:: Recommendation; includes IETF RFC
-report:: report
---
-
-`:status:``:: The document status. The permitted types are: `proposal`,
-`working-draft`, `committee-draft`, `draft-standard`, `final-draft`,
-`published`, `withdrawn`.
-
-`:technical-committee:`:: The name of the relevant M3D technical committee
-(mandatory)
-
-`:language:` :: The language of the document (only `en` for now)  
-
-The attribute `:draft:`, if present, includes review notes in the XML output;
-these are otherwise suppressed.
-
-== Asciidoctor features specific to CSAND
-
-The https://github.com/metanorma/metanorma-standoc[metanorma-standoc]
-gem documents the customisations of Asciidoctor markup common to all metanorma gems.
-The following markup is specific to this gem:
-
-* `+[keyword]#...#+`: encodes keywords, such as "MUST", "MUST NOT". (Encoded as
-`<span class="keyword">...</span>`.
+See https://www.metanorma.com/author/m3d/[Author M^3^AAWG documents with Metanorma-M3D]
 
 == Data Models
 
