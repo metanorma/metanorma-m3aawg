@@ -1,20 +1,11 @@
 require "isodoc"
-require_relative "metadata"
-require_relative "m3dhtmlrender"
-require "fileutils"
+require_relative "m3dbaserender"
 
 module IsoDoc
   module M3d
     # A {Converter} implementation that generates CSAND output, and a document
     # schema encapsulation of the document for validation
     class HtmlConvert < IsoDoc::HtmlConvert
-      def add_image(filenames)
-        filenames.each do |filename|
-          FileUtils.cp html_doc_path(filename), File.join(@localdir, filename)
-          @files_to_delete << File.join(@localdir, filename)
-        end
-      end
-
       def initialize(options)
         @libdir = File.dirname(__FILE__)
         super
@@ -41,10 +32,6 @@ module IsoDoc
           standardstylesheet: nil,
           scripts: html_doc_path("scripts.html"),
         }
-      end
-
-      def metadata_init(lang, script, labels)
-        @meta = Metadata.new(lang, script, labels)
       end
 
       def colophon(body, docxml)
@@ -77,6 +64,8 @@ module IsoDoc
       def html_toc(docxml)
         docxml
       end
+
+      include BaseRender
     end
   end
 end
