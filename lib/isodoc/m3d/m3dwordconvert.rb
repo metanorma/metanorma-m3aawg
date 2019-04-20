@@ -1,6 +1,5 @@
 require "isodoc"
-require_relative "m3wordrender"
-require "fileutils"
+require_relative "m3dbaserender"
 
 module IsoDoc
   module M3d
@@ -41,10 +40,6 @@ module IsoDoc
         }
       end
 
-      def metadata_init(lang, script, labels)
-        @meta = Metadata.new(lang, script, labels)
-      end
-
       def colophon(body, docxml)
         section_break(body)
         body.div **{ class: "colophon" } do |div|
@@ -64,6 +59,8 @@ module IsoDoc
         main = isoxml&.at(ns("//title[@language='en']"))&.text
         set_metadata(:doctitle, main)
       end
+
+      include BaseRender
     end
   end
 end
