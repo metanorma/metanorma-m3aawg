@@ -1,11 +1,11 @@
 require "isodoc"
-require_relative "m3dbaserender"
+require_relative "base_convert"
 
 module IsoDoc
   module M3d
     # A {Converter} implementation that generates CSAND output, and a document
     # schema encapsulation of the document for validation
-    class PdfConvert < IsoDoc::PdfConvert
+    class HtmlConvert < IsoDoc::HtmlConvert
       def initialize(options)
         @libdir = File.dirname(__FILE__)
         super
@@ -30,7 +30,7 @@ module IsoDoc
           htmlcoverpage: html_doc_path("html_m3d_titlepage.html"),
           htmlintropage: html_doc_path("html_m3d_intro.html"),
           standardstylesheet: nil,
-          scripts_pdf: html_doc_path("scripts.pdf.html"),
+          scripts: html_doc_path("scripts.html"),
         }
       end
 

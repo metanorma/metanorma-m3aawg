@@ -1,7 +1,8 @@
 require "asciidoctor"
 require "metanorma/m3d/version"
-require "isodoc/m3d/m3dhtmlconvert"
-require "isodoc/m3d/m3dwordconvert"
+require "isodoc/m3d/html_convert"
+require "isodoc/m3d/word_convert"
+require "isodoc/m3d/pdf_convert"
 require "asciidoctor/standoc/converter"
 require "fileutils"
 

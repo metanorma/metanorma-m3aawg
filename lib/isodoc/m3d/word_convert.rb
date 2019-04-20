@@ -1,5 +1,5 @@
 require "isodoc"
-require_relative "m3dbaserender"
+require_relative "base_convert"
 
 module IsoDoc
   module M3d
