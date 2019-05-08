@@ -80,11 +80,6 @@ RSpec.describe Asciidoctor::M3d do
   <uri>http://www.m3aawg.org/BlocklistHelp</uri>
 <docidentifier type="m3d">1000(wd):2001</docidentifier>
 <docnumber>1000</docnumber>
-<edition>2</edition>
-<version>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -97,9 +92,17 @@ RSpec.describe Asciidoctor::M3d do
       <name>Ribose</name>
     </organization>
   </contributor>
+<edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <language>en</language>
   <script>Latn</script>
-  <status format="plain">working-draft</status>
+  <status>
+    <stage>working-draft</stage>
+    <iteration>3</iteration>
+  </status>
   <copyright>
     <from>2001</from>
     <owner>
@@ -140,11 +143,6 @@ RSpec.describe Asciidoctor::M3d do
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(cd)</docidentifier>
   <docnumber>1000</docnumber>
-  <edition>2</edition>
-<version>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -157,9 +155,17 @@ RSpec.describe Asciidoctor::M3d do
       <name>Ribose</name>
     </organization>
   </contributor>
+  <edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <language>en</language>
   <script>Latn</script>
-  <status format="plain">committee-draft</status>
+  <status>
+    <stage>committee-draft</stage>
+    <iteration>3</iteration>
+  </status>
   <copyright>
     <from>#{Date.today.year}</from>
     <owner>
@@ -218,7 +224,10 @@ RSpec.describe Asciidoctor::M3d do
   </contributor>
   <language>en</language>
   <script>Latn</script>
-  <status format="plain">draft-standard</status>
+  <status>
+    <stage>draft-standard</stage>
+    <iteration>3</iteration>
+  </status>
   <copyright>
     <from>#{Date.today.year}</from>
     <owner>
@@ -278,7 +287,10 @@ OUTPUT
   </contributor>
   <language>en</language>
   <script>Latn</script>
-  <status format="plain">standard</status>
+  <status>
+    <stage>standard</stage>
+    <iteration>3</iteration>
+  </status>
   <copyright>
     <from>2001</from>
     <owner>
