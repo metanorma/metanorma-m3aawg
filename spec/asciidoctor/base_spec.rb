@@ -83,13 +83,15 @@ RSpec.describe Asciidoctor::M3d do
   <contributor>
     <role type="author"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
 <edition>2</edition>
@@ -107,7 +109,8 @@ RSpec.describe Asciidoctor::M3d do
     <from>2001</from>
     <owner>
       <organization>
-        <name>Ribose</name>
+      <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -149,13 +152,15 @@ RSpec.describe Asciidoctor::M3d do
   <contributor>
     <role type="author"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <edition>2</edition>
@@ -173,7 +178,8 @@ RSpec.describe Asciidoctor::M3d do
     <from>#{Date.today.year}</from>
     <owner>
       <organization>
-        <name>Ribose</name>
+      <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -216,13 +222,15 @@ RSpec.describe Asciidoctor::M3d do
   <contributor>
     <role type="author"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <language>en</language>
@@ -235,7 +243,8 @@ RSpec.describe Asciidoctor::M3d do
     <from>#{Date.today.year}</from>
     <owner>
       <organization>
-        <name>Ribose</name>
+      <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -279,13 +288,15 @@ OUTPUT
   <contributor>
     <role type="author"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
-      <name>Ribose</name>
+    <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <language>en</language>
@@ -298,7 +309,8 @@ OUTPUT
     <from>2001</from>
     <owner>
       <organization>
-        <name>Ribose</name>
+      <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>

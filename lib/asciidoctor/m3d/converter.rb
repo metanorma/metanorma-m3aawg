@@ -20,7 +20,8 @@ module Asciidoctor
         xml.contributor do |c|
           c.role **{ type: "author" }
           c.organization do |a|
-            a.name "Ribose"
+            a.name "Messaging Malware and Mobile Anti-Abuse Working Group"
+            a.abbreviation "M3AAWG"
           end
         end
       end
@@ -29,7 +30,8 @@ module Asciidoctor
         xml.contributor do |c|
           c.role **{ type: "publisher" }
           c.organization do |a|
-            a.name "Ribose"
+            a.name "Messaging Malware and Mobile Anti-Abuse Working Group"
+            a.abbreviation "M3AAWG"
           end
         end
       end
@@ -67,7 +69,8 @@ module Asciidoctor
           c.from from
           c.owner do |owner|
             owner.organization do |o|
-              o.name "Ribose"
+              o.name "Messaging Malware and Mobile Anti-Abuse Working Group"
+              o.abbreviation "M3AAWG"
             end
           end
         end

@@ -64,13 +64,15 @@ BLANK_HDR = <<~"HDR"
          <contributor>
            <role type="author"/>
            <organization>
-             <name>Ribose</name>
+             <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
            </organization>
          </contributor>
          <contributor>
            <role type="publisher"/>
            <organization>
-             <name>Ribose</name>
+             <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
            </organization>
          </contributor>
         <language>en</language>
@@ -83,7 +85,8 @@ BLANK_HDR = <<~"HDR"
            <from>#{Time.new.year}</from>
            <owner>
              <organization>
-               <name>Ribose</name>
+             <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
              </organization>
            </owner>
          </copyright>
