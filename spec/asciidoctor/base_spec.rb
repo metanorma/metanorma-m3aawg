@@ -75,7 +75,7 @@ RSpec.describe Asciidoctor::M3d do
     INPUT
     <?xml version="1.0" encoding="UTF-8"?>
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-<bibdata type="report">
+<bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <uri>http://www.m3aawg.org/BlocklistHelp</uri>
 <docidentifier type="m3d">1000(wd):2001</docidentifier>
@@ -111,10 +111,13 @@ RSpec.describe Asciidoctor::M3d do
       </organization>
     </owner>
   </copyright>
+  <ext>
+  <doctype>report</doctype>
   <editorialgroup>
     <committee type="A">TC</committee>
     <committee type="A1">TC1</committee>
   </editorialgroup>
+  </ext>
 </bibdata>
 <sections/>
 </m3d-standard>
@@ -139,7 +142,7 @@ RSpec.describe Asciidoctor::M3d do
       :title: Main Title
     INPUT
         <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-<bibdata type="report">
+<bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(cd)</docidentifier>
   <docnumber>1000</docnumber>
@@ -174,9 +177,9 @@ RSpec.describe Asciidoctor::M3d do
       </organization>
     </owner>
   </copyright>
-  <editorialgroup>
-    <committee/>
-  </editorialgroup>
+  <ext>
+  <doctype>report</doctype>
+  </ext>
 </bibdata>
 <sections/>
 </m3d-standard>
@@ -201,7 +204,7 @@ RSpec.describe Asciidoctor::M3d do
       :title: Main Title
     INPUT
         <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-<bibdata type="report">
+<bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(d)</docidentifier>
   <docnumber>1000</docnumber>
@@ -236,9 +239,9 @@ RSpec.describe Asciidoctor::M3d do
       </organization>
     </owner>
   </copyright>
-  <editorialgroup>
-    <committee/>
-  </editorialgroup>
+  <ext>
+  <doctype>report</doctype>
+  </ext>
 </bibdata>
 <sections/>
 </m3d-standard>
@@ -264,7 +267,7 @@ OUTPUT
       :title: Main Title
     INPUT
     <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
-<bibdata type="report">
+<bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000:2001</docidentifier>
   <docnumber>1000</docnumber>
@@ -299,9 +302,9 @@ OUTPUT
       </organization>
     </owner>
   </copyright>
-  <editorialgroup>
-    <committee/>
-  </editorialgroup>
+  <ext>
+  <doctype>report</doctype>
+  </ext>
 </bibdata>
 <sections/>
 </m3d-standard>

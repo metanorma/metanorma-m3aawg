@@ -35,6 +35,7 @@ module Asciidoctor
       end
 
       def metadata_committee(node, xml)
+        return unless node.attr("technical-committee")
         xml.editorialgroup do |a|
           a.committee node.attr("technical-committee"),
             **attr_code(type: node.attr("technical-committee-type"))

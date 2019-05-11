@@ -54,7 +54,7 @@
         </choice>
       </element>
     </define>
-    <define name="BibItemType" combine="choice">
+    <define name="DocumentType">
       <choice>
         <value>guidance</value>
         <value>proposal</value>
