@@ -3,7 +3,7 @@ require "fileutils"
 
 RSpec.describe Asciidoctor::M3d do
     it "Warns of illegal doctype" do
-    expect { Asciidoctor.convert(<<~"INPUT", backend: :csand, header_footer: true) }.to output(/pizza is not a legal document type/).to_stderr
+    expect { Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true) }.to output(/pizza is not a legal document type/).to_stderr
   = Document title
   Author
   :docfile: test.adoc
@@ -16,7 +16,7 @@ RSpec.describe Asciidoctor::M3d do
 end
 
 it "Warns of illegal status" do
-    expect { Asciidoctor.convert(<<~"INPUT", backend: :csand, header_footer: true) }.to output(/pizza is not a recognised status/).to_stderr
+    expect { Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true) }.to output(/pizza is not a recognised status/).to_stderr
   = Document title
   Author
   :docfile: test.adoc

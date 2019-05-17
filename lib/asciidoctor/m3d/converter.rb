@@ -5,6 +5,7 @@ require "isodoc/m3d/word_convert"
 require "isodoc/m3d/pdf_convert"
 require "asciidoctor/standoc/converter"
 require "fileutils"
+require_relative "./validate.rb"
 
 module Asciidoctor
   module M3d
