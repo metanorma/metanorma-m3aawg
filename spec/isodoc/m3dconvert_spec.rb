@@ -101,103 +101,6 @@ RSpec.describe IsoDoc::M3d do
     OUTPUT
   end
 
-  it "processes simple terms & definitions" do
-    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
-               <m3d-standard xmlns="http://riboseinc.com/isoxml">
-       <sections>
-       <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
-         <term id="J">
-         <preferred>Term2</preferred>
-       </term>
-        </terms>
-        </sections>
-        </m3d-standard>
-    INPUT
-        #{HTML_HDR}
-             <p class="zzSTDTitle1"/>
-             <div id="H"><h1>1.&#160; Terms and definitions</h1><p>For the purposes of this document,
-           the following terms and definitions apply.</p>
-       <p class="TermNum" id="J">1.1.</p>
-         <p class="Terms" style="text-align:left;">Term2</p>
-       </div>
-           </div>
-           <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
-       (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
-       </div>
-         </body>
-    OUTPUT
-  end
-
-  it "processes terms & definitions with external source" do
-    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
-               <m3d-standard xmlns="http://riboseinc.com/isoxml">
-         <termdocsource type="inline" bibitemid="ISO712"/>
-       <sections>
-       <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
-         <term id="J">
-         <preferred>Term2</preferred>
-       </term>
-       </terms>
-        </sections>
-        <bibliography>
-        <references id="_normative_references" obligation="informative"><title>Normative References</title>
-<bibitem id="ISO712" type="standard">
-  <title format="text/plain">Cereals and cereal products?~@~I?~@~T?~@~IDetermination of moisture content?~@~I?~@~T?~@~IReference method</title>
-  <docidentifier>ISO 712</docidentifier>
-  <contributor>
-    <role type="publisher"/>
-    <organization>
-      <name>International Organization for Standardization</name>
-    </organization>
-  </contributor>
-</bibitem></references>
-</bibliography>
-        </m3d-standard>
-    INPUT
-        #{HTML_HDR}
-             <p class="zzSTDTitle1"/>
-             <div>
-               <h1>1.&#160; Normative references</h1>
-               <p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
-                 <p id="ISO712" class="NormRef">ISO 712, <i> Cereals and cereal products?~@~I?~@~T?~@~IDetermination of moisture content?~@~I?~@~T?~@~IReference method</i></p>
-                              </div>
-             <div id="H"><h1>2.&#160; Terms and definitions</h1><p>For the purposes of this document, the terms and definitions
-         given in <a href="#ISO712">ISO 712</a> and the following apply.</p>
-       <p class="TermNum" id="J">2.1.</p>
-                <p class="Terms" style="text-align:left;">Term2</p>
-              </div>
-           </div>
-           <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
-       (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
-       </div>
-         </body>
-    OUTPUT
-  end
-
-  it "processes empty terms & definitions" do
-    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
-               <m3d-standard xmlns="http://riboseinc.com/isoxml">
-       <sections>
-       <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
-       </terms>
-        </sections>
-        </m3d-standard>
-    INPUT
-        #{HTML_HDR}
-             <p class="zzSTDTitle1"/>
-             <div id="H"><h1>1.&#160; Terms and definitions</h1><p>No terms and definitions are listed in this document.</p>
-       </div>
-           </div>
-           <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
-       (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
-       </div>
-         </body>
-    OUTPUT
-  end
-
   it "processes section names" do
     expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
@@ -282,8 +185,7 @@ RSpec.describe IsoDoc::M3d do
                <h1>2.&#160; Normative references</h1>
                <p>There are no normative references in this document.</p>
              </div>
-             <div id="H"><h1>3.&#160; Terms, definitions, symbols and abbreviated terms</h1><p>For the purposes of this document,
-           the following terms and definitions apply.</p>
+             <div id="H"><h1>3.&#160; Terms, definitions, symbols and abbreviated terms</h1>
        <div id="I">
           <h2>3.1. Normal Terms</h2>
           <p class="TermNum" id="J">3.1.1.</p>
