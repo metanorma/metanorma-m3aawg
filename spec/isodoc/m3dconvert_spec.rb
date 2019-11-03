@@ -48,13 +48,13 @@ RSpec.describe IsoDoc::M3d do
 <sections/>
 </m3d-standard>
     INPUT
-        expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s)).to be_equivalent_to <<~"OUTPUT"
+        expect(xmlpp(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s))).to be_equivalent_to xmlpp(<<~"OUTPUT")
         {:accesseddate=>"XXX", :circulateddate=>"XXX", :confirmeddate=>"XXX", :copieddate=>"XXX", :createddate=>"XXX", :docnumber=>"1000(wd)", :doctitle=>"Main Title", :doctype=>"Standard", :docyear=>"2001", :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :edition=>"2", :implementeddate=>"XXX", :issueddate=>"XXX", :obsoleteddate=>"XXX", :publisheddate=>"XXX", :receiveddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :stage=>"Working Draft", :tc=>nil, :transmitteddate=>"XXX", :unchangeddate=>"XXX", :unpublished=>true, :updateddate=>"XXX", :url=>"http://www.m3aawg.org/BlocklistHelp"}
     OUTPUT
   end
 
   it "processes pre" do
-    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>"))).to be_equivalent_to xmlpp(<<~"OUTPUT")
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <preface><foreword>
 <pre>ABC</pre>
@@ -78,7 +78,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes keyword" do
-    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>"))).to be_equivalent_to xmlpp(<<~"OUTPUT")
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
 <preface><foreword>
 <keyword>ABC</keyword>
@@ -102,7 +102,7 @@ RSpec.describe IsoDoc::M3d do
   end
 
   it "processes section names" do
-    expect(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>")).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(IsoDoc::M3d::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>"))).to be_equivalent_to xmlpp(<<~"OUTPUT")
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
       <preface>
       <foreword obligation="informative">
@@ -239,7 +239,7 @@ RSpec.describe IsoDoc::M3d do
 
   it "injects JS into blank html" do
     FileUtils.rm_f "test.html"
-    expect(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc

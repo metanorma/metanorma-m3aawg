@@ -11,13 +11,13 @@ RSpec.describe Asciidoctor::M3d do
   #  FileUtils.cd "spec/examples"
   #  Asciidoctor.convert_file "rfc6350.adoc", {:attributes=>{"backend"=>"m3d"}, :safe=>0, :header_footer=>true, :requires=>["metanorma-m3d"], :failure_level=>4, :mkdirs=>true, :to_file=>nil}
   #  FileUtils.cd "../.."
-  #  expect(File.exist?("spec/examples/rfc6350.doc")).to be true
-  #  expect(File.exist?("spec/examples/rfc6350.html")).to be true
-  #  expect(File.exist?("spec/examples/rfc6350.pdf")).to be true
+  #  expect(xmlpp(File.exist?("spec/examples/rfc6350.doc"))).to be true
+  #  expect(xmlpp(File.exist?("spec/examples/rfc6350.html"))).to be true
+  #  expect(xmlpp(File.exist?("spec/examples/rfc6350.pdf"))).to be true
   #end
 
   it "processes a blank document" do
-    expect(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
     #{ASCIIDOC_BLANK_HDR}
     INPUT
     #{BLANK_HDR}
@@ -28,7 +28,7 @@ RSpec.describe Asciidoctor::M3d do
 
   it "converts a blank document" do
     FileUtils.rm_f "test.html"
-    expect(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -42,7 +42,7 @@ RSpec.describe Asciidoctor::M3d do
   end
 
   it "processes default metadata" do
-    expect(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)).to be_equivalent_to <<~'OUTPUT'
+    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~'OUTPUT'
       = Document title
       Author
       :docfile: test.adoc
@@ -128,7 +128,7 @@ RSpec.describe Asciidoctor::M3d do
   end
 
     it "processes committee-draft" do
-    expect(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -193,7 +193,7 @@ RSpec.describe Asciidoctor::M3d do
     end
 
         it "processes draft-standard" do
-    expect(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -258,7 +258,7 @@ OUTPUT
         end
 
     it "ignores unrecognised status" do
-        expect(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)).to be_equivalent_to <<~'OUTPUT'
+        expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~'OUTPUT'
       = Document title
       Author
       :docfile: test.adoc
@@ -324,7 +324,7 @@ OUTPUT
   end
 
   it "strips inline header" do
-    expect(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       #{ASCIIDOC_BLANK_HDR}
       This is a preamble
 
@@ -395,7 +395,7 @@ OUTPUT
   end
 
   it "processes inline_quoted formatting" do
-    expect(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       #{ASCIIDOC_BLANK_HDR}
       _emphasis_
       *strong*
