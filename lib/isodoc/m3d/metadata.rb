@@ -7,6 +7,11 @@ module IsoDoc
     class Metadata < IsoDoc::Metadata
       def initialize(lang, script, labels)
         super
+        here = File.dirname(__FILE__)
+        set(:logo_html,
+            File.expand_path(File.join(here, "html", "m3-logo.png")))
+        set(:logo_word,
+            File.expand_path(File.join(here, "html", "logo.jpg")))
       end
 
       def title(isoxml, _out)
