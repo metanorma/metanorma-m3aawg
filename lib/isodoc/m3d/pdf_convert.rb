@@ -11,10 +11,10 @@ module IsoDoc
         super
       end
 
-      def convert1(docxml, filename, dir)
-        add_image(%w(logo.jpg m3-logo.png))
-        super
-      end
+      #def convert1(docxml, filename, dir)
+        #add_image(%w(logo.jpg m3-logo.png))
+        #super
+      #end
 
       def default_fonts(options)
         {
