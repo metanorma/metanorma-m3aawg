@@ -1,8 +1,9 @@
 = Metanorma processor for M3AAWG documents (M3D)
 
-image:https://img.shields.io/gem/v/metanorma-m3d.svg["Gem Version", link="https://rubygems.org/gems/metanorma-m3d"]
-image:https://travis-ci.com/metanorma/metanorma-m3d.svg["Build Status", link="https://travis-ci.com/metanorma/metanorma-m3d"]
-image:https://ci.appveyor.com/api/projects/status/7yoe4qtfcof9196n?svg=true["Appveyor Build Status", link="https://ci.appveyor.com/project/metanorma/metanorma-m3d"]
+https://github.com/metanorma/metanorma-m3d[metanorma-m3d] image:https://img.shields.io/gem/v/metanorma-m3d.svg["Gem Version", link="https://rubygems.org/gems/metanorma-m3d"]::
+image:https://github.com/metanorma/metanorma-m3d/workflows/macos/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-m3d/actions?workflow=macos"]
+image:https://github.com/metanorma/metanorma-m3d/workflows/windows/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-m3d/actions?workflow=windows"]
+image:https://github.com/metanorma/metanorma-m3d/workflows/ubuntu/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-m3d/actions?workflow=ubuntu"]
 image:https://codeclimate.com/github/metanorma/metanorma-m3d/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/metanorma-m3d"]
 image:https://img.shields.io/github/issues-pr-raw/metanorma/metanorma-m3d.svg["Pull Requests", link="https://github.com/metanorma/metanorma-m3d/pulls"]
 image:https://img.shields.io/github/commits-since/metanorma/metanorma-m3d/latest.svg["Commits since latest",link="https://github.com/metanorma/metanorma-m3d/releases"]
