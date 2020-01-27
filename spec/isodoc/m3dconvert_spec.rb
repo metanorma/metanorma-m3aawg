@@ -241,7 +241,7 @@ RSpec.describe IsoDoc::M3d do
 
   it "injects JS into blank html" do
     FileUtils.rm_f "test.html"
-    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc

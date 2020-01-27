@@ -763,13 +763,13 @@ a.footnote-number {
     font-weight: 400;
 }
 
-.contact-info .name {
+#boilerplate-name {
     font-weight: 700;
     font-size: 1.2em;
     margin-bottom:0;
 }
 
-.contact-info .address {
+#boilerplate-address {
     font-size: 1em;
     line-height: 1.3em;
     margin-top:0;
@@ -993,7 +993,7 @@ h2 {
   }
   
   
-  .copyright .name, .copyright .address {color: black;}
+  .contact-info {color: black;}
   
 
 
