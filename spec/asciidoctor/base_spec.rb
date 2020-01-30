@@ -6,18 +6,8 @@ RSpec.describe Asciidoctor::M3d do
     expect(Metanorma::M3d::VERSION).not_to be nil
   end
 
-  #it "generates output for the Rice document" do
-  #  FileUtils.rm_f %w(spec/examples/rfc6350.doc spec/examples/rfc6350.html spec/examples/rfc6350.pdf)
-  #  FileUtils.cd "spec/examples"
-  #  Asciidoctor.convert_file "rfc6350.adoc", {:attributes=>{"backend"=>"m3d"}, :safe=>0, :header_footer=>true, :requires=>["metanorma-m3d"], :failure_level=>4, :mkdirs=>true, :to_file=>nil}
-  #  FileUtils.cd "../.."
-  #  expect(xmlpp(File.exist?("spec/examples/rfc6350.doc"))).to be true
-  #  expect(xmlpp(File.exist?("spec/examples/rfc6350.html"))).to be true
-  #  expect(xmlpp(File.exist?("spec/examples/rfc6350.pdf"))).to be true
-  #end
-
   it "processes a blank document" do
-    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
     #{ASCIIDOC_BLANK_HDR}
     INPUT
     #{BLANK_HDR}
@@ -28,7 +18,7 @@ RSpec.describe Asciidoctor::M3d do
 
   it "converts a blank document" do
     FileUtils.rm_f "test.html"
-    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -42,7 +32,7 @@ RSpec.describe Asciidoctor::M3d do
   end
 
   it "processes default metadata" do
-    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~'OUTPUT'
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to <<~"OUTPUT"
       = Document title
       Author
       :docfile: test.adoc
@@ -122,13 +112,14 @@ RSpec.describe Asciidoctor::M3d do
   </editorialgroup>
   </ext>
 </bibdata>
+#{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement").sub(/#{Date.today.year} Messaging, Malware and Mobile Anti-Abuse Working Group/, "2001 Messaging, Malware and Mobile Anti-Abuse Working Group")}
 <sections/>
 </m3d-standard>
     OUTPUT
   end
 
     it "processes committee-draft" do
-    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -187,13 +178,14 @@ RSpec.describe Asciidoctor::M3d do
   <doctype>report</doctype>
   </ext>
 </bibdata>
+#{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement")}
 <sections/>
 </m3d-standard>
         OUTPUT
     end
 
         it "processes draft-standard" do
-    expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -214,11 +206,6 @@ RSpec.describe Asciidoctor::M3d do
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(d)</docidentifier>
   <docnumber>1000</docnumber>
-  <edition>2</edition>
-<version>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -233,6 +220,11 @@ RSpec.describe Asciidoctor::M3d do
              <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
+    <edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <language>en</language>
   <script>Latn</script>
   <status>
@@ -252,13 +244,14 @@ RSpec.describe Asciidoctor::M3d do
   <doctype>report</doctype>
   </ext>
 </bibdata>
+#{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement")}
 <sections/>
 </m3d-standard>
 OUTPUT
         end
 
     it "ignores unrecognised status" do
-        expect(xmlpp(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true))).to be_equivalent_to <<~'OUTPUT'
+        expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to <<~"OUTPUT"
       = Document title
       Author
       :docfile: test.adoc
@@ -280,11 +273,6 @@ OUTPUT
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000:2001</docidentifier>
   <docnumber>1000</docnumber>
-  <edition>2</edition>
-<version>
-  <revision-date>2000-01-01</revision-date>
-  <draft>3.4</draft>
-</version>
   <contributor>
     <role type="author"/>
     <organization>
@@ -299,6 +287,11 @@ OUTPUT
              <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
+  <edition>2</edition>
+<version>
+  <revision-date>2000-01-01</revision-date>
+  <draft>3.4</draft>
+</version>
   <language>en</language>
   <script>Latn</script>
   <status>
@@ -318,6 +311,7 @@ OUTPUT
   <doctype>report</doctype>
   </ext>
 </bibdata>
+        #{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement").sub(/#{Date.today.year} Messaging, Malware and Mobile Anti-Abuse Working Group/, "2001 Messaging, Malware and Mobile Anti-Abuse Working Group")}
 <sections/>
 </m3d-standard>
     OUTPUT
