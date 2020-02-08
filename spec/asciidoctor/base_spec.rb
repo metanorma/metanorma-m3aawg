@@ -64,7 +64,7 @@ RSpec.describe Asciidoctor::M3d do
       :uri: http://www.m3aawg.org/BlocklistHelp
     INPUT
     <?xml version="1.0" encoding="UTF-8"?>
-<m3d-standard xmlns="https://open.ribose.com/standards/m3d">
+<m3d-standard xmlns="https://www.metanorma.com/ns/m3d">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <uri>http://www.m3aawg.org/BlocklistHelp</uri>
@@ -135,7 +135,7 @@ RSpec.describe Asciidoctor::M3d do
       :language: en
       :title: Main Title
     INPUT
-        <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
+        <m3d-standard xmlns="https://www.metanorma.com/ns/m3d">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(cd)</docidentifier>
@@ -201,7 +201,7 @@ RSpec.describe Asciidoctor::M3d do
       :language: en
       :title: Main Title
     INPUT
-        <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
+        <m3d-standard xmlns="https://www.metanorma.com/ns/m3d">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000(d)</docidentifier>
@@ -268,7 +268,7 @@ OUTPUT
       :language: en
       :title: Main Title
     INPUT
-    <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
+    <m3d-standard xmlns="https://www.metanorma.com/ns/m3d">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <docidentifier type="m3d">1000:2001</docidentifier>

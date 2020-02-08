@@ -14,7 +14,7 @@ module Asciidoctor
     # schema encapsulation of the document for validation
     class Converter < Standoc::Converter
       XML_ROOT_TAG = "m3d-standard".freeze
-      XML_NAMESPACE = "https://open.ribose.com/standards/m3d".freeze
+      XML_NAMESPACE = "https://www.metanorma.com/ns/m3d".freeze
 
       register_for "m3d"
 
