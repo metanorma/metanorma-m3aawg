@@ -9,11 +9,12 @@ require_relative "./validate.rb"
 
 module Asciidoctor
   module M3d
-    M3D_NAMESPACE = "https://open.ribose.com/standards/m3d"
 
     # A {Converter} implementation that generates M3D output, and a document
     # schema encapsulation of the document for validation
     class Converter < Standoc::Converter
+      XML_ROOT_TAG = "m3d-standard".freeze
+      XML_NAMESPACE = "https://www.metanorma.com/ns/m3d".freeze
 
       register_for "m3d"
 
@@ -82,16 +83,8 @@ module Asciidoctor
       end
 
       def makexml(node)
-        result = ["<?xml version='1.0' encoding='UTF-8'?>\n<m3d-standard>"]
         @draft = node.attributes.has_key?("draft")
-        result << noko { |ixml| front node, ixml }
-        result << noko { |ixml| middle node, ixml }
-        result << "</m3d-standard>"
-        result = textcleanup(result)
-        ret1 = cleanup(Nokogiri::XML(result))
-        validate(ret1) unless @novalid
-        ret1.root.add_namespace(nil, M3D_NAMESPACE)
-        ret1
+        super
       end
 
       def doctype(node)
