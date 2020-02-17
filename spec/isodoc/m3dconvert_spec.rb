@@ -12,6 +12,7 @@ RSpec.describe IsoDoc::M3d do
   <title language="en" format="plain">Main Title</title>
   <uri>http://www.m3aawg.org/BlocklistHelp</uri>
   <docidentifier>1000(wd)</docidentifier>
+  <docnumber>1000</docnumber>
   <edition>2</edition>
   <version>
   <revision-date>2000-01-01</revision-date>
@@ -51,7 +52,7 @@ RSpec.describe IsoDoc::M3d do
 </m3d-standard>
     INPUT
         expect((htmlencode(Hash[csdc.info(docxml, nil).sort].to_s))).to be_equivalent_to (<<~"OUTPUT")
-        {:accesseddate=>"XXX", :circulateddate=>"XXX", :confirmeddate=>"XXX", :copieddate=>"XXX", :createddate=>"XXX", :docnumber=>"1000(wd)", :doctitle=>"Main Title", :doctype=>"Standard", :docyear=>"2001", :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :edition=>"2", :implementeddate=>"XXX", :issueddate=>"XXX", :logo_html=>"#{File.join(logoloc, "m3-logo.png")}", :logo_word=>"#{File.join(logoloc, "logo.jpg")}", :obsoleteddate=>"XXX", :publisheddate=>"XXX", :receiveddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :stage=>"Working Draft", :tc=>nil, :transmitteddate=>"XXX", :unchangeddate=>"XXX", :unpublished=>true, :updateddate=>"XXX", :url=>"http://www.m3aawg.org/BlocklistHelp"}
+        {:accesseddate=>"XXX", :circulateddate=>"XXX", :confirmeddate=>"XXX", :copieddate=>"XXX", :createddate=>"XXX", :docnumber=>"1000(wd)", :docnumeric=>"1000", :doctitle=>"Main Title", :doctype=>"Standard", :docyear=>"2001", :draft=>"3.4", :draftinfo=>" (draft 3.4, 2000-01-01)", :edition=>"2", :implementeddate=>"XXX", :issueddate=>"XXX", :logo_html=>"#{File.join(logoloc, "m3-logo.png")}", :logo_word=>"#{File.join(logoloc, "logo.jpg")}", :obsoleteddate=>"XXX", :publisheddate=>"XXX", :receiveddate=>"XXX", :revdate=>"2000-01-01", :revdate_monthyear=>"January 2000", :stage=>"Working Draft", :stageabbr=>"wd", :tc=>nil, :transmitteddate=>"XXX", :unchangeddate=>"XXX", :unpublished=>true, :updateddate=>"XXX", :url=>"http://www.m3aawg.org/BlocklistHelp"}
     OUTPUT
   end
 
