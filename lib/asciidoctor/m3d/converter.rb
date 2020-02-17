@@ -14,7 +14,7 @@ module Asciidoctor
     # schema encapsulation of the document for validation
     class Converter < Standoc::Converter
       XML_ROOT_TAG = "m3d-standard".freeze
-      XML_NAMESPACE = "https://www.metanorma.com/ns/m3d".freeze
+      XML_NAMESPACE = "https://www.metanorma.org/ns/m3d".freeze
 
       register_for "m3d"
 
@@ -57,7 +57,7 @@ module Asciidoctor
         dn = node.attr("docnumber")
         if docstatus
           abbr = IsoDoc::M3d::Metadata.new("en", "Latn", {}).
-            status_abbr(docstatus)
+            stage_abbr(docstatus)
           dn = "#{dn}(#{abbr})" unless abbr.empty?
         end
         node.attr("copyright-year") and dn += ":#{node.attr("copyright-year")}"
