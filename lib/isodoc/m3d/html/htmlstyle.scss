@@ -19,7 +19,6 @@ Light Gray: #F5F6F6
 
 body {
     @include bodyStyle1(15px, 1.4em, #1d1d1d, #ffffff, 300);
-    // @include sidebarNavContainer(323px);
 }
 
 #report {
@@ -145,12 +144,8 @@ p.document-stage {
 }
 
 .coverpage-maturity {
-    font-family: $bodyfont;
-    font-weight: 400;
-    font-size: 1em;
-    margin: 0 0 2em 0;
-    text-transform: uppercase;
-    }
+    @include coverpageStageBlock();
+}
 
 #proposal {
     border-bottom: solid 3px #00BFFF;
@@ -287,36 +282,7 @@ span.obligation {
 /*
     3.2 Links
 */
-
-    a, a:visited{
-        text-decoration: none;
-        color: #69C5DC;
-    }
-
-    a:hover {
-        color: white;
-        background: #69C5DC;
-        box-shadow: 3px 0 0 #69C5DC, -3px 0 0 #69C5DC;
-        /* padding: 2px 0 2px 0; */
-    }
-
-    ::selection {
-        background: #69C5DC; /* WebKit/Blink Browsers */
-        color: white;
-      }
-      ::-moz-selection {
-        background: #69C5DC; /* Gecko Browsers */
-        color: white;
-      }
-
-      .contact-info a:hover {
-          color: #69C5DC;
-          text-decoration: underline;
-          background: none;
-          box-shadow: 0 0 0 0;
-      }
-
-
+@include elementStyles(#69C5DC, #69C5DC, white);
 
 /*
     3.3 Lists
@@ -337,12 +303,9 @@ span.obligation {
     3.4 Rules
 */
 
-    .rule {
-        width: 100%;
-        height: 1px;
-        background-color: #F22E15;
-        margin: 2em 0;
-      }
+.rule {
+    @include rule(1px, #F22E15)
+}
 
 /*
     3.5 Bibliograhy
@@ -357,27 +320,26 @@ p.Biblio, p.NormRef {
     3.6 Source Code + figures
 */
 
-pre {
-    font-family: $monospacefont;
-    font-variant-ligatures: none;
-  }
-
-.figure, pre, .pseudocode {
-    font-size: 0.8em;
-    line-height: 1.6em;
-    padding: 1.5em;
-    background-color: #F5F6F6;
-    border-left: solid 5px #69C5DC;
-    color: rgb(91, 94, 95);
+.figure,
+pre,
+.pseudocode {
+    @include pseudocodeBlock(#F5F6F6);
     padding: 1.2em 1.2em 1.2em 2.2em;
-    margin: 2em 0 2em -1em;;
-    overflow: auto;
+    margin: 2em 0 2em -1em;
+    color: rgb(91, 94, 95);
+    border-left: solid 5px #69C5DC;
 }
 
-.FigureTitle, .SourceTitle, .AdmonitionTitle, .RecommendationTitle {
-    font-weight: 700;
-    font-size: 1em;
-    text-align: center;
+pre {
+    @include monospaceBlockStyle()
+}
+
+@include admonitionBlock();
+@include recommendationBlock();
+
+.FigureTitle,
+.SourceTitle {
+    @include blockTitle()
 }
 
 /*
@@ -406,28 +368,22 @@ pre {
 */
 
 .example {
-    background-color: #F5F6F6;
+    @include exampleBlock(#e1eef1, #424242, 1.2em);
     border-left: solid 5px #69C5DC;
     color: rgb(91, 94, 95);
-    padding: 1.2em;
     margin: 2em 0 2em -1em;
-    padding-left: 2em;
-}
 
-.example p {
-    margin: 0;
-}
+    .example-title {
+        margin-top: 0;
+    }
+    p {
+        margin: 0;
+    }
 
-.example .example-title {
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top:0;
-    margin-left:-1.5em;
-}
-
-
-.example pre, .example .pseudocode {
-      background: none;
+    pre,
+    .pseudocode {
+        background: none;
+    }
 }
 
 /*
