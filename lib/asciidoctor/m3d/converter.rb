@@ -90,7 +90,7 @@ module Asciidoctor
       def doctype(node)
         d = node.attr("doctype")
         unless %w{policy best-practices supporting-document report}.include? d
-          warn "#{d} is not a legal document type: reverting to 'report'"
+          @log.add("Document Attributes", nil, "#{d} is not a legal document type: reverting to 'report'")
           d = "report"
         end
         d
@@ -108,6 +108,7 @@ module Asciidoctor
           pdf_converter(node).convert filename unless node.attr("nodoc")
           word_converter(node).convert filename unless node.attr("nodoc")
         end
+        @log.write(@filename + ".err") unless @novalid
         @files_to_delete.each { |f| FileUtils.rm f }
         ret
       end
