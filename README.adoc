@@ -88,8 +88,6 @@ this general model can be found on its page. Details of the M3D modifications
 to this general model can be found on the https://github.com/metanorma/metanorma-model-m3d[M3D model]
 repository.
 
+////
 == Examples
-
-* link:spec/examples/rfc6350.adoc[] is an AsciiM3D version of https://tools.ietf.org/html/rfc6350[RFC 6350].
-* link:spec/examples/rfc6350.html[] is an HTML file generated from the AsciiM3D.
-* link:spec/examples/rfc6350.doc[] is a Word document generated from the AsciiM3D.
+////
