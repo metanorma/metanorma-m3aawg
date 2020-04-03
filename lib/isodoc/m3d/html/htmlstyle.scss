@@ -98,14 +98,17 @@ div.figure {
 */
 
 .document-type-band {
-    @include docBand(2, null, 180px);
+    @include docBand($order: 2, $offset: 180px);
+
+    .document-type {
+        top: 20px;
+    }
 }
 
 .document-stage-band {
     @include docBand(1, 150);
 }
 
-p.document-type,
 p.document-stage {
     @include docBandTitle(120);
 }
