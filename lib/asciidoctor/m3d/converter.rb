@@ -2,7 +2,6 @@ require "asciidoctor"
 require "metanorma/m3d/version"
 require "isodoc/m3d/html_convert"
 require "isodoc/m3d/word_convert"
-require "isodoc/m3d/pdf_convert"
 require "asciidoctor/standoc/converter"
 require "fileutils"
 require_relative "./validate.rb"
@@ -105,7 +104,6 @@ module Asciidoctor
             gsub(%r{^.*/}, "")
           File.open(filename, "w") { |f| f.write(ret) }
           html_converter(node).convert filename unless node.attr("nodoc")
-          pdf_converter(node).convert filename unless node.attr("nodoc")
           word_converter(node).convert filename unless node.attr("nodoc")
         end
         @log.write(@localdir + @filename + ".err") unless @novalid
@@ -136,10 +134,6 @@ module Asciidoctor
 
       def word_converter(node)
         IsoDoc::M3d::WordConvert.new(doc_extract_attributes(node))
-      end
-
-      def pdf_converter(node)
-        IsoDoc::M3d::PdfConvert.new(html_extract_attributes(node))
       end
     end
   end
