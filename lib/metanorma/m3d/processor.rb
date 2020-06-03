@@ -5,6 +5,7 @@ module Metanorma
     def self.fonts_used
       {
         html: ["Overpass", "Space Mono"],
+        doc: ["Garamond", "Courier New"],
         doc: ["Garamond", "Courier New"]
       }
     end
@@ -20,7 +21,8 @@ module Metanorma
       def output_formats
         super.merge(
           html: "html",
-          doc: "doc"
+          doc: "doc",
+          pdf: "pdf"
         )
       end
 
@@ -37,6 +39,8 @@ module Metanorma
         when :html
           IsoDoc::M3d::HtmlConvert.new(options).convert(outname, isodoc_node)
         when :doc
+          IsoDoc::M3d::WordConvert.new(options).convert(outname, isodoc_node)
+        when :pdf
           IsoDoc::M3d::WordConvert.new(options).convert(outname, isodoc_node)
         else
           super
