@@ -56,6 +56,17 @@ ASCIIDOC_BLANK_HDR = <<~"HDR"
 
 HDR
 
+ASCIIDOC_BLANK_HDR_NO_PDF = <<~"HDR"
+      = Document title
+      Author
+      :docfile: test.adoc
+      :nodoc:
+      :novalid:
+      :no-pdf:
+
+HDR
+
+
 VALIDATING_BLANK_HDR = <<~"HDR"
       = Document title
       Author

@@ -23,6 +23,7 @@ RSpec.describe Asciidoctor::M3d do
       Author
       :docfile: test.adoc
       :novalid:
+      :no-pdf:
     INPUT
     #{BLANK_HDR}
 <sections/>
@@ -344,6 +345,7 @@ OUTPUT
       Author
       :docfile: test.adoc
       :novalid:
+      :no-pdf:
     INPUT
     html = File.read("test.html", encoding: "utf-8")
     expect(html).to match(%r[\bpre[^{]+\{[^}]+font-family: "Space Mono", monospace;]m)
@@ -363,6 +365,7 @@ OUTPUT
       :docfile: test.adoc
       :novalid:
       :script: Hans
+      :no-pdf:
     INPUT
     html = File.read("test.html", encoding: "utf-8")
     expect(html).to match(%r[\bpre[^{]+\{[^}]+font-family: "Space Mono", monospace;]m)
@@ -381,6 +384,7 @@ OUTPUT
       :body-font: Zapf Chancery
       :header-font: Comic Sans
       :monospace-font: Andale Mono
+      :no-pdf:
     INPUT
     html = File.read("test.html", encoding: "utf-8")
     expect(html).to match(%r[\bpre[^{]+\{[^{]+font-family: Andale Mono;]m)
