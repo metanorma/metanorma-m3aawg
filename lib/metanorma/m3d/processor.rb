@@ -6,7 +6,7 @@ module Metanorma
       {
         html: ["Overpass", "Space Mono"],
         doc: ["Garamond", "Courier New"],
-        doc: ["Garamond", "Courier New"]
+        pdf: ["Garamond", "Courier New"]
       }
     end
 
