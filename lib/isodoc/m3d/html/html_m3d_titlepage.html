@@ -1,81 +1,81 @@
 <div class="document-stage-band" id="working-draft-band">
-    <p class="document-stage">{{ stage }}</p>
+  <p class="document-stage">{{ stage }}</p>
 </div>
 
 <div class="document-type-band" id="standard-band">
-    <p class="document-type">Ribose {{ doctype }}</p>
+  <p class="document-type">Ribose {{ doctype }}</p>
 </div>
-  
-    
 
-  <div id='toggle'> <span>•</span> </div>
 
-  <header>
 
-<!--<div class="WordSection1">-->
+<div id='toggle'> <span>•</span> </div>
+
+<header>
+
+  <!--<div class="WordSection1">-->
   <div class="coverpage">
     <div class="wrapper-top">
 
       <div class="coverpage-logo"> <img src="{{ logo_html }}" alt="m3 logo"/> </div>
-  <div class="coverpage-doc-identity">
-    <div class="doc-number">
-      <span class="docnumber">{{ docnumber }}</span>
-    </div>
+      <div class="coverpage-doc-identity">
+        <div class="doc-number">
+          <span class="docnumber">{{ docnumber }}</span>
+        </div>
 
-    <div class="coverpage-title">
-      <div class="titles">
-        <div class="title-second">{{ docsubtitle }}</div>
-      <div class="title-first">{{ doctitle }}</div>
+        <div class="coverpage-title">
+          <div class="titles">
+            <div class="title-second">{{ docsubtitle }}</div>
+            <div class="title-first">{{ doctitle }}</div>
+          </div>
+        </div>
       </div>
+
+      <div class="docinfo">
+        {% if revdate_monthyear -%}Updated <span class="date">{{ revdate_monthyear }}</span>{%- endif -%}{%- if revdate_monthyear and draft -%},{%- endif -%}{%- if draft -%}Version <span class="version">{{ draft }}</span>{%- endif -%}
+        <br/>
+        {% if url %}
+        Shortened URL to this document:  <a href="{{ url }}">{{ url }}</a>
+        {% endif %}
+      </div>
+
+      {% if tc %}
+      <div class="coverpage-tc-name">
+        <span>TC {{ tc }}</span>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="title-section1">
+      <div class="coverpage-stage-block" >
+        <span class="coverpage-stage" id="{{ doctype | replace: ' ', '-' | downcase }}">{{ doctype }}</span>
+      </div>
+
+      <div class="coverpage-stage-block" >
+        <span class="coverpage-maturity" id="{{ stage | replace: ' ', '-' | downcase }}">{% if unpublished %}{{ stage }}{% endif %}</span>
+      </div>
+
+      {% if unpublished %}
+      <div class="coverpage-warning">
+        <div id="boilerplate-license-destination"/>
+      </div>
+        {% endif %}
+
+      <div class="copyright">
+          <div class="year">
+            <div id="boilerplate-copyright-destination"/>
+          </div>
+
+          <div class="message">
+            <div id="boilerplate-legal-destination"/>
+           </div>
+
+           <div class="contact-info">
+                <div id="boilerplate-feedback-destination"/>
+           </div>
+      </div>
+
+      <div class="rule"></div>
     </div>
   </div>
-
-  <div class="docinfo">
-    {% if revdate_monthyear -%}Updated <span class="date">{{ revdate_monthyear }}</span>{%- endif -%}{%- if revdate_monthyear and draft -%},{%- endif -%}{%- if draft -%}Version <span class="version">{{ draft }}</span>{%- endif -%}
-    <br/>
-    {% if url %}
-    Shortened URL to this document:  <a href="{{ url }}">{{ url }}</a>
-    {% endif %}
-  </div>
-
-  {% if tc %}
-  <div class="coverpage-tc-name">
-    <span>TC {{ tc }}</span>
-  </div>
-  {% endif %}
-  </div>
-
-  <div class="title-section1">
-  <div class="coverpage-stage-block" >
-    <span class="coverpage-stage" id="{{ doctype | replace: ' ', '-' | downcase }}">{{ doctype }}</span>
-  </div>
-
-  <div class="coverpage-stage-block" >
-    <span class="coverpage-maturity" id="{{ stage | replace: ' ', '-' | downcase }}">{% if unpublished %}{{ stage }}{% endif %}</span>
-</div>
-
-{% if unpublished %}
-  <div class="coverpage-warning">
-    <div id="boilerplate-license-destination"/>
-  </div>
-{% endif %}
-
-<div class="copyright">
-  <div class="year">
-        <div id="boilerplate-copyright-destination"/>
-  </div>
-
-  <div class="message">
-        <div id="boilerplate-legal-destination"/>
-  </div>
-
-<div class="contact-info">
-        <div id="boilerplate-feedback-destination"/>
-</div>
-</div>
-
-<div class="rule"></div>
-</div>
-
 
 </header>
