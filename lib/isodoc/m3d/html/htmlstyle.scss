@@ -623,19 +623,18 @@ p {
       color: white;
   }
 
-   .docinfo {
-      margin-top: 2em;
-      margin-bottom: 3em;
-  }
+.docinfo {
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
 
 
-  .coverpage-doc-identity {
-    height: 100px;
+.coverpage-doc-identity {
+    min-height: 100px;
     width: 100%;
     background-size: 240px 80px;
     margin: auto;
-  }
-
+}
 
   .coverpage-title .title-second {
     display: none;
