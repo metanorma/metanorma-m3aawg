@@ -2,7 +2,7 @@ require_relative "base_convert"
 require "isodoc"
 
 module IsoDoc
-  module M3d
+  module M3AAWG
 
     # A {Converter} implementation that generates HTML output, and a document
     # schema encapsulation of the document for validation

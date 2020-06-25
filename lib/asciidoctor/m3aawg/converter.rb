@@ -1,14 +1,14 @@
 require "asciidoctor"
-require "metanorma/m3d/version"
-require "isodoc/m3d/html_convert"
-require "isodoc/m3d/word_convert"
-require "isodoc/m3d/pdf_convert"
+require "metanorma/m3aawg/version"
+require "isodoc/m3aawg/html_convert"
+require "isodoc/m3aawg/word_convert"
+require "isodoc/m3aawg/pdf_convert"
 require "asciidoctor/standoc/converter"
 require "fileutils"
 require_relative "./validate.rb"
 
 module Asciidoctor
-  module M3d
+  module M3AAWG
 
     # A {Converter} implementation that generates M3D output, and a document
     # schema encapsulation of the document for validation
@@ -16,7 +16,7 @@ module Asciidoctor
       XML_ROOT_TAG = "m3d-standard".freeze
       XML_NAMESPACE = "https://www.metanorma.org/ns/m3d".freeze
 
-      register_for "m3d"
+      register_for "m3aawg"
 
       def metadata_author(node, xml)
         xml.contributor do |c|
@@ -56,12 +56,12 @@ module Asciidoctor
         docstatus = node.attr("status")
         dn = node.attr("docnumber")
         if docstatus
-          abbr = IsoDoc::M3d::Metadata.new("en", "Latn", {}).
+          abbr = IsoDoc::M3AAWG::Metadata.new("en", "Latn", {}).
             stage_abbr(docstatus)
           dn = "#{dn}(#{abbr})" unless abbr.empty?
         end
         node.attr("copyright-year") and dn += ":#{node.attr("copyright-year")}"
-        xml.docidentifier dn, **{type: "m3d"}
+        xml.docidentifier dn, **{type: "M3AAWG"}
         xml.docnumber { |i| i << node.attr("docnumber") }
       end
 
@@ -122,20 +122,20 @@ module Asciidoctor
       end
 
       def presentation_xml_converter(node)
-        IsoDoc::M3d::PresentationXMLConvert.new(html_extract_attributes(node))
+        IsoDoc::M3AAWG::PresentationXMLConvert.new(html_extract_attributes(node))
       end
 
       def html_converter(node)
-        IsoDoc::M3d::HtmlConvert.new(html_extract_attributes(node))
+        IsoDoc::M3AAWG::HtmlConvert.new(html_extract_attributes(node))
       end
 
       def doc_converter(node)
-        IsoDoc::M3d::WordConvert.new(doc_extract_attributes(node))
+        IsoDoc::M3AAWG::WordConvert.new(doc_extract_attributes(node))
       end
 
       def pdf_converter(node)
         return nil if node.attr("no-pdf")
-        IsoDoc::M3d::PdfConvert.new(doc_extract_attributes(node))
+        IsoDoc::M3AAWG::PdfConvert.new(doc_extract_attributes(node))
       end
     end
   end

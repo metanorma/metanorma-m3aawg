@@ -1,7 +1,7 @@
 require "metanorma/processor"
 
 module Metanorma
-  module M3d
+  module M3AAWG
     def self.fonts_used
       {
         html: ["Overpass", "Space Mono"],
@@ -13,9 +13,9 @@ module Metanorma
     class Processor < Metanorma::Processor
 
       def initialize
-        @short = :m3d
+        @short = [:m3d, :m3aawg]
         @input_format = :asciidoc
-        @asciidoctor_backend = :m3d
+        @asciidoctor_backend = :m3aawg
       end
 
       def output_formats
@@ -27,7 +27,7 @@ module Metanorma
       end
 
       def version
-        "Metanorma::M3d #{Metanorma::M3d::VERSION}"
+        "Metanorma::M3AAWG #{Metanorma::M3AAWG::VERSION}"
       end
 
       def input_to_isodoc(file, filename)
@@ -37,13 +37,13 @@ module Metanorma
       def output(isodoc_node, inname, outname, format, options={})
         case format
         when :html
-          IsoDoc::M3d::HtmlConvert.new(options).convert(inname, isodoc_node, nil, outname)
+          IsoDoc::M3AAWG::HtmlConvert.new(options).convert(inname, isodoc_node, nil, outname)
         when :doc
-          IsoDoc::M3d::WordConvert.new(options).convert(inname, isodoc_node, nil, outname)
+          IsoDoc::M3AAWG::WordConvert.new(options).convert(inname, isodoc_node, nil, outname)
         when :pdf
-          IsoDoc::M3d::WordConvert.new(options).convert(inname, isodoc_node, nil, outname)
+          IsoDoc::M3AAWG::WordConvert.new(options).convert(inname, isodoc_node, nil, outname)
         when :presentation
-          IsoDoc::M3d::PresentationXMLConvert.new(options).convert(inname, isodoc_node, nil, outname)
+          IsoDoc::M3AAWG::PresentationXMLConvert.new(options).convert(inname, isodoc_node, nil, outname)
         else
           super
         end

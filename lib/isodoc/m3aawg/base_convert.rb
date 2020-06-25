@@ -2,7 +2,7 @@ require_relative "metadata"
 require "fileutils"
 
 module IsoDoc
-  module M3d
+  module M3AAWG
     module BaseRender
       def metadata_init(lang, script, labels)
         @meta = Metadata.new(lang, script, labels)

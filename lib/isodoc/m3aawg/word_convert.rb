@@ -2,7 +2,7 @@ require "isodoc"
 require_relative "base_convert"
 
 module IsoDoc
-  module M3d
+  module M3AAWG
     # A {Converter} implementation that generates GB output, and a document
     # schema encapsulation of the document for validation
 

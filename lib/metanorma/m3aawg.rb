@@ -1,7 +1,7 @@
-require_relative "./m3d/processor"
+require_relative "./m3aawg/processor"
 
 module Metanorma
-  module M3d
+  module M3AWWG
 
   end
 end

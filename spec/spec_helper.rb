@@ -5,16 +5,16 @@ end
 
 require "bundler/setup"
 require "asciidoctor"
-require "metanorma-m3d"
-require "asciidoctor/m3d"
-require "isodoc/m3d/html_convert"
-require "isodoc/m3d/word_convert"
+require "metanorma-m3aawg"
+require "asciidoctor/m3aawg"
+require "isodoc/m3aawg/html_convert"
+require "isodoc/m3aawg/word_convert"
 require "asciidoctor/standoc/converter"
 require "rspec/matchers"
 require "equivalent-xml"
 require "htmlentities"
 require "metanorma"
-require "metanorma/m3d"
+require "metanorma/m3aawg"
 require "rexml/document"
 
 RSpec.configure do |config|
@@ -77,7 +77,7 @@ HDR
 
 BOILERPLATE =
   HTMLEntities.new.decode(
-  File.read(File.join(File.dirname(__FILE__), "..", "lib", "asciidoctor", "m3d", "boilerplate.xml"), encoding: "utf-8").
+  File.read(File.join(File.dirname(__FILE__), "..", "lib", "asciidoctor", "m3aawg", "boilerplate.xml"), encoding: "utf-8").
   gsub(/\{\{ docyear \}\}/, Date.today.year.to_s).
   gsub(/<p>/, '<p id="_">').
   gsub(/<p class="boilerplate-address">/, '<p id="_" class="boilerplate-address">').

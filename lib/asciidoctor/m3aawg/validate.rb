@@ -1,5 +1,5 @@
 module Asciidoctor
-  module M3d
+  module M3AAWG
     class Converter < Standoc::Converter
       def content_validate(doc)
         super
