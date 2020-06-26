@@ -2,7 +2,7 @@ require "isodoc"
 require_relative "base_convert"
 
 module IsoDoc
-  module M3d
+  module M3AAWG
     # A {Converter} implementation that generates CSAND output, and a document
     # schema encapsulation of the document for validation
     class HtmlConvert < IsoDoc::HtmlConvert
@@ -10,11 +10,6 @@ module IsoDoc
         @libdir = File.dirname(__FILE__)
         super
       end
-
-      #def convert1(docxml, filename, dir)
-      #  add_image(%w(logo.jpg m3-logo.png))
-      #  super
-      #end
 
       def default_fonts(options)
         {

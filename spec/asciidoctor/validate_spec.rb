@@ -1,10 +1,10 @@
 require "spec_helper"
 require "fileutils"
 
-RSpec.describe Asciidoctor::M3d do
+RSpec.describe Asciidoctor::M3AAWG do
     it "Warns of illegal doctype" do
         FileUtils.rm_f "test.err"
-    Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true) 
+    Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true) 
   = Document title
   Author
   :docfile: test.adoc
@@ -19,7 +19,7 @@ end
 
 it "Warns of illegal status" do
         FileUtils.rm_f "test.err"
-    Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)
+    Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
   = Document title
   Author
   :docfile: test.adoc

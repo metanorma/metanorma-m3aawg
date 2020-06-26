@@ -1,7 +1,7 @@
 require "isodoc"
 
 module IsoDoc
-  module M3d
+  module M3AAWG
     # A {Converter} implementation that generates CSAND output, and a document
     # schema encapsulation of the document for validation
     class Metadata < IsoDoc::Metadata

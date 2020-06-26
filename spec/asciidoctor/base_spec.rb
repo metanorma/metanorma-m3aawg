@@ -1,13 +1,13 @@
 require "spec_helper"
 require "fileutils"
 
-RSpec.describe Asciidoctor::M3d do
+RSpec.describe Asciidoctor::M3AAWG do
   it "has a version number" do
-    expect(Metanorma::M3d::VERSION).not_to be nil
+    expect(Metanorma::M3AAWG::VERSION).not_to be nil
   end
 
   it "processes a blank document" do
-    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
     #{ASCIIDOC_BLANK_HDR}
     INPUT
     #{BLANK_HDR}
@@ -18,7 +18,7 @@ RSpec.describe Asciidoctor::M3d do
 
   it "converts a blank document" do
     FileUtils.rm_f "test.html"
-    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -33,7 +33,7 @@ RSpec.describe Asciidoctor::M3d do
   end
 
   it "processes default metadata" do
-    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to <<~"OUTPUT"
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to <<~"OUTPUT"
       = Document title
       Author
       :docfile: test.adoc
@@ -69,7 +69,7 @@ RSpec.describe Asciidoctor::M3d do
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
   <uri>http://www.m3aawg.org/BlocklistHelp</uri>
-<docidentifier type="m3d">1000(wd):2001</docidentifier>
+<docidentifier type="M3AAWG">1000(wd):2001</docidentifier>
 <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
@@ -120,7 +120,7 @@ RSpec.describe Asciidoctor::M3d do
   end
 
     it "processes committee-draft" do
-    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -139,7 +139,7 @@ RSpec.describe Asciidoctor::M3d do
         <m3d-standard xmlns="https://www.metanorma.org/ns/m3d">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
-  <docidentifier type="m3d">1000(cd)</docidentifier>
+  <docidentifier type="M3AAWG">1000(cd)</docidentifier>
   <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
@@ -186,7 +186,7 @@ RSpec.describe Asciidoctor::M3d do
     end
 
         it "processes draft-standard" do
-    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       = Document title
       Author
       :docfile: test.adoc
@@ -205,7 +205,7 @@ RSpec.describe Asciidoctor::M3d do
         <m3d-standard xmlns="https://www.metanorma.org/ns/m3d">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
-  <docidentifier type="m3d">1000(d)</docidentifier>
+  <docidentifier type="M3AAWG">1000(d)</docidentifier>
   <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
@@ -252,7 +252,7 @@ OUTPUT
         end
 
     it "ignores unrecognised status" do
-        expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to <<~"OUTPUT"
+        expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to <<~"OUTPUT"
       = Document title
       Author
       :docfile: test.adoc
@@ -272,7 +272,7 @@ OUTPUT
     <m3d-standard xmlns="https://www.metanorma.org/ns/m3d">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
-  <docidentifier type="m3d">1000:2001</docidentifier>
+  <docidentifier type="M3AAWG">1000:2001</docidentifier>
   <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
@@ -319,7 +319,7 @@ OUTPUT
   end
 
   it "strips inline header" do
-    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       #{ASCIIDOC_BLANK_HDR}
       This is a preamble
 
@@ -340,7 +340,7 @@ OUTPUT
   it "uses default fonts" do
     FileUtils.rm_f "test.html"
     FileUtils.rm_f "test.doc"
-    Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)
+    Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
       = Document title
       Author
       :docfile: test.adoc
@@ -359,7 +359,7 @@ OUTPUT
 
   it "uses Chinese fonts" do
     FileUtils.rm_f "test.html"
-    Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)
+    Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
       = Document title
       Author
       :docfile: test.adoc
@@ -375,7 +375,7 @@ OUTPUT
 
   it "uses specified fonts" do
     FileUtils.rm_f "test.html"
-    Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)
+    Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
       = Document title
       Author
       :docfile: test.adoc
@@ -393,7 +393,7 @@ OUTPUT
   end
 
   it "processes inline_quoted formatting" do
-    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3d, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
+    expect(xmlpp(strip_guid(Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)))).to be_equivalent_to xmlpp(<<~"OUTPUT")
       #{ASCIIDOC_BLANK_HDR}
       _emphasis_
       *strong*

@@ -1,23 +1,23 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "metanorma/m3d/version"
+require "metanorma/m3aawg/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "metanorma-m3d"
-  spec.version       = Metanorma::M3d::VERSION
+  spec.name          = "metanorma-m3aawg"
+  spec.version       = Metanorma::M3AAWG::VERSION
   spec.authors       = ["Ribose Inc."]
   spec.email         = ["open.source@ribose.com"]
 
-  spec.summary       = "metanorma-m3d lets you write M3AAWG Documents (M3D) in AsciiDoc."
+  spec.summary       = "metanorma-m3d lets you write M3AAWG Documents in AsciiDoc."
   spec.description   = <<~DESCRIPTION
-    metanorma-m3d lets you write M3AAWG Documents (M3D) in AsciiDoc syntax.
+    metanorma-m3d lets you write M3AAWG Documents in AsciiDoc syntax.
 
     This gem is in active development.
 
-    Formerly known as asciidoctor-m3d.
+    Formerly known as asciidoctor-m3d, metanorma-m3d.
   DESCRIPTION
 
-  spec.homepage      = "https://github.com/metanorma/metanorma-m3d"
+  spec.homepage      = "https://github.com/metanorma/metanorma-m3aawg"
   spec.license       = "BSD-2-Clause"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

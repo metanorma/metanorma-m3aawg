@@ -2,12 +2,11 @@ require "spec_helper"
 require "metanorma"
 require "fileutils"
 
-#RSpec.describe Asciidoctor::Gb do
-RSpec.describe Metanorma::M3d::Processor do
+RSpec.describe Metanorma::M3AAWG::Processor do
 
   registry = Metanorma::Registry.instance
-  registry.register(Metanorma::M3d::Processor)
-  processor = registry.find_processor(:m3d)
+  registry.register(Metanorma::M3AAWG::Processor)
+  processor = registry.find_processor(:m3aawg)
 
   it "registers against metanorma" do
     expect(processor).not_to be nil
@@ -15,12 +14,12 @@ RSpec.describe Metanorma::M3d::Processor do
 
   it "registers output formats against metanorma" do
     expect(processor.output_formats.sort.to_s).to be_equivalent_to <<~"OUTPUT"
-    [[:doc, "doc"], [:html, "html"], [:pdf, "pdf"], [:rxl, "rxl"], [:xml, "xml"]]
+    [[:doc, "doc"], [:html, "html"], [:pdf, "pdf"], [:presentation, "presentation.xml"], [:rxl, "rxl"], [:xml, "xml"]]
     OUTPUT
   end
 
   it "registers version against metanorma" do
-    expect(processor.version.to_s).to match(%r{^Metanorma::M3d })
+    expect(processor.version.to_s).to match(%r{^Metanorma::M3AAWG })
   end
 
   it "generates IsoDoc XML from a blank document" do
@@ -35,7 +34,7 @@ RSpec.describe Metanorma::M3d::Processor do
 
   it "generates HTML from IsoDoc XML" do
     FileUtils.rm_f "test.xml"
-    processor.output(<<~"INPUT", "test.html", :html)
+    processor.output(<<~"INPUT", "test.xml", "test.html", :html)
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
        <sections>
        <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>

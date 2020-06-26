@@ -1,5 +1,5 @@
 module Asciidoctor
-  module M3d
+  module M3AAWG
     # Your code goes here...
   end
 end
