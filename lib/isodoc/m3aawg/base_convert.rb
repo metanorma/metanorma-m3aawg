@@ -1,20 +1,8 @@
-require_relative "metadata"
 require "fileutils"
 
 module IsoDoc
   module M3AAWG
     module BaseRender
-      def metadata_init(lang, script, labels)
-        @meta = Metadata.new(lang, script, labels)
-      end
-      
-      #def add_image(filenames)
-        #filenames.each do |filename|
-          #FileUtils.cp html_doc_path(filename), File.join(@localdir, filename)
-          #@files_to_delete << File.join(@localdir, filename)
-        #end
-      #end
-
       def annex_name(annex, name, div)
         div.h1 **{ class: "Annex" } do |t|
           t << "#{@xrefs.anchor(annex['id'], :label)} "

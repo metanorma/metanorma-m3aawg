@@ -1,5 +1,6 @@
 require "isodoc"
 require_relative "base_convert"
+require_relative "init"
 
 module IsoDoc
   module M3AAWG
@@ -57,6 +58,7 @@ module IsoDoc
       end
 
       include BaseRender
+      include Init
     end
   end
 end
