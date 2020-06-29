@@ -13,12 +13,6 @@ module IsoDoc
         end
       end
 
-      def i18n_init(lang, script)
-        super
-        @annex_lbl = "Appendix"
-        @labels["annex"] = "Appendix"
-      end
-
       def fileloc(loc)
         File.join(File.dirname(__FILE__), loc)
       end
