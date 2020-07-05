@@ -37,8 +37,9 @@ RSpec.describe Metanorma::M3AAWG::Processor do
     processor.output(<<~"INPUT", "test.xml", "test.html", :html)
                <m3d-standard xmlns="http://riboseinc.com/isoxml">
        <sections>
-       <terms id="H" obligation="normative"><title>Terms, Definitions, Symbols and Abbreviated Terms</title>
+       <terms id="H" obligation="normative"><title>1.<tab/>Terms, Definitions, Symbols and Abbreviated Terms</title>
          <term id="J">
+         <name>1.1.</name>
          <preferred>Term2</preferred>
        </term>
         </terms>

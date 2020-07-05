@@ -3,16 +3,6 @@ require "fileutils"
 module IsoDoc
   module M3AAWG
     module BaseRender
-      def annex_name(annex, name, div)
-        div.h1 **{ class: "Annex" } do |t|
-          t << "#{@xrefs.anchor(annex['id'], :label)} "
-          t.br
-          t.b do |b|
-            name&.children&.each { |c2| parse(c2, b) }
-          end
-        end
-      end
-
       def fileloc(loc)
         File.join(File.dirname(__FILE__), loc)
       end
