@@ -56,7 +56,7 @@ module Asciidoctor
         docstatus = node.attr("status")
         dn = node.attr("docnumber")
         if docstatus
-          abbr = IsoDoc::M3AAWG::Metadata.new("en", "Latn", {}).
+          abbr = IsoDoc::M3AAWG::Metadata.new("en", "Latn", @i18n).
             stage_abbr(docstatus)
           dn = "#{dn}(#{abbr})" unless abbr.empty?
         end
