@@ -7,7 +7,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}" }
 gem 'isodoc',
     git: 'https://github.com/metanorma/isodoc.git',
     branch: 'feature/sassc-gem-dependecey-removal',
-    ref: 'b6eca615ecbfde2e7f3f1ae6ec82a89b2db7d612'
+    ref: '536191fb46f9334e749bb56579901d784b25b751'
 gemspec
 
 if File.exist? 'Gemfile.devel'
