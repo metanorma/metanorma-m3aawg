@@ -18,24 +18,8 @@ module Asciidoctor
 
       register_for "m3aawg"
 
-      def metadata_author(node, xml)
-        xml.contributor do |c|
-          c.role **{ type: "author" }
-          c.organization do |a|
-            a.name "Messaging Malware and Mobile Anti-Abuse Working Group"
-            a.abbreviation "M3AAWG"
-          end
-        end
-      end
-
-      def metadata_publisher(node, xml)
-        xml.contributor do |c|
-          c.role **{ type: "publisher" }
-          c.organization do |a|
-            a.name "Messaging Malware and Mobile Anti-Abuse Working Group"
-            a.abbreviation "M3AAWG"
-          end
-        end
+      def default_publisher
+        "Messaging Malware and Mobile Anti-Abuse Working Group"
       end
 
       def metadata_committee(node, xml)
@@ -63,19 +47,6 @@ module Asciidoctor
         node.attr("copyright-year") and dn += ":#{node.attr("copyright-year")}"
         xml.docidentifier dn, **{type: "M3AAWG"}
         xml.docnumber { |i| i << node.attr("docnumber") }
-      end
-
-      def metadata_copyright(node, xml)
-        from = node.attr("copyright-year") || Date.today.year
-        xml.copyright do |c|
-          c.from from
-          c.owner do |owner|
-            owner.organization do |o|
-              o.name "Messaging Malware and Mobile Anti-Abuse Working Group"
-              o.abbreviation "M3AAWG"
-            end
-          end
-        end
       end
 
       def title_validate(root)

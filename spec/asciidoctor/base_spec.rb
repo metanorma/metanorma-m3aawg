@@ -75,14 +75,12 @@ RSpec.describe Asciidoctor::M3AAWG do
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
 <edition>2</edition>
@@ -101,7 +99,6 @@ RSpec.describe Asciidoctor::M3AAWG do
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -145,14 +142,12 @@ RSpec.describe Asciidoctor::M3AAWG do
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <edition>2</edition>
@@ -171,7 +166,6 @@ RSpec.describe Asciidoctor::M3AAWG do
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -211,14 +205,12 @@ RSpec.describe Asciidoctor::M3AAWG do
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
     <edition>2</edition>
@@ -237,7 +229,6 @@ RSpec.describe Asciidoctor::M3AAWG do
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -278,14 +269,12 @@ OUTPUT
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <edition>2</edition>
@@ -304,7 +293,6 @@ OUTPUT
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
