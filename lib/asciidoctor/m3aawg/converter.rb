@@ -59,7 +59,7 @@ module Asciidoctor
       end
 
       def doctype(node)
-        d = node.attr("doctype")
+        d = super
         unless %w{policy best-practices supporting-document report}.include? d
           @log.add("Document Attributes", nil, "#{d} is not a legal document type: reverting to 'report'")
           d = "report"
