@@ -1,7 +1,8 @@
 <div class="coverpage">
   <p class="zzSTDPreTitle">Messaging, Malware and Mobile Anti-Abuse Working Group</p>
   <p class="zzSTDTitle1">{{doctitle}}</p>
-  <p><b>{{revdate_monthyear}}</b></p>
+  {% if edition %}<p><b>Version {{edition}}</b></p>{% endif %}
+  {% if revdate_monthyear %}<p><b>{{revdate_monthyear}}</b></p>{% endif %}
   {% if url %}<p align='center' style="margin-top:12pt;">The direct URL to this paper is: <a href="{{url}}">{{url}}</a></p>{% endif %}
 </div>
 

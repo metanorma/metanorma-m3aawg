@@ -1,7 +1,8 @@
 <div class="coverpage">
   <p class="coverpage-title">Messaging, Malware and Mobile Anti-Abuse Working Group</p>
   <p class="coverpage-doc-identity">{{doctitle}}</p>
-  <p class="coverpage-date">{{revdate_monthyear}}</p>
+  {% if edition %}<p class="coverpage-date">{{edition}}</p>{% endif %}
+  {% if revdate_monthyear %}<p class="coverpage-date">{{revdate_monthyear}}</p>{% endif %}
 </div>
 
 <nav>
