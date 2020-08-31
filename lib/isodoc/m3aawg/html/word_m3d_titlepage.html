@@ -26,6 +26,12 @@ lang="EN-GB" style='font-size:40.0pt'>{% if unpublished %}{{ stage }}{% endif %}
 
 </div>
 
+{% if url %}
+<p class="MsoNormal" align="center" style='text-align:center'><span
+                     lang="EN-GB" style='font-size:12.0pt'>The direct URL to this paper is: <a href='{{url}}'>{{url}}</a></span></p>
+{% endif %}
+
+
 <p class="MsoNormal" style='margin-bottom:6.0pt'><span lang="EN-GB"><o:p>&nbsp;</o:p></span></p>
 
 {% if unpublished %}
