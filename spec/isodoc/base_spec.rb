@@ -108,9 +108,9 @@ RSpec.describe IsoDoc::M3AAWG do
              </div>
              <p class="zzSTDTitle1"/>
            </div>
-           <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
+           <div class="colophon"><p>As with all M<sup>3</sup>AAWG documents that we publish, please check the M<sup>3</sup>AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
        </div>
          </body>
     OUTPUT
@@ -119,6 +119,16 @@ RSpec.describe IsoDoc::M3AAWG do
   it "processes keyword" do
     expect(xmlpp(IsoDoc::M3AAWG::HtmlConvert.new({}).convert("test", <<~"INPUT", true).gsub(%r{^.*<body}m, "<body").gsub(%r{</body>.*}m, "</body>"))).to be_equivalent_to xmlpp(<<~"OUTPUT")
 <m3d-standard xmlns="https://open.ribose.com/standards/m3d">
+<bibdata>
+<copyright>
+    <from>2001</from>
+    <owner>
+      <organization>
+        <name>Ribose</name>
+      </organization>
+    </owner>
+  </copyright>
+</bibdata>
 <preface><foreword>
 <keyword>ABC</keyword>
 </foreword></preface>
@@ -132,9 +142,9 @@ RSpec.describe IsoDoc::M3AAWG do
              </div>
              <p class="zzSTDTitle1"/>
            </div>
-           <div class="colophon"><p>As with all M3AAWG documents that we publish, please check the M3AAWG website
+           <div class="colophon"><p>As with all M<sup>3</sup>AAWG documents that we publish, please check the M<sup>3</sup>AAWG website
        (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-       <p>&#169; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+       <p>&#169; 2001 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
        </div>
          </body>
     OUTPUT
