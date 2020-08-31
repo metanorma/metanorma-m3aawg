@@ -14,8 +14,10 @@ module IsoDoc
 
       def default_fonts(options)
         {
-          bodyfont: (options[:script] == "Hans" ? '"SimSun",serif' : '"Overpass",sans-serif'),
-          headerfont: (options[:script] == "Hans" ? '"SimHei",sans-serif' : '"Overpass",sans-serif'),
+          bodyfont: (options[:script] == "Hans" ? '"SimSun",serif' :
+                     '"Overpass",sans-serif'),
+          headerfont: (options[:script] == "Hans" ? '"SimHei",sans-serif' :
+                       '"Overpass",sans-serif'),
           monospacefont: '"Space Mono",monospace'
         }
       end
@@ -33,9 +35,12 @@ module IsoDoc
       def colophon(body, docxml)
         body.div **{ class: "colophon" } do |div|
           div << <<~"COLOPHON"
-          <p>As with all M3AAWG documents that we publish, please check the M3AAWG website
-          (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
-          <p>&copy; {{ docyear }} copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG)</p>
+          <p>As with all M<sup>3</sup>AAWG documents that we publish,
+          please check the M<sup>3</sup>AAWG website
+          (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to
+          this paper.</p>
+          <p>&copy; #{@meta.get[:docyear]} copyright by the Messaging, Malware
+          and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
           COLOPHON
         end
       end
@@ -48,7 +53,8 @@ module IsoDoc
       end
 
       def make_body(xml, docxml)
-        body_attr = { lang: "EN-US", link: "blue", vlink: "#954F72", "xml:lang": "EN-US", class: "container" }
+        body_attr = { lang: "EN-US", link: "blue", vlink: "#954F72",
+                      "xml:lang": "EN-US", class: "container" }
         xml.body **body_attr do |body|
           make_body1(body, docxml)
           make_body2(body, docxml)

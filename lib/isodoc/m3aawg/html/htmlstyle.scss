@@ -28,6 +28,9 @@ body {
 main {
     margin: 0 3em 0 6em;
 }
+div.colophon {
+    margin: 0 3em 0 6em;
+}
 
 #toc {
     @include toc(#69C5DC, #69C5DC, #69C5DC);
