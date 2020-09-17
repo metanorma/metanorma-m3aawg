@@ -212,7 +212,7 @@ RSpec.describe IsoDoc::M3AAWG do
        </bibliography>
        </m3d-standard>
     INPUT
-    <m3d-standard xmlns='http://riboseinc.com/isoxml'>
+    <m3d-standard xmlns='http://riboseinc.com/isoxml' type="presentation">
          <preface>
            <foreword obligation='informative'>
              <title>Foreword</title>
