@@ -102,7 +102,7 @@ END
 
 BLANK_HDR = <<~"HDR"
        <?xml version="1.0" encoding="UTF-8"?>
-       <m3d-standard xmlns="https://www.metanorma.org/ns/m3d">
+       <m3d-standard xmlns="https://www.metanorma.org/ns/m3d" type="semantic" version="#{Metanorma::M3AAWG::VERSION}">
        <bibdata type="standard">
 
         <title language="en" format="text/plain">Document title</title>
