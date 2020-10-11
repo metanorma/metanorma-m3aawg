@@ -51,11 +51,9 @@ RSpec.describe IsoDoc::M3AAWG do
 <sections/>
 </m3d-standard>
     INPUT
-    expect(htmlencode(Hash[csdc.info(docxml, nil).sort].to_s).gsub(/, :/, ",\n:")).to be_equivalent_to (<<~"OUTPUT")
+    expect(htmlencode(metadata(csdc.info(docxml, nil)).to_s).gsub(/, :/, ",\n:")).to be_equivalent_to (<<~"OUTPUT")
 {:accesseddate=>"XXX",
 :agency=>"Ribose",
-:authors=>[],
-:authors_affiliations=>{},
 :circulateddate=>"XXX",
 :confirmeddate=>"XXX",
 :copieddate=>"XXX",
@@ -70,7 +68,6 @@ RSpec.describe IsoDoc::M3AAWG do
 :edition=>"2",
 :implementeddate=>"XXX",
 :issueddate=>"XXX",
-:keywords=>[],
 :logo_html=>"#{File.join(logoloc, "m3-logo.png")}",
 :logo_word=>"#{File.join(logoloc, "logo.jpg")}",
 :obsoleteddate=>"XXX",
@@ -81,7 +78,6 @@ RSpec.describe IsoDoc::M3AAWG do
 :revdate_monthyear=>"January 2000",
 :stage=>"Working Draft",
 :stageabbr=>"wd",
-:tc=>nil,
 :transmitteddate=>"XXX",
 :unchangeddate=>"XXX",
 :unpublished=>true,
