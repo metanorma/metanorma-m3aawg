@@ -3,14 +3,14 @@ require "isodoc"
 
 module IsoDoc
   module M3AAWG
-    class PresentationXMLConvert < IsoDoc::PresentationXMLConvert
+    class PresentationXMLConvert < IsoDoc::Generic::PresentationXMLConvert
       def annex1(f)
-      lbl = @xrefs.anchor(f['id'], :label)
-      if t = f.at(ns("./title"))
-        t.children = "<strong>#{t.children.to_xml}</strong>"
+        lbl = @xrefs.anchor(f['id'], :label)
+        if t = f.at(ns("./title"))
+          t.children = "<strong>#{t.children.to_xml}</strong>"
+        end
+        prefix_name(f, "<br/>", lbl, "title")
       end
-      prefix_name(f, "<br/>", lbl, "title")
-    end
 
       include Init
     end
