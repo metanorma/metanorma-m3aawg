@@ -1,9 +1,7 @@
 = Metanorma processor for M3AAWG documents 
 
 https://github.com/metanorma/metanorma-m3aawg[metanorma-m3aawg] image:https://img.shields.io/gem/v/metanorma-m3aawg.svg["Gem Version", link="https://rubygems.org/gems/metanorma-m3aawg"]::
-image:https://github.com/metanorma/metanorma-m3aawg/workflows/macos/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-m3aawg/actions?workflow=macos"]
-image:https://github.com/metanorma/metanorma-m3aawg/workflows/windows/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-m3aawg/actions?workflow=windows"]
-image:https://github.com/metanorma/metanorma-m3aawg/workflows/ubuntu/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-m3aawg/actions?workflow=ubuntu"]
+image:https://github.com/metanorma/metanorma-m3aawg/workflows/rake/badge.svg["Build Status", link="https://github.com/metanorma/metanorma-m3aawg/actions?workflow=rake"]
 image:https://codeclimate.com/github/metanorma/metanorma-m3aawg/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/metanorma-m3aawg"]
 image:https://img.shields.io/github/issues-pr-raw/metanorma/metanorma-m3aawg.svg["Pull Requests", link="https://github.com/metanorma/metanorma-m3aawg/pulls"]
 image:https://img.shields.io/github/commits-since/metanorma/metanorma-m3aawg/latest.svg["Commits since latest",link="https://github.com/metanorma/metanorma-m3aawg/releases"]
