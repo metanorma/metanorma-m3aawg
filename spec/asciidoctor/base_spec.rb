@@ -84,12 +84,14 @@ RSpec.describe Asciidoctor::M3AAWG do
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
 <edition>2</edition>
@@ -108,6 +110,7 @@ RSpec.describe Asciidoctor::M3AAWG do
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -145,18 +148,20 @@ RSpec.describe Asciidoctor::M3AAWG do
         <m3d-standard xmlns="https://www.metanorma.org/ns/m3d" type="semantic" version="#{Metanorma::M3AAWG::VERSION}">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
-  <docidentifier type="M3AAWG">1000(cd)</docidentifier>
+  <docidentifier type="M3AAWG">1000(cd):2020</docidentifier>
   <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <edition>2</edition>
@@ -175,6 +180,7 @@ RSpec.describe Asciidoctor::M3AAWG do
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -208,18 +214,20 @@ RSpec.describe Asciidoctor::M3AAWG do
         <m3d-standard xmlns="https://www.metanorma.org/ns/m3d" type="semantic" version="#{Metanorma::M3AAWG::VERSION}">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
-  <docidentifier type="M3AAWG">1000(d)</docidentifier>
+  <docidentifier type="M3AAWG">1000(d):2020</docidentifier>
   <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
     <edition>2</edition>
@@ -238,6 +246,7 @@ RSpec.describe Asciidoctor::M3AAWG do
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>
@@ -278,12 +287,14 @@ OUTPUT
     <role type="author"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <contributor>
     <role type="publisher"/>
     <organization>
     <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
     </organization>
   </contributor>
   <edition>2</edition>
@@ -302,6 +313,7 @@ OUTPUT
     <owner>
       <organization>
       <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+    <abbreviation>M3AAWG</abbreviation>
       </organization>
     </owner>
   </copyright>

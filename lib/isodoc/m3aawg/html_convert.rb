@@ -10,6 +10,11 @@ module IsoDoc
         Metanorma::M3AAWG.configuration
       end
 
+      def initialize(options)
+        #require "byebug"; byebug
+        super
+      end
+
       def colophon(body, docxml)
         body.div **{ class: "colophon" } do |div|
           div << <<~"COLOPHON"

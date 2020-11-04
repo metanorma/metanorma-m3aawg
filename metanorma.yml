@@ -7,7 +7,7 @@ html_bodyfont: '"Overpass",sans-serif'
 html_headerfont: '"Overpass",sans-serif'
 html_monospacefont: '"Space Mono",monospace'
 i18nyaml: lib/isodoc/m3aawg/i18n-en.yaml
-validate_rng_file: lib/asciidoc/m3aawg/m3d.rng
+validate_rng_file: lib/asciidoctor/m3aawg/m3d.rng
 htmlcoverpage: lib/isodoc/m3aawg/html/html_m3d_titlepage.html
 htmlintropage: lib/isodoc/m3aawg/html/html_m3d_intro.html
 htmlstylesheet: lib/isodoc/m3aawg/html/htmlstyle.scss
@@ -15,9 +15,9 @@ scripts: lib/isodoc/m3aawg/html/scripts.html
 word_bodyfont: '"Garamond",serif'
 word_headerfont: '"Garamond",serif'
 word_monospacefont: '"Courier New",monospace'
-standardstylesheet: lib/isodoc/m3aawg/html/html_m3d_titlepage.html
+standardstylesheet: lib/isodoc/m3aawg/html/m3d.scss
 header: lib/isodoc/m3aawg/html/header.html
-wordcoverpage: 
+wordcoverpage: ""
 wordintropage: lib/isodoc/m3aawg/html/word_m3d_intro.html
 wordstylesheet: lib/isodoc/m3aawg/html/wordstyle.scss
 webfont:
@@ -42,3 +42,4 @@ stage_abbreviations:
   final-draft:
   published:
   withdrawn:
+logo_path: ""

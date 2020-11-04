@@ -24,7 +24,6 @@ module Asciidoctor
       end
 
        def configuration
-         require "byebug"; byebug
         Metanorma::M3AAWG.configuration
       end
 

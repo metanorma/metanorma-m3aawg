@@ -7,7 +7,6 @@ module Metanorma
 
     class Configuration < Metanorma::Generic::Configuration
       def initialize(*args)
-        require "byebug"; byebug
         super
       end
     end
