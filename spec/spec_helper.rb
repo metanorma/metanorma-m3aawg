@@ -110,16 +110,19 @@ BLANK_HDR = <<~"HDR"
        <bibdata type="standard">
 
         <title language="en" format="text/plain">Document title</title>
+        <docidentifier type='M3AAWG'>:#{Time.new.year}</docidentifier>
          <contributor>
            <role type="author"/>
            <organization>
              <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
            </organization>
          </contributor>
          <contributor>
            <role type="publisher"/>
            <organization>
              <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
            </organization>
          </contributor>
         <language>en</language>
@@ -133,6 +136,7 @@ BLANK_HDR = <<~"HDR"
            <owner>
              <organization>
              <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+             <abbreviation>M3AAWG</abbreviation>
              </organization>
            </owner>
          </copyright>

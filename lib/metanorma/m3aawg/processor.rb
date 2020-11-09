@@ -10,7 +10,10 @@ module Metanorma
       }
     end
 
-    class Processor < Metanorma::Processor
+    class Processor < Metanorma::Generic::Processor
+       def configuration
+        Metanorma::Ribose.configuration
+      end
 
       def initialize
         @short = [:m3d, :m3aawg]

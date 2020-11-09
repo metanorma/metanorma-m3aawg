@@ -2,9 +2,11 @@ require "isodoc"
 
 module IsoDoc
   module M3AAWG
-    # A {Converter} implementation that generates CSAND output, and a document
-    # schema encapsulation of the document for validation
-    class Metadata < IsoDoc::Metadata
+    class Metadata < IsoDoc::Generic::Metadata
+       def configuration
+        Metanorma::M3AAWG.configuration
+      end
+
       def initialize(lang, script, labels)
         super
         here = File.dirname(__FILE__)
@@ -33,20 +35,6 @@ module IsoDoc
       def docid(isoxml, _out)
         docnumber = isoxml.at(ns("//bibdata/docidentifier"))
         set(:docnumber, docnumber&.text)
-      end
-
-      def stage_abbr(status)
-        case status
-        when "working-draft" then "wd"
-        when "committee-draft" then "cd"
-        when "draft-standard" then "d"
-        else
-          ""
-        end
-      end
-
-      def unpublished(status)
-        !%w(published withdrawn).include? status.downcase
       end
     end
   end

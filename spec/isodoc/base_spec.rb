@@ -72,6 +72,7 @@ RSpec.describe IsoDoc::M3AAWG do
 :lang=>"en",
 :logo_html=>"#{File.join(logoloc, "m3-logo.png")}",
 :logo_word=>"#{File.join(logoloc, "logo.jpg")}",
+:metadata_extensions=>{"doctype"=>"standard", "editorialgroup"=>{"technical-committee_type"=>"A", "technical-committee"=>"TC"}},
 :obsoleteddate=>"XXX",
 :publisheddate=>"XXX",
 :publisher=>"Ribose",
