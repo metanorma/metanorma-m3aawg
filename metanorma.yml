@@ -6,6 +6,8 @@ xml_root_tag: m3d-standard
 html_bodyfont: '"Overpass",sans-serif'
 html_headerfont: '"Overpass",sans-serif'
 html_monospacefont: '"Space Mono",monospace'
+html_normalfontsize: "15px"
+html_footnotefontsize: "0.9em"
 i18nyaml: lib/isodoc/m3aawg/i18n-en.yaml
 validate_rng_file: lib/asciidoctor/m3aawg/m3d.rng
 htmlcoverpage: lib/isodoc/m3aawg/html/html_m3d_titlepage.html
@@ -15,6 +17,10 @@ scripts: lib/isodoc/m3aawg/html/scripts.html
 word_bodyfont: '"Garamond",serif'
 word_headerfont: '"Garamond",serif'
 word_monospacefont: '"Courier New",monospace'
+word_normalfontsize: "11.0pt"
+word_monospacefontsize: "9.0pt"
+word_smallerfontsize: "10.0pt"
+word_footnotefontsize: "10.0pt"
 standardstylesheet: lib/isodoc/m3aawg/html/m3d.scss
 header: lib/isodoc/m3aawg/html/header.html
 wordcoverpage: ""
