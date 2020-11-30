@@ -2,14 +2,6 @@ require "metanorma/processor"
 
 module Metanorma
   module M3AAWG
-    def self.fonts_used
-      {
-        html: ["Overpass", "Space Mono"],
-        doc: ["Garamond", "Courier New"],
-        pdf: ["Garamond", "Courier New"]
-      }
-    end
-
     class Processor < Metanorma::Generic::Processor
        def configuration
         Metanorma::Ribose.configuration
