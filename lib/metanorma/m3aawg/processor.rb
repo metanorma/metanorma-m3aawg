@@ -21,6 +21,18 @@ module Metanorma
         )
       end
 
+      def fonts_manifest
+        {
+          "Arial" => nil,
+          "Cambria Math" => nil,
+          "Courier" => nil,
+          "Courier New" => nil,
+          "Garamond" => nil,
+          "Overpass" => nil,
+          "Space Mono" => nil,
+        }
+      end
+
       def version
         "Metanorma::M3AAWG #{Metanorma::M3AAWG::VERSION}"
       end
