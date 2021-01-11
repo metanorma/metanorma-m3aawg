@@ -148,7 +148,7 @@ RSpec.describe Asciidoctor::M3AAWG do
         <m3d-standard xmlns="https://www.metanorma.org/ns/m3d" type="semantic" version="#{Metanorma::M3AAWG::VERSION}">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
-  <docidentifier type="M3AAWG">1000(cd):2020</docidentifier>
+  <docidentifier type="M3AAWG">1000(cd):#{Time.now.year}</docidentifier>
   <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
@@ -214,7 +214,7 @@ RSpec.describe Asciidoctor::M3AAWG do
         <m3d-standard xmlns="https://www.metanorma.org/ns/m3d" type="semantic" version="#{Metanorma::M3AAWG::VERSION}">
 <bibdata type="standard">
   <title language="en" format="text/plain">Main Title</title>
-  <docidentifier type="M3AAWG">1000(d):2020</docidentifier>
+  <docidentifier type="M3AAWG">1000(d):#{Time.now.year}</docidentifier>
   <docnumber>1000</docnumber>
   <contributor>
     <role type="author"/>
