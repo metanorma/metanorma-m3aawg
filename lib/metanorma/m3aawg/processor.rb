@@ -27,7 +27,7 @@ module Metanorma
           "Cambria Math" => nil,
           "Courier" => nil,
           "Courier New" => nil,
-          "Garamond" => nil,
+          "EB Garamond" => nil,
           "Overpass" => nil,
           "Space Mono" => nil,
         }

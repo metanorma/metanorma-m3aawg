@@ -14,8 +14,8 @@ htmlcoverpage: lib/isodoc/m3aawg/html/html_m3d_titlepage.html
 htmlintropage: lib/isodoc/m3aawg/html/html_m3d_intro.html
 htmlstylesheet: lib/isodoc/m3aawg/html/htmlstyle.scss
 scripts: lib/isodoc/m3aawg/html/scripts.html
-word_bodyfont: '"Garamond",serif'
-word_headerfont: '"Garamond",serif'
+word_bodyfont: '"EB Garamond",serif'
+word_headerfont: '"EB Garamond",serif'
 word_monospacefont: '"Courier New",monospace'
 word_normalfontsize: "11.0pt"
 word_monospacefontsize: "9.0pt"
