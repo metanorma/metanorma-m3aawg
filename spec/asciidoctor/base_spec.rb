@@ -366,22 +366,6 @@ OUTPUT
     expect(html).to match(%r[h1 \{[^}]+font-family: "Garamond", serif;]m)
   end
 
-  it "uses Chinese fonts" do
-    FileUtils.rm_f "test.html"
-    Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
-      = Document title
-      Author
-      :docfile: test.adoc
-      :novalid:
-      :script: Hans
-      :no-pdf:
-    INPUT
-    html = File.read("test.html", encoding: "utf-8")
-    expect(html).to match(%r[\bpre[^{]+\{[^}]+font-family: "Space Mono", monospace;]m)
-    expect(html).to match(%r[ div[^{]+\{[^}]+font-family: "SimSun", serif;]m)
-    expect(html).to match(%r[h1, h2, h3, h4, h5, h6 \{[^}]+font-family: "SimHei", sans-serif;]m)
-  end
-
   it "uses specified fonts" do
     FileUtils.rm_f "test.html"
     Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
