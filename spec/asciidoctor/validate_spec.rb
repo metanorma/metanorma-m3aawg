@@ -17,40 +17,39 @@ RSpec.describe Asciidoctor::M3AAWG do
       expect do
         Metanorma::Compile
           .new
-          .compile("spec/assets/xref_error.adoc", type: "m3aawg", :"agree-to-terms" => true)
+          .compile("spec/assets/xref_error.adoc", type: "m3aawg", no_install_fonts: true)
       end.to(change { File.exist?("spec/assets/xref_error.err") }
               .from(false).to(true))
     end
   end
 
-    it "Warns of illegal doctype" do
-        FileUtils.rm_f "test.err"
+  it "Warns of illegal doctype" do
+    FileUtils.rm_f "test.err"
     Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
-  = Document title
-  Author
-  :docfile: test.adoc
-  :nodoc:
-  :no-isobib:
-  :doctype: pizza
+      = Document title
+      Author
+      :docfile: test.adoc
+      :nodoc:
+      :no-isobib:
+      :doctype: pizza
 
-  text
-  INPUT
+      text
+    INPUT
     expect(File.read("test.err")).to include "pizza is not a legal document type"
-end
+  end
 
-it "Warns of illegal status" do
-        FileUtils.rm_f "test.err"
+  it "Warns of illegal status" do
+    FileUtils.rm_f "test.err"
     Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
-  = Document title
-  Author
-  :docfile: test.adoc
-  :nodoc:
-  :no-isobib:
-  :status: pizza
+      = Document title
+      Author
+      :docfile: test.adoc
+      :nodoc:
+      :no-isobib:
+      :status: pizza
 
-  text
-  INPUT
+      text
+    INPUT
     expect(File.read("test.err")).to include "pizza is not a recognised status"
-end
-
+  end
 end
