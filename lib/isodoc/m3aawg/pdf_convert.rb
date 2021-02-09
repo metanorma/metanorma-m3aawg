@@ -14,7 +14,7 @@ module IsoDoc
       end
 
       def pdf_stylesheet(docxml)
-        "m3d.report.xsl"
+        "m3aawg.report.xsl"
       end
     end
   end
