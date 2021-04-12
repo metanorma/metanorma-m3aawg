@@ -1,5 +1,5 @@
 module Metanorma
   module M3AAWG
-    VERSION = "1.6.9"
+    VERSION = "1.7.0".freeze
   end
 end
