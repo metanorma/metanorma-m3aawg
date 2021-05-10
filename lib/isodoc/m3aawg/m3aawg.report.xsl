@@ -2763,6 +2763,7 @@
 				
 				
 				
+				
 					<xsl:choose>
 						<xsl:when test="not(ancestor::*[local-name()='note'])">10</xsl:when>
 						<xsl:otherwise>11</xsl:otherwise>
@@ -3847,6 +3848,7 @@
 					<xsl:variable name="_font-size">
 						
 												
+						
 						
 						
 						
@@ -5049,6 +5051,7 @@
 	</xsl:template><xsl:template name="namespaceCheck">
 		<xsl:variable name="documentNS" select="namespace-uri(/*)"/>
 		<xsl:variable name="XSLNS">			
+			
 			
 			
 			
