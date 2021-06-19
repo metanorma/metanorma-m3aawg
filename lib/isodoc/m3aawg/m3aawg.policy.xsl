@@ -1729,6 +1729,9 @@
 			<fo:block xsl:use-attribute-sets="table-name-style">
 				
 				
+				
+				
+				
 				<xsl:choose>
 					<xsl:when test="$continued = 'true'"> 
 						<!-- <xsl:if test="$namespace = 'bsi'"></xsl:if> -->
@@ -2123,6 +2126,9 @@
 				
 				
 				
+				
+				
+				
 				<!-- <xsl:if test="$namespace = 'bipm'">
 					<xsl:attribute name="height">8mm</xsl:attribute>
 				</xsl:if> -->
@@ -2196,6 +2202,8 @@
 			<xsl:if test="$lang = 'ar'">
 				<xsl:attribute name="padding-right">1mm</xsl:attribute>
 			</xsl:if>
+			
+			
 			
 			
 			
