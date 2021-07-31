@@ -25,9 +25,8 @@ module Metanorma
         {
           "Arial" => nil,
           "Cambria Math" => nil,
-          "Courier" => nil,
           "Courier New" => nil,
-          "EB Garamond" => nil,
+          "EB Garamond 12" => nil,
           "Overpass" => nil,
           "Space Mono" => nil,
         }
