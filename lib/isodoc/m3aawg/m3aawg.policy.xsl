@@ -39,7 +39,7 @@
 	
 	<xsl:template match="/">
 		<xsl:call-template name="namespaceCheck"/>
-		<fo:root font-family="Garamond" font-size="12pt" xml:lang="{$lang}">
+		<fo:root font-family="EB Garamond 12" font-size="12pt" xml:lang="{$lang}">
 			<fo:layout-master-set>
 				
 				<!-- cover page -->
