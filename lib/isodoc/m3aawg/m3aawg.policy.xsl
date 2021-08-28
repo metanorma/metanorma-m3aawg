@@ -465,6 +465,7 @@
 		</xsl:variable>
 		<fo:block font-size="{$font-size}" text-align="center" margin-bottom="24pt" keep-with-next="always">
 			<xsl:apply-templates/>
+			<xsl:apply-templates select="following-sibling::*[1][local-name() = 'variant-title'][@type = 'sub']" mode="subtitle"/>
 		</fo:block>
 	</xsl:template>
 	
@@ -513,6 +514,7 @@
 			<xsl:attribute name="keep-with-next">always</xsl:attribute>		
 			
 			<xsl:apply-templates/>
+			<xsl:apply-templates select="following-sibling::*[1][local-name() = 'variant-title'][@type = 'sub']" mode="subtitle"/>
 			
 		</xsl:element>
 		
@@ -4305,6 +4307,7 @@
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:apply-templates/>
+								<xsl:apply-templates select="following-sibling::*[1][local-name() = 'variant-title'][@type = 'sub']" mode="subtitle"/>
 							</xsl:otherwise>
 						</xsl:choose>
 					</fo:block>
@@ -5358,6 +5361,9 @@
 		<fo:block-container border="1pt solid black" width="50%">
 			<fo:block> </fo:block>
 		</fo:block-container>
+	</xsl:template><xsl:template match="*[local-name() = 'variant-title'][@type = 'sub']"/><xsl:template match="*[local-name() = 'variant-title'][@type = 'sub']" mode="subtitle">
+		<fo:inline padding-right="5mm"> </fo:inline>
+		<fo:inline><xsl:apply-templates/></fo:inline>
 	</xsl:template><xsl:template name="convertDate">
 		<xsl:param name="date"/>
 		<xsl:param name="format" select="'short'"/>
