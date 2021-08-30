@@ -29,139 +29,149 @@ RSpec.configure do |config|
   end
 end
 
-def metadata(x)
-  Hash[x.sort].delete_if{ |k, v| v.nil? || v.respond_to?(:empty?) && v.empty? }
+OPTIONS = [backend: :m3aawg, header_footer: true, agree_to_terms: true].freeze
+
+def metadata(xml)
+  xml.sort.to_h.delete_if do |_k, v|
+    v.nil? || v.respond_to?(:empty?) && v.empty?
+  end
 end
 
-def strip_guid(x)
-  x.gsub(%r{ id="_[^"]+"}, ' id="_"').gsub(%r{ target="_[^"]+"}, ' target="_"')
+def strip_guid(xml)
+  xml.gsub(%r{ id="_[^"]+"}, ' id="_"')
+    .gsub(%r{ target="_[^"]+"}, ' target="_"')
 end
 
-def htmlencode(x)
-  HTMLEntities.new.encode(x, :hexadecimal).gsub(/&#x3e;/, ">").gsub(/&#xa;/, "\n").
-    gsub(/&#x22;/, '"').gsub(/&#x3c;/, "<").gsub(/&#x26;/, '&').gsub(/&#x27;/, "'").
-    gsub(/\\u(....)/) { |s| "&#x#{$1.downcase};" }
+def htmlencode(xml)
+  HTMLEntities.new.encode(xml, :hexadecimal)
+    .gsub(/&#x3e;/, ">").gsub(/&#xa;/, "\n")
+    .gsub(/&#x22;/, '"').gsub(/&#x3c;/, "<")
+    .gsub(/&#x26;/, "&").gsub(/&#x27;/, "'")
+    .gsub(/\\u(....)/) do |_s|
+    "&#x#{$1.downcase};"
+  end
 end
 
-def xmlpp(x)
+def xmlpp(xml)
   s = ""
   f = REXML::Formatters::Pretty.new(2)
   f.compact = true
-  f.write(REXML::Document.new(x),s)
+  f.write(REXML::Document.new(xml), s)
   s
 end
 
-ASCIIDOC_BLANK_HDR = <<~"HDR"
-      = Document title
-      Author
-      :docfile: test.adoc
-      :nodoc:
-      :novalid:
+ASCIIDOC_BLANK_HDR = <<~"HDR".freeze
+  = Document title
+  Author
+  :docfile: test.adoc
+  :nodoc:
+  :novalid:
 
 HDR
 
-ASCIIDOC_BLANK_HDR_NO_PDF = <<~"HDR"
-      = Document title
-      Author
-      :docfile: test.adoc
-      :nodoc:
-      :novalid:
-      :no-pdf:
+ASCIIDOC_BLANK_HDR_NO_PDF = <<~"HDR".freeze
+  = Document title
+  Author
+  :docfile: test.adoc
+  :nodoc:
+  :novalid:
+  :no-pdf:
 
 HDR
 
-
-VALIDATING_BLANK_HDR = <<~"HDR"
-      = Document title
-      Author
-      :docfile: test.adoc
-      :nodoc:
+VALIDATING_BLANK_HDR = <<~"HDR".freeze
+  = Document title
+  Author
+  :docfile: test.adoc
+  :nodoc:
 
 HDR
 
 BOILERPLATE =
   HTMLEntities.new.decode(
-  File.read(File.join(File.dirname(__FILE__), "..", "lib", "asciidoctor", "m3aawg", "boilerplate.xml"), encoding: "utf-8").
-  gsub(/\{\{ docyear \}\}/, Date.today.year.to_s).
-  gsub(/<p>/, '<p id="_">').
-  gsub(/<p class="boilerplate-address">/, '<p id="_" class="boilerplate-address">').
-  gsub(/\{% if unpublished %\}.+?\{% endif %\}/m, "").
-  gsub(/\{% if ip_notice_received %\}\{% else %\}not\{% endif %\}/m, ""))
+    File.read(File.join(File.dirname(__FILE__),
+                        "..", "lib", "asciidoctor", "m3aawg", "boilerplate.xml"), encoding: "utf-8")
+    .gsub(/\{\{ docyear \}\}/, Date.today.year.to_s)
+    .gsub(/<p>/, '<p id="_">')
+    .gsub(/<p class="boilerplate-address">/, '<p id="_" class="boilerplate-address">')
+    .gsub(/\{% if unpublished %\}.+?\{% endif %\}/m, "")
+    .gsub(/\{% if ip_notice_received %\}\{% else %\}not\{% endif %\}/m, ""),
+  )
 
-BOILERPLATE_LICENSE = <<~END
-<license-statement>
-             <clause>
-               <title>Warning for Drafts</title>
-               <p id='_'>
-                 This document is not an M3AAWG Standard. It is distributed for review
-                 and comment, and is subject to change without notice and may not be
-                 referred to as a Standard. Recipients of this draft are invited to
-                 submit, with their comments, notification of any relevant patent
-                 rights of which they are aware and to provide supporting
-                 documentation.
-               </p>
-             </clause>
-           </license-statement>
-END
-
-BLANK_HDR = <<~"HDR"
-       <?xml version="1.0" encoding="UTF-8"?>
-       <m3d-standard xmlns="https://www.metanorma.org/ns/m3d" type="semantic" version="#{Metanorma::M3AAWG::VERSION}">
-       <bibdata type="standard">
-
-        <title language="en" format="text/plain">Document title</title>
-        <docidentifier type='M3AAWG'>:#{Time.new.year}</docidentifier>
-         <contributor>
-           <role type="author"/>
-           <organization>
-             <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
-           </organization>
-         </contributor>
-         <contributor>
-           <role type="publisher"/>
-           <organization>
-             <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
-           </organization>
-         </contributor>
-        <language>en</language>
-         <script>Latn</script>
-        <status>
-                <stage>published</stage>
-        </status>
-
-         <copyright>
-           <from>#{Time.new.year}</from>
-           <owner>
-             <organization>
-             <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
-             <abbreviation>M3AAWG</abbreviation>
-             </organization>
-           </owner>
-         </copyright>
-         <ext>
-         <doctype>report</doctype>
-         </ext>
-       </bibdata>
-       #{BOILERPLATE}
+BOILERPLATE_LICENSE = <<~HDR.freeze
+  <license-statement>
+               <clause>
+                 <title>Warning for Drafts</title>
+                 <p id='_'>
+                   This document is not an M3AAWG Standard. It is distributed for review
+                   and comment, and is subject to change without notice and may not be
+                   referred to as a Standard. Recipients of this draft are invited to
+                   submit, with their comments, notification of any relevant patent
+                   rights of which they are aware and to provide supporting
+                   documentation.
+                 </p>
+               </clause>
+             </license-statement>
 HDR
 
-HTML_HDR = <<~"HDR"
-           <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
-           <div class="title-section">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="prefatory-section">
-             <p>&#160;</p>
-           </div>
-           <br/>
-           <div class="main-section">
+BLANK_HDR = <<~"HDR".freeze
+  <?xml version="1.0" encoding="UTF-8"?>
+  <m3d-standard xmlns="https://www.metanorma.org/ns/m3d" type="semantic" version="#{Metanorma::M3AAWG::VERSION}">
+  <bibdata type="standard">
+
+   <title language="en" format="text/plain">Document title</title>
+   <docidentifier type='M3AAWG'>:#{Time.new.year}</docidentifier>
+    <contributor>
+      <role type="author"/>
+      <organization>
+        <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+        <abbreviation>M3AAWG</abbreviation>
+      </organization>
+    </contributor>
+    <contributor>
+      <role type="publisher"/>
+      <organization>
+        <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+        <abbreviation>M3AAWG</abbreviation>
+      </organization>
+    </contributor>
+   <language>en</language>
+    <script>Latn</script>
+   <status>
+           <stage>published</stage>
+   </status>
+
+    <copyright>
+      <from>#{Time.new.year}</from>
+      <owner>
+        <organization>
+        <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+        <abbreviation>M3AAWG</abbreviation>
+        </organization>
+      </owner>
+    </copyright>
+    <ext>
+    <doctype>report</doctype>
+    </ext>
+  </bibdata>
+  #{BOILERPLATE}
+HDR
+
+HTML_HDR = <<~"HDR".freeze
+  <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
+  <div class="title-section">
+    <p>&#160;</p>
+  </div>
+  <br/>
+  <div class="prefatory-section">
+    <p>&#160;</p>
+  </div>
+  <br/>
+  <div class="main-section">
 HDR
 
 def mock_pdf
-  allow(::Mn2pdf).to receive(:convert) do |url, output, c, d|
+  allow(::Mn2pdf).to receive(:convert) do |url, output, _c, _d|
     FileUtils.cp(url.gsub(/"/, ""), output.gsub(/"/, ""))
   end
 end
