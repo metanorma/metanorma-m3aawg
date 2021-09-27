@@ -40,9 +40,9 @@ module Asciidoctor
         pdf_converter(node)&.convert(@filename + ".presentation.xml", nil, false, "#{@filename}.pdf")
       end
 
-      def sections_cleanup(x)
+      def sections_cleanup(xml)
         super
-        x.xpath("//*[@inline-header]").each do |h|
+        xml.xpath("//*[@inline-header]").each do |h|
           h.delete("inline-header")
         end
       end
@@ -61,6 +61,7 @@ module Asciidoctor
 
       def pdf_converter(node)
         return nil if node.attr("no-pdf")
+
         IsoDoc::M3AAWG::PdfConvert.new(doc_extract_attributes(node))
       end
     end
