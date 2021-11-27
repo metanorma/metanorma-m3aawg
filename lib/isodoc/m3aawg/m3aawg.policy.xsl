@@ -738,6 +738,7 @@
 	<xsl:template match="m3d:preferred">
 
 		<fo:inline>
+			<xsl:call-template name="setStyle_preferred"/>
 			<xsl:apply-templates/>
 		</fo:inline>
 		
@@ -5066,6 +5067,10 @@
 		<fo:block xsl:use-attribute-sets="deprecates-style">
 			<xsl:value-of select="$title-deprecated"/>: <xsl:apply-templates/>
 		</fo:block>
+	</xsl:template><xsl:template name="setStyle_preferred">
+		<xsl:if test="*[local-name() = 'strong']">
+			<xsl:attribute name="font-weight">normal</xsl:attribute>
+		</xsl:if>
 	</xsl:template><xsl:template match="*[local-name() = 'definition']">
 		<fo:block xsl:use-attribute-sets="definition-style">
 			<xsl:apply-templates/>
