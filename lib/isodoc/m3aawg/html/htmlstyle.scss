@@ -256,9 +256,12 @@ p.document-stage {
   }
 }
 
+  .TermNum {
+    font-weight: 400;
+  }
+
   .TermNum, .Terms, .AltTerms {
     color: black;
-    font-weight: 400;
   }
 
   p.TermNum {
