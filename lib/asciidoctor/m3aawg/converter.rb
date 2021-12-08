@@ -1,5 +1,5 @@
 require "asciidoctor/standoc/converter"
-require 'asciidoctor/generic/converter'
+require "asciidoctor/generic/converter"
 
 module Asciidoctor
   module M3AAWG
@@ -11,19 +11,20 @@ module Asciidoctor
 
       def metadata_committee(node, xml)
         return unless node.attr("technical-committee")
+
         xml.editorialgroup do |a|
           a.committee node.attr("technical-committee"),
-            **attr_code(type: node.attr("technical-committee-type"))
+                      **attr_code(type: node.attr("technical-committee-type"))
           i = 2
-          while node.attr("technical-committee_#{i}") do
+          while node.attr("technical-committee_#{i}")
             a.committee node.attr("technical-committee_#{i}"),
-              **attr_code(type: node.attr("technical-committee-type_#{i}"))
+                        **attr_code(type: node.attr("technical-committee-type_#{i}"))
             i += 1
           end
         end
       end
 
-       def configuration
+      def configuration
         Metanorma::M3AAWG.configuration
       end
 
@@ -33,11 +34,14 @@ module Asciidoctor
       end
 
       def outputs(node, ret)
-        File.open(@filename + ".xml", "w:UTF-8") { |f| f.write(ret) }
-        presentation_xml_converter(node).convert(@filename + ".xml")
-        html_converter(node).convert(@filename + ".presentation.xml", nil, false, "#{@filename}.html")
-        doc_converter(node).convert(@filename + ".presentation.xml", nil, false, "#{@filename}.doc")
-        pdf_converter(node)&.convert(@filename + ".presentation.xml", nil, false, "#{@filename}.pdf")
+        File.open("#{@filename}.xml", "w:UTF-8") { |f| f.write(ret) }
+        presentation_xml_converter(node).convert("#{@filename}.xml")
+        html_converter(node).convert("#{@filename}.presentation.xml", nil,
+                                     false, "#{@filename}.html")
+        doc_converter(node).convert("#{@filename}.presentation.xml", nil,
+                                    false, "#{@filename}.doc")
+        pdf_converter(node)&.convert("#{@filename}.presentation.xml", nil,
+                                     false, "#{@filename}.pdf")
       end
 
       def sections_cleanup(xml)
@@ -62,7 +66,7 @@ module Asciidoctor
       def pdf_converter(node)
         return nil if node.attr("no-pdf")
 
-        IsoDoc::M3AAWG::PdfConvert.new(doc_extract_attributes(node))
+        IsoDoc::M3AAWG::PdfConvert.new(pdf_extract_attributes(node))
       end
     end
   end
