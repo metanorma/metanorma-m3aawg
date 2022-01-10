@@ -1,7 +1,7 @@
 require "spec_helper"
 require "fileutils"
 
-RSpec.describe Asciidoctor::M3AAWG do
+RSpec.describe Metanorma::M3AAWG do
   context "when xref_error.adoc compilation" do
     around do |example|
       FileUtils.rm_f "spec/assets/xref_error.err"

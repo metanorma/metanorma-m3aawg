@@ -9,7 +9,7 @@ html_monospacefont: '"Space Mono",monospace'
 html_normalfontsize: "15px"
 html_footnotefontsize: "0.9em"
 i18nyaml: lib/isodoc/m3aawg/i18n-en.yaml
-validate_rng_file: lib/asciidoctor/m3aawg/m3d.rng
+validate_rng_file: lib/metanorma/m3aawg/m3d.rng
 htmlcoverpage: lib/isodoc/m3aawg/html/html_m3d_titlepage.html
 htmlintropage: lib/isodoc/m3aawg/html/html_m3d_intro.html
 htmlstylesheet: lib/isodoc/m3aawg/html/htmlstyle.scss

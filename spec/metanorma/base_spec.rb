@@ -1,7 +1,7 @@
 require "spec_helper"
 require "fileutils"
 
-RSpec.describe Asciidoctor::M3AAWG do
+RSpec.describe Metanorma::M3AAWG do
   it "has a version number" do
     expect(Metanorma::M3AAWG::VERSION).not_to be nil
   end

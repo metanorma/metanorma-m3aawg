@@ -1,9 +1,9 @@
-require "asciidoctor/standoc/converter"
-require "asciidoctor/generic/converter"
+require "metanorma/standoc/converter"
+require "metanorma/generic/converter"
 
-module Asciidoctor
+module Metanorma
   module M3AAWG
-    class Converter < Asciidoctor::Generic::Converter
+    class Converter < Metanorma::Generic::Converter
       XML_ROOT_TAG = "m3d-standard".freeze
       XML_NAMESPACE = "https://www.metanorma.org/ns/m3d".freeze
 
