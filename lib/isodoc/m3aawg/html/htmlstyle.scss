@@ -32,7 +32,7 @@ div.colophon {
     margin: 0 3em 0 6em;
 }
 
-#toc {
+#toc, #toc > ul > :is(.h1, .h2, .h3, .h4, .h5, .h6) {
     @include toc(#69C5DC, #69C5DC, #69C5DC);
     @include sidebarToc();
 
@@ -46,6 +46,11 @@ div.colophon {
         }
     }
 }
+
+#toc > ul > :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+   margin-top: 0;
+   margin-bottom: 0;
+ }
 
 nav {
     @include sidebarNav(#f7f7f7, 323px, 45px);
@@ -80,7 +85,7 @@ nav {
         margin-top: 1em;
     }
 
-    ul#toc-list {
+    ul#toc-list, ul#toc-list > :is(.h1, .h2, .h3, .h4, .h5, .h6) {
         padding: 0;
         margin: 0;
     }
