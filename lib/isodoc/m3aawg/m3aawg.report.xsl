@@ -175,12 +175,14 @@
 						<fo:block font-size="12pt" margin-bottom="6pt">
 							<xsl:variable name="edition" select="normalize-space(/m3d:m3d-standard/m3d:bibdata/m3d:edition[normalize-space(@language) = ''])"/>
 							<xsl:if test="$edition != ''">
-								<xsl:variable name="title-version">
-									<xsl:call-template name="getTitle">
-										<xsl:with-param name="name" select="'title-version'"/>
-									</xsl:call-template>
-								</xsl:variable>
-								<xsl:value-of select="$title-version"/><xsl:text>: </xsl:text>
+								<xsl:call-template name="capitalize">
+									<xsl:with-param name="str">
+										<xsl:call-template name="getLocalizedString">
+											<xsl:with-param name="key">version</xsl:with-param>
+										</xsl:call-template>
+									</xsl:with-param>
+								</xsl:call-template>
+								<xsl:text>: </xsl:text>
 								<xsl:value-of select="$edition"/><xsl:if test="not(contains($edition, '.'))"><xsl:text>.0</xsl:text></xsl:if>
 							</xsl:if>
 						</fo:block>
@@ -662,10 +664,6 @@
 	</xsl:variable><xsl:variable name="marginTop" select="normalize-space($marginTop_)"/><xsl:variable name="marginBottom_">
 		23
 	</xsl:variable><xsl:variable name="marginBottom" select="normalize-space($marginBottom_)"/><xsl:variable name="titles_">
-		
-		<title-version lang="en">
-			<xsl:text>Version</xsl:text>
-		</title-version>
 		
 		
 		<!-- These titles of Table of contents renders different than determined in localized-strings -->
