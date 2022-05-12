@@ -10,20 +10,15 @@ module IsoDoc
         Metanorma::M3AAWG.configuration
       end
 
-      def initialize(options)
-        #require "byebug"; byebug
-        super
-      end
-
-      def colophon(body, docxml)
+      def colophon(body, _docxml)
         body.div **{ class: "colophon" } do |div|
           div << <<~"COLOPHON"
-          <p>As with all M<sup>3</sup>AAWG documents that we publish,
-          please check the M<sup>3</sup>AAWG website
-          (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to
-          this paper.</p>
-          <p>&copy; #{@meta.get[:docyear]} copyright by the Messaging, Malware
-          and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
+            <p>As with all M<sup>3</sup>AAWG documents that we publish,
+            please check the M<sup>3</sup>AAWG website
+            (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to
+            this paper.</p>
+            <p>&#xa9; #{@meta.get[:docyear]} copyright by the Messaging, Malware
+            and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
           COLOPHON
         end
       end
@@ -44,4 +39,3 @@ module IsoDoc
     end
   end
 end
-

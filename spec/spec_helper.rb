@@ -32,7 +32,7 @@ OPTIONS = [backend: :m3aawg, header_footer: true, agree_to_terms: true].freeze
 
 def metadata(xml)
   xml.sort.to_h.delete_if do |_k, v|
-    v.nil? || v.respond_to?(:empty?) && v.empty?
+    v.nil? || (v.respond_to?(:empty?) && v.empty?)
   end
 end
 
@@ -52,6 +52,13 @@ def htmlencode(xml)
 end
 
 def xmlpp(xml)
+  c = HTMLEntities.new
+  xml &&= xml.split(/(&\S+?;)/).map do |n|
+    if /^&\S+?;$/.match?(n)
+      c.encode(c.decode(n), :hexadecimal)
+    else n
+    end
+  end.join
   s = ""
   f = REXML::Formatters::Pretty.new(2)
   f.compact = true
