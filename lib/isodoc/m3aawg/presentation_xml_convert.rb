@@ -9,16 +9,15 @@ module IsoDoc
         Metanorma::M3AAWG.configuration
       end
 
-      def annex1(f)
-        lbl = @xrefs.anchor(f['id'], :label)
-        if t = f.at(ns("./title"))
+      def annex1(elem)
+        lbl = @xrefs.anchor(elem["id"], :label)
+        if t = elem.at(ns("./title"))
           t.children = "<strong>#{t.children.to_xml}</strong>"
         end
-        prefix_name(f, "<br/>", lbl, "title")
+        prefix_name(elem, "<br/>", lbl, "title")
       end
 
       include Init
     end
   end
 end
-
