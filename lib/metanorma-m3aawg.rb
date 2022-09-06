@@ -5,8 +5,9 @@ require_relative "isodoc/m3aawg/word_convert"
 require_relative "isodoc/m3aawg/pdf_convert"
 require_relative "isodoc/m3aawg/presentation_xml_convert"
 require_relative "metanorma/m3aawg/version"
+require "metanorma"
 
-if defined? Metanorma
+if defined? Metanorma::Registry
   require_relative "metanorma/m3aawg"
   Metanorma::Registry.instance.register(Metanorma::M3AAWG::Processor)
 end
