@@ -6,9 +6,6 @@ module Metanorma
   module M3AAWG
 
     class Configuration < Metanorma::Generic::Configuration
-      def initialize(*args)
-        super
-      end
     end
 
     class << self

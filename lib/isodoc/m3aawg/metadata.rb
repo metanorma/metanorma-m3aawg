@@ -3,11 +3,11 @@ require "isodoc"
 module IsoDoc
   module M3AAWG
     class Metadata < IsoDoc::Generic::Metadata
-       def configuration
+      def configuration
         Metanorma::M3AAWG.configuration
       end
 
-      def initialize(lang, script, labels)
+      def initialize(lang, script, locale, labels)
         super
         here = File.dirname(__FILE__)
         set(:logo_html,
