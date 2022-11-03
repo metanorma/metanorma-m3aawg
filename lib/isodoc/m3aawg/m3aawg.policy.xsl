@@ -51,9 +51,9 @@
 				</fo:simple-page-master>
 
 				<fo:simple-page-master master-name="last" page-width="{$pageWidth}mm" page-height="{$pageHeight}mm">
-					<fo:region-body margin-top="20mm" margin-bottom="53mm" margin-left="{$marginLeftRight1}mm" margin-right="{$marginLeftRight2}mm"/>
+					<fo:region-body margin-top="20mm" margin-bottom="54mm" margin-left="{$marginLeftRight1}mm" margin-right="{$marginLeftRight2}mm"/>
 					<fo:region-before region-name="header" extent="{$marginTop}mm"/>
-					<fo:region-after region-name="footer-last" extent="53mm"/>
+					<fo:region-after region-name="footer-last" extent="53.2mm"/>
 					<fo:region-start region-name="left-region" extent="17.3mm"/>
 					<fo:region-end region-name="right-region" extent="17.3mm"/>
 				</fo:simple-page-master>
@@ -104,7 +104,7 @@
 					</fo:block-container>
 				</fo:static-content>
 				<fo:static-content flow-name="footer" role="artifact">
-					<fo:block-container height="31mm" font-size="10pt">
+					<fo:block-container font-size="10pt">
 						<fo:block text-align-last="justify" margin-top="2mm">
 							<fo:inline font-weight="bold">
 								<fo:inline>M<fo:inline font-size="6.5pt" vertical-align="super">3</fo:inline>AAWG </fo:inline>
@@ -216,7 +216,7 @@
 							<xsl:for-each select="$contents//item[@display = 'true']"><!-- [not(@level = 2 and starts-with(@section, '0'))] skip clause from preface -->
 								<xsl:choose>
 									<xsl:when test="@section = ''">
-										<fo:table table-layout="fixed" width="100%">
+										<fo:table table-layout="fixed" width="100%" id="__internal_layout__price_toc_{generate-id()}">
 											<fo:table-column column-width="180mm"/>
 											<fo:table-body>
 												<fo:table-row height="6mm">
@@ -241,7 +241,7 @@
 										</fo:table>
 									</xsl:when>
 									<xsl:otherwise>
-										<fo:table table-layout="fixed" width="100%">
+										<fo:table table-layout="fixed" width="100%" id="__internal_layout__price_toc_{generate-id()}">
 											<fo:table-column column-width="5mm"/> <!-- 25mm -->
 											<fo:table-column column-width="175mm"/> <!-- 155mm -->
 											<fo:table-body>
@@ -1174,8 +1174,6 @@
 	<xsl:attribute-set name="table-style">
 		<xsl:attribute name="table-omit-footer-at-break">true</xsl:attribute>
 		<xsl:attribute name="table-layout">fixed</xsl:attribute>
-		<xsl:attribute name="margin-left">0mm</xsl:attribute>
-		<xsl:attribute name="margin-right">0mm</xsl:attribute>
 
 	</xsl:attribute-set><!-- table-style -->
 
@@ -2271,10 +2269,18 @@
 				<xsl:variable name="table_attributes">
 
 					<xsl:element name="table_attributes" use-attribute-sets="table-style">
+
+						<xsl:if test="$margin-side != 0">
+							<xsl:attribute name="margin-left">0mm</xsl:attribute>
+							<xsl:attribute name="margin-right">0mm</xsl:attribute>
+						</xsl:if>
+
 						<xsl:attribute name="width"><xsl:value-of select="normalize-space($table_width)"/></xsl:attribute>
 
-							<xsl:attribute name="margin-left"><xsl:value-of select="$margin-side"/>mm</xsl:attribute>
-							<xsl:attribute name="margin-right"><xsl:value-of select="$margin-side"/>mm</xsl:attribute>
+							<xsl:if test="$margin-side != 0">
+								<xsl:attribute name="margin-left"><xsl:value-of select="$margin-side"/>mm</xsl:attribute>
+								<xsl:attribute name="margin-right"><xsl:value-of select="$margin-side"/>mm</xsl:attribute>
+							</xsl:if>
 
 					</xsl:element>
 				</xsl:variable>
@@ -5001,6 +5007,9 @@
 		<xsl:value-of select="substring($str, 2)"/>
 	</xsl:template>
 
+	<!-- ======================================= -->
+	<!-- math -->
+	<!-- ======================================= -->
 	<xsl:template match="mathml:math">
 		<xsl:variable name="isAdded" select="@added"/>
 		<xsl:variable name="isDeleted" select="@deleted"/>
@@ -5051,14 +5060,57 @@
 		<xsl:value-of select="$comment_text"/>
 	</xsl:template>
 
+	<xsl:template match="*[local-name() = 'asciimath']">
+		<xsl:param name="process" select="'false'"/>
+		<xsl:if test="$process = 'true'">
+			<xsl:apply-templates/>
+		</xsl:if>
+	</xsl:template>
+
+	<xsl:template match="*[local-name() = 'latexmath']"/>
+
+	<xsl:template name="getMathml_asciimath_text">
+		<xsl:variable name="asciimath" select="../*[local-name() = 'asciimath']"/>
+		<xsl:variable name="latexmath">
+
+		</xsl:variable>
+		<xsl:variable name="asciimath_text_following">
+			<xsl:choose>
+				<xsl:when test="normalize-space($latexmath) != ''">
+					<xsl:value-of select="$latexmath"/>
+				</xsl:when>
+				<xsl:when test="normalize-space($asciimath) != ''">
+					<xsl:value-of select="$asciimath"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="following-sibling::node()[1][self::comment()]"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="asciimath_text_">
+			<xsl:choose>
+				<xsl:when test="normalize-space($asciimath_text_following) != ''">
+					<xsl:value-of select="$asciimath_text_following"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="normalize-space(translate(.,' ⁢','  '))"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="asciimath_text_2" select="java:org.metanorma.fop.Util.unescape($asciimath_text_)"/>
+		<xsl:variable name="asciimath_text" select="java:trim(java:java.lang.String.new($asciimath_text_2))"/>
+		<xsl:value-of select="$asciimath_text"/>
+	</xsl:template>
+
 	<xsl:template name="mathml_instream_object">
-		<xsl:param name="comment_text"/>
+		<xsl:param name="asciimath_text"/>
 		<xsl:param name="mathml_content"/>
 
-		<xsl:variable name="comment_text_">
+		<xsl:variable name="asciimath_text_">
 			<xsl:choose>
-				<xsl:when test="normalize-space($comment_text) != ''"><xsl:value-of select="$comment_text"/></xsl:when>
-				<xsl:otherwise><xsl:call-template name="getMathml_comment_text"/></xsl:otherwise>
+				<xsl:when test="normalize-space($asciimath_text) != ''"><xsl:value-of select="$asciimath_text"/></xsl:when>
+				<!-- <xsl:otherwise><xsl:call-template name="getMathml_comment_text"/></xsl:otherwise> -->
+				<xsl:otherwise><xsl:call-template name="getMathml_asciimath_text"/></xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
 
@@ -5075,10 +5127,10 @@
 			</xsl:attribute>
 
 			<!-- <xsl:if test="$add_math_as_text = 'true'"> -->
-			<xsl:if test="normalize-space($comment_text_) != ''">
+			<xsl:if test="normalize-space($asciimath_text_) != ''">
 			<!-- put Mathin Alternate Text -->
 				<xsl:attribute name="fox:alt-text">
-					<xsl:value-of select="$comment_text_"/>
+					<xsl:value-of select="$asciimath_text_"/>
 				</xsl:attribute>
 			</xsl:if>
 			<!-- </xsl:if> -->
@@ -5150,6 +5202,29 @@
 	<xsl:template match="mathml:mtd/mathml:mo/text()[. = '/']" mode="mathml">
 		<xsl:value-of select="."/><xsl:value-of select="$zero_width_space"/>
 	</xsl:template>
+
+	<!-- Examples: 
+		<stem type="AsciiMath">x = 1</stem> 
+		<stem type="AsciiMath"><asciimath>x = 1</asciimath></stem>
+		<stem type="AsciiMath"><asciimath>x = 1</asciimath><latexmath>x = 1</latexmath></stem>
+	-->
+	<xsl:template match="*[local-name() = 'stem'][@type = 'AsciiMath'][count(*) = 0]/text() | *[local-name() = 'stem'][@type = 'AsciiMath'][*[local-name() = 'asciimath']]" priority="3">
+		<fo:inline xsl:use-attribute-sets="mathml-style">
+
+			<xsl:choose>
+				<xsl:when test="self::text()"><xsl:value-of select="."/></xsl:when>
+				<xsl:otherwise>
+					<xsl:apply-templates>
+						<xsl:with-param name="process">true</xsl:with-param>
+					</xsl:apply-templates>
+				</xsl:otherwise>
+			</xsl:choose>
+
+		</fo:inline>
+	</xsl:template>
+	<!-- ======================================= -->
+	<!-- END: math -->
+	<!-- ======================================= -->
 
 	<xsl:template match="*[local-name()='localityStack']"/>
 
@@ -9348,13 +9423,14 @@
 	</xsl:template>
 
 	<xsl:template name="setId">
+		<xsl:param name="prefix"/>
 		<xsl:attribute name="id">
 			<xsl:choose>
 				<xsl:when test="@id">
-					<xsl:value-of select="@id"/>
+					<xsl:value-of select="concat($prefix, @id)"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="generate-id()"/>
+					<xsl:value-of select="concat($prefix, generate-id())"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:attribute>
