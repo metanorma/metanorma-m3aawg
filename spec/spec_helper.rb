@@ -35,6 +35,10 @@ def metadata(xml)
   end
 end
 
+def presxml_options
+  { semanticxmlinsert: "false" }
+end
+
 def strip_guid(xml)
   xml.gsub(%r{ id="_[^"]+"}, ' id="_"')
     .gsub(%r{ target="_[^"]+"}, ' target="_"')

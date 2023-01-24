@@ -287,7 +287,7 @@ RSpec.describe IsoDoc::M3AAWG do
        </bibliography>
        </m3d-standard>
     OUTPUT
-    expect(xmlpp(IsoDoc::M3AAWG::PresentationXMLConvert.new({})
+    expect(xmlpp(IsoDoc::M3AAWG::PresentationXMLConvert.new(presxml_options)
       .convert("test", input, true)
       .gsub(%r{^.*<body}m, "<body")
       .gsub(%r{</body>.*}m, "</body>")))
