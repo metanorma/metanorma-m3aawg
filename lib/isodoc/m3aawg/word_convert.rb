@@ -10,18 +10,9 @@ module IsoDoc
         Metanorma::M3AAWG.configuration
       end
 
-      def colophon(body, docxml)
+      def colophon(_docxml, body)
         section_break(body)
-        body.div **{ class: "colophon" } do |div|
-        end
-      end
-
-      def make_body(xml, docxml)
-        body_attr = { lang: "EN-US", link: "blue", vlink: "#954F72" }
-        xml.body **body_attr do |body|
-          make_body2(body, docxml)
-          make_body3(body, docxml)
-          colophon(body, docxml)
+        body.div class: "colophon" do |div|
         end
       end
 

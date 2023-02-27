@@ -112,10 +112,10 @@ RSpec.describe IsoDoc::M3AAWG do
                  <pre>ABC</pre>
                </div>
                <p class="zzSTDTitle1"/>
-             </div>
              <div class="colophon"><p>As with all M<sup>3</sup>AAWG documents that we publish, please check the M<sup>3</sup>AAWG website
          (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
          <p>&#169; copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
+         </div>
          </div>
            </body>
     OUTPUT
@@ -152,10 +152,10 @@ RSpec.describe IsoDoc::M3AAWG do
               <span class="keyword">ABC</span>
             </div>
             <p class="zzSTDTitle1"/>
-          </div>
           <div class="colophon"><p>As with all M<sup>3</sup>AAWG documents that we publish, please check the M<sup>3</sup>AAWG website
       (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to this paper.</p>
       <p>&#169; 2001 copyright by the Messaging, Malware and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
+      </div>
       </div>
         </body>
     OUTPUT

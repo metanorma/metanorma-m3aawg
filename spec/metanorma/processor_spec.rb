@@ -58,6 +58,14 @@ RSpec.describe Metanorma::M3AAWG::Processor do
               <div id="H"><h1 id="toc0">1.&#xA0; Terms, Definitions, Symbols and Abbreviated Terms</h1>
             <p class='Terms' style='text-align:left;' id='J'><strong>1.1.</strong>&#xa0;Term2</p>
         </div>
+                <div class="colophon">
+           <p>As with all M<sup>3</sup>AAWG documents that we publish,
+       please check the M<sup>3</sup>AAWG website
+       (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to
+       this paper.</p>
+           <p>©  copyright by the Messaging, Malware
+       and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
+         </div>
             </main>
       OUTPUT
   end

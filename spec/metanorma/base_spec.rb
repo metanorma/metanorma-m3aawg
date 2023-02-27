@@ -129,6 +129,20 @@ RSpec.describe Metanorma::M3AAWG do
         </editorialgroup>
         </ext>
       </bibdata>
+               <metanorma-extension>
+           <presentation-metadata>
+             <name>TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>HTML TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>DOC TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+         </metanorma-extension>
       #{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement").sub(/#{Date.today.year} Messaging, Malware and Mobile Anti-Abuse Working Group/, '2001 Messaging, Malware and Mobile Anti-Abuse Working Group')}
       <sections/>
       </m3d-standard>
@@ -198,6 +212,20 @@ RSpec.describe Metanorma::M3AAWG do
         <doctype>report</doctype>
         </ext>
       </bibdata>
+               <metanorma-extension>
+           <presentation-metadata>
+             <name>TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>HTML TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>DOC TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+         </metanorma-extension>
       #{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement")}
       <sections/>
       </m3d-standard>
@@ -267,6 +295,20 @@ RSpec.describe Metanorma::M3AAWG do
         <doctype>report</doctype>
         </ext>
       </bibdata>
+               <metanorma-extension>
+           <presentation-metadata>
+             <name>TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>HTML TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>DOC TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+         </metanorma-extension>
       #{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement")}
       <sections/>
       </m3d-standard>
@@ -337,6 +379,20 @@ RSpec.describe Metanorma::M3AAWG do
         <doctype>report</doctype>
         </ext>
       </bibdata>
+               <metanorma-extension>
+           <presentation-metadata>
+             <name>TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>HTML TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+           <presentation-metadata>
+             <name>DOC TOC Heading Levels</name>
+             <value>2</value>
+           </presentation-metadata>
+         </metanorma-extension>
               #{BOILERPLATE.sub(/<legal-statement/, "#{BOILERPLATE_LICENSE}\n<legal-statement").sub(/#{Date.today.year} Messaging, Malware and Mobile Anti-Abuse Working Group/, '2001 Messaging, Malware and Mobile Anti-Abuse Working Group')}
       <sections/>
       </m3d-standard>
