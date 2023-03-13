@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "htmlentities", "~> 4.3.4"
   spec.add_dependency "thread_safe"
 
-  spec.add_dependency "metanorma-generic", "~> 2.3.0"
+  spec.add_dependency "metanorma-generic", "~> 2.4.0"
 
   spec.add_development_dependency "debug"
   spec.add_development_dependency "equivalent-xml", "~> 0.6"
