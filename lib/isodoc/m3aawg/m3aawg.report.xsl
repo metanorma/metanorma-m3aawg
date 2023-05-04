@@ -2415,7 +2415,7 @@
 									<xsl:apply-templates select="*[local-name()='thead']" mode="process_tbody"/>
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:apply-templates select="node()[not(local-name() = 'name') and not(local-name() = 'note') and not(local-name() = 'dl') and not(local-name() = 'source')          and not(local-name() = 'thead') and not(local-name() = 'tfoot')]"/> <!-- process all table' elements, except name, header, footer, note, source and dl which render separaterely -->
+									<xsl:apply-templates select="node()[not(local-name() = 'name') and not(local-name() = 'note') and not(local-name() = 'dl') and not(local-name() = 'source') and not(local-name() = 'p')          and not(local-name() = 'thead') and not(local-name() = 'tfoot')]"/> <!-- process all table' elements, except name, header, footer, note, source and dl which render separaterely -->
 								</xsl:otherwise>
 							</xsl:choose>
 
@@ -2923,7 +2923,7 @@
 		<xsl:param name="colwidths"/>
 		<xsl:param name="colgroup"/>
 
-		<xsl:variable name="isNoteOrFnExist" select="../*[local-name()='note'] or ../*[local-name()='dl'] or ..//*[local-name()='fn'][local-name(..) != 'name'] or ../*[local-name()='source']"/>
+		<xsl:variable name="isNoteOrFnExist" select="../*[local-name()='note'] or ../*[local-name()='dl'] or ..//*[local-name()='fn'][local-name(..) != 'name'] or ../*[local-name()='source'] or ../*[local-name()='p']"/>
 
 		<xsl:variable name="isNoteOrFnExistShowAfterTable">
 
@@ -2991,6 +2991,7 @@
 
 								<!-- except gb and bsi  -->
 
+										<xsl:apply-templates select="../*[local-name()='p']"/>
 										<xsl:apply-templates select="../*[local-name()='dl']"/>
 										<xsl:apply-templates select="../*[local-name()='note']"/>
 										<xsl:apply-templates select="../*[local-name()='source']"/>
@@ -9793,6 +9794,9 @@
 			<xsl:apply-templates mode="update_xml_step1"/>
 		</xsl:copy>
 	</xsl:template>
+
+	<!-- prevent empty thead processing in XSL-FO, remove it -->
+	<xsl:template match="*[local-name() = 'table']/*[local-name() = 'thead'][count(*) = 0]" mode="update_xml_step1"/>
 
 	<xsl:template name="add_id">
 		<xsl:if test="not(@id)">
