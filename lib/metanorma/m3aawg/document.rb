@@ -19,6 +19,9 @@ module Metanorma
   end
 end
 
+require "metanorma/m3aawg/registers"
+Metanorma::M3aawg::Registers.setup
+
 # OCP adoption: ONE registration in the metanorma-core flavor table
 require "metanorma-core"
 
