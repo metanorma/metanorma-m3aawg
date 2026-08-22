@@ -10,7 +10,6 @@ gemspec
 # (requires the removed mml/configuration). Latest pairs with mml 2.x.
 gem "plurimath", "~> 0.11.6"
 gem "mml", ">= 2.0"
-gem "rubocop", "~> 1"
 if File.exist? 'Gemfile.devel'
   eval File.read('Gemfile.devel'), nil, 'Gemfile.devel' # rubocop:disable Security/Eval
 end
