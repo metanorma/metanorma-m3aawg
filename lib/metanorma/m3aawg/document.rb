@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "metanorma/standoc"
+require "metanorma/iso/document/models"
 module Metanorma
   module M3aawg
   end
@@ -8,6 +9,8 @@ end
 
 module Metanorma
   module M3aawg::Document
+    autoload :Metadata, "metanorma/m3aawg/document/metadata"
+    autoload :Root, "metanorma/m3aawg/document/root"
   end
 end
 
@@ -30,5 +33,7 @@ Metanorma::Core::Flavors.register(Metanorma::Core::Flavor.new(
   gem: "metanorma-m3aawg",
   model_root: Metanorma::M3aawg::Document::Root,
   pubid_module: nil,
-  renderers: { html: Metanorma::Html::StandardRenderer },
+  renderers: { html: lambda do |_document, **_options|
+    Metanorma::Html::StandardRenderer
+  end },
 ))

@@ -2,13 +2,14 @@
 
 module Metanorma
   module M3aawg
-  module Document
-    module Metadata
-      class M3dBibliographicItem < Metanorma::IsoDocument::Metadata::IsoBibliographicItem
-        attribute :ext, M3dBibDataExtensionType
+    module Document
+      module Metadata
+        class M3dBibliographicItem < Metanorma::IsoDocument::Metadata::IsoBibliographicItem
+          attribute :ext, M3dBibDataExtensionType
 
-        xml do
-          element "bibdata"
+          xml do
+            element "bibdata"
+          end
         end
       end
     end
