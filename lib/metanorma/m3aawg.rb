@@ -24,6 +24,7 @@ module Metanorma
     end
 
     configure {}
+    autoload :Document, "metanorma/m3aawg/document"
   end
 end
 Metanorma::Registry.instance.register(Metanorma::M3AAWG::Processor)
