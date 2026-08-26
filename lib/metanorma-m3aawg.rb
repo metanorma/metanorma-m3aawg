@@ -11,4 +11,3 @@ if defined? Metanorma::Registry
   require_relative "metanorma/m3aawg"
   Metanorma::Registry.instance.register(Metanorma::M3AAWG::Processor)
 end
-require "metanorma/m3aawg/document"
