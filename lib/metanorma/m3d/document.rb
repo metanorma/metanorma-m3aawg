@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "metanorma/standoc"
+require "metanorma/iso/document"
 # Forward-declare parent namespace so this file is safe to require
 # directly (without first requiring metanorma/m3d.rb).
 module Metanorma
@@ -33,4 +34,22 @@ end
 
 module Metanorma
   deprecate_constant :M3dDocument
+end
+
+require "metanorma-core"
+
+# OCP adoption: ONE registration in the metanorma-core flavor table
+# (metanorma-core#18). Lazy: the table exists only on the flavor-table
+# line of metanorma-core; skip silently on resolutions without it.
+if defined?(Metanorma::Core::Flavors)
+  Metanorma::Core::Flavors.register(Metanorma::Core::Flavor.new(
+                                      name: :m3d,
+                                      gem: "metanorma-m3d",
+                                      model_root: Metanorma::M3d::Document::Root,
+                                      pubid_module: nil,
+                                      renderers: { html: lambda do |_document, **_options|
+                                        require "metanorma/m3d/html"
+                                        Metanorma::M3d::Html::Renderer
+                                      end },
+                                    ))
 end
