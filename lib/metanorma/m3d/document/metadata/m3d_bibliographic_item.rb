@@ -3,7 +3,7 @@
 module Metanorma
   module M3d::Document
     module Metadata
-      class M3dBibliographicItem < Metanorma::IsoDocument::Metadata::IsoBibliographicItem
+      class M3dBibliographicItem < Metanorma::Iso::Document::Metadata::IsoBibliographicItem
         attribute :ext, M3dBibDataExtensionType
 
         xml do

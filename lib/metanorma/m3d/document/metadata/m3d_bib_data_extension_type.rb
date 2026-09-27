@@ -3,7 +3,7 @@
 module Metanorma
   module M3d::Document
     module Metadata
-      class M3dBibDataExtensionType < Metanorma::IsoDocument::Metadata::IsoBibDataExtensionType
+      class M3dBibDataExtensionType < Metanorma::Iso::Document::Metadata::IsoBibDataExtensionType
       end
     end
   end
