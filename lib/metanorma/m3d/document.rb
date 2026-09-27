@@ -28,9 +28,9 @@ module Metanorma
   end
 end
 
-if defined?(Metanorma::Registers::Setup.setup_m3d_register)
-  Metanorma::Registers::Setup.setup_m3d_register
-end
+require_relative "registers"
+
+Metanorma::M3d::Registers.setup
 
 module Metanorma
   deprecate_constant :M3dDocument
