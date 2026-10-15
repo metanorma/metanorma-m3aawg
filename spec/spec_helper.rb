@@ -54,7 +54,7 @@ def htmlencode(xml)
   end
 end
 
-def xmlpp(xml)
+def normalize_xml(xml)
   c = HTMLEntities.new
   xml &&= xml.split(/(&\S+?;)/).map do |n|
     if /^&\S+?;$/.match?(n)
@@ -62,17 +62,7 @@ def xmlpp(xml)
     else n
     end
   end.join
-  xsl = <<~XSL
-    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-      <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
-      <xsl:strip-space elements="*"/>
-      <xsl:template match="/">
-        <xsl:copy-of select="."/>
-      </xsl:template>
-    </xsl:stylesheet>
-  XSL
-  Nokogiri::XSLT(xsl).transform(Nokogiri::XML(xml, &:noblanks))
-    .to_xml(indent: 2, encoding: "UTF-8")
+  Nokogiri::XML(xml, &:noblanks).to_xml(indent: 2, encoding: "UTF-8")
     .gsub(%r{<fetched>[^<]+</fetched>}, "<fetched/>")
     .gsub(%r{ schema-version="[^"]+"}, "")
 end

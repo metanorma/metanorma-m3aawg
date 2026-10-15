@@ -15,8 +15,8 @@ RSpec.describe Metanorma::M3AAWG do
       <sections/>
       </m3d-standard>
     OUTPUT
-    expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+    expect(normalize_xml(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "converts a blank document" do
@@ -40,8 +40,8 @@ RSpec.describe Metanorma::M3AAWG do
       </sections>
       </m3d-standard>
     OUTPUT
-    expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+    expect(normalize_xml(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
+      .to be_equivalent_to normalize_xml(output)
     expect(File.exist?("test.html")).to be true
     expect(File.exist?("test.doc")).to be true
     expect(File.exist?("test.pdf")).to be true
@@ -147,8 +147,8 @@ RSpec.describe Metanorma::M3AAWG do
       <sections/>
       </m3d-standard>
     OUTPUT
-    expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+    expect(normalize_xml(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "processes committee-draft" do
@@ -230,8 +230,8 @@ RSpec.describe Metanorma::M3AAWG do
       <sections/>
       </m3d-standard>
     OUTPUT
-    expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+    expect(normalize_xml(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "processes draft-standard" do
@@ -313,8 +313,8 @@ RSpec.describe Metanorma::M3AAWG do
       <sections/>
       </m3d-standard>
     OUTPUT
-    expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+    expect(normalize_xml(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "ignores unrecognised status" do
@@ -397,8 +397,8 @@ RSpec.describe Metanorma::M3AAWG do
       <sections/>
       </m3d-standard>
     OUTPUT
-    expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+    expect(normalize_xml(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "strips inline header" do
@@ -419,8 +419,8 @@ RSpec.describe Metanorma::M3AAWG do
          </clause></sections>
          </m3d-standard>
     OUTPUT
-    expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+    expect(normalize_xml(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "uses default fonts" do
