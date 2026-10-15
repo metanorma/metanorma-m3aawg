@@ -119,11 +119,11 @@ RSpec.describe IsoDoc::M3AAWG do
          </div>
            </body>
     OUTPUT
-    expect(xmlpp(IsoDoc::M3AAWG::HtmlConvert.new({})
+    expect(normalize_xml(IsoDoc::M3AAWG::HtmlConvert.new({})
       .convert("test", input, true)
       .gsub(%r{^.*<body}m, "<body")
       .gsub(%r{</body>.*}m, "</body>")))
-      .to be_equivalent_to xmlpp(output)
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "processes keyword" do
@@ -159,11 +159,11 @@ RSpec.describe IsoDoc::M3AAWG do
       </div>
         </body>
     OUTPUT
-    expect(xmlpp(IsoDoc::M3AAWG::HtmlConvert.new({})
+    expect(normalize_xml(IsoDoc::M3AAWG::HtmlConvert.new({})
       .convert("test", input, true)
       .gsub(%r{^.*<body}m, "<body")
       .gsub(%r{</body>.*}m, "</body>")))
-      .to be_equivalent_to xmlpp(output)
+      .to be_equivalent_to normalize_xml(output)
   end
 
   it "processes section names" do
@@ -287,10 +287,10 @@ RSpec.describe IsoDoc::M3AAWG do
        </bibliography>
        </m3d-standard>
     OUTPUT
-    expect(xmlpp(IsoDoc::M3AAWG::PresentationXMLConvert.new(presxml_options)
+    expect(normalize_xml(IsoDoc::M3AAWG::PresentationXMLConvert.new(presxml_options)
       .convert("test", input, true)
       .gsub(%r{^.*<body}m, "<body")
       .gsub(%r{</body>.*}m, "</body>")))
-      .to be_equivalent_to xmlpp(output)
+      .to be_equivalent_to normalize_xml(output)
   end
 end
