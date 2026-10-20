@@ -6,6 +6,7 @@ gem "metanorma-mirror", "~> 1.0"
 
 # Canonical line: the relaton 3.x prerelease monogem over the gem mains.
 # The cross-PR feature branches these pins used to track have merged.
+gem "metanorma", github: "metanorma/metanorma", branch: "main"
 gem "metanorma-standoc", github: "metanorma/metanorma-standoc", branch: "main"
 gem "metanorma-document", github: "metanorma/metanorma-document", branch: "main"
 gem "metanorma-iso", github: "metanorma/metanorma-iso", branch: "main"
