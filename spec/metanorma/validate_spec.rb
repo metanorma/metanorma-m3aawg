@@ -22,7 +22,8 @@ RSpec.describe Metanorma::M3AAWG do
         mock_pdf
         Metanorma::Compile
           .new
-          .compile("spec/assets/xref_error.adoc", type: "m3aawg", no_install_fonts: true)
+          .compile("spec/assets/xref_error.adoc", type: "m3aawg",
+                   install_fonts: false)
       end.to(change { File.exist?("spec/assets/xref_error.err.html") }
               .from(false).to(true))
     end
