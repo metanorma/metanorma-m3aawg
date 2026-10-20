@@ -26,9 +26,73 @@ RSpec.describe Metanorma::M3AAWG::Processor do
       #{ASCIIDOC_BLANK_HDR}
     INPUT
     output = <<~OUTPUT
-          #{BLANK_HDR}
-      <sections/>
-      </m3d-standard>
+<?xml version="1.0" encoding="UTF-8"?>
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+  <bibdata type="standard">
+    <title language="en" type="main">Document title</title>
+    <docidentifier primary="true" type="M3AAWG">:2026</docidentifier>
+    <contributor>
+      <role type="author"/>
+      <organization>
+        <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+        <abbreviation>M3AAWG</abbreviation>
+      </organization>
+    </contributor>
+    <contributor>
+      <role type="publisher"/>
+      <organization>
+        <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+        <abbreviation>M3AAWG</abbreviation>
+      </organization>
+    </contributor>
+    <language>en</language>
+    <script>Latn</script>
+    <status>
+      <stage>published</stage>
+    </status>
+    <copyright>
+      <from>2026</from>
+      <owner>
+        <organization>
+          <name>Messaging Malware and Mobile Anti-Abuse Working Group</name>
+          <abbreviation>M3AAWG</abbreviation>
+        </organization>
+      </owner>
+    </copyright>
+    <ext>
+      <doctype>report</doctype>
+      <flavor>m3aawg</flavor>
+    </ext>
+  </bibdata>
+  <metanorma-extension>
+    <semantic-metadata>
+      <stage-published>true</stage-published>
+    </semantic-metadata>
+    <presentation-metadata>
+      <toc-heading-levels>2</toc-heading-levels>
+      <html-toc-heading-levels>2</html-toc-heading-levels>
+      <doc-toc-heading-levels>2</doc-toc-heading-levels>
+      <pdf-toc-heading-levels>2</pdf-toc-heading-levels>
+    </presentation-metadata>
+  </metanorma-extension>
+  <boilerplate>
+    <copyright-statement>
+      <clause>
+        <p id="_">© 2026 Messaging, Malware and Mobile Anti-Abuse Working Group</p>
+      </clause>
+    </copyright-statement>
+    <legal-statement>
+      <clause>
+        <p id="_">All rights reserved. Unless otherwise specified, no part of this         publication may be reproduced or utilized otherwise in any form or by any         means, electronic or mechanical, including photocopying, or posting on the         internet or an intranet, without prior written permission. Permission can         be requested from the address below.</p>
+      </clause>
+    </legal-statement>
+    <feedback-statement>
+      <p id="boilerplate-name">Messaging, Malware and Mobile Anti-Abuse Working Group</p>
+      <p class="boilerplate-address" id="_">       781 Beach Street, Suite 302<br/>       San Francisco<br/>       California 94109<br/>       United States of America<br/><br/><link target="https://www.m3aawg.org">www.m3aawg.org</link></p>
+    </feedback-statement>
+  </boilerplate>
+  <sections/>
+</metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(processor
       .input_to_isodoc(input, nil))))
@@ -53,20 +117,8 @@ RSpec.describe Metanorma::M3AAWG::Processor do
       .gsub(%r{^.*<main}m, "<main")
       .gsub(%r{</main>.*}m, "</main>"))))
       .to be_equivalent_to xmlpp(strip_guid(<<~"OUTPUT"))
-            <main class="main-section"><button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-              <p class="zzSTDTitle1"></p>
-              <div id="H"><h1 id="_">1.&#xA0; Terms, Definitions, Symbols and Abbreviated Terms</h1>
-            <p class='Terms' style='text-align:left;' id='J'><strong>1.1.</strong>&#xa0;Term2</p>
-        </div>
-                <div class="colophon">
-           <p>As with all M<sup>3</sup>AAWG documents that we publish,
-       please check the M<sup>3</sup>AAWG website
-       (<a href="http://www.m3aawg.org">www.m3aawg.org</a>) for updates to
-       this paper.</p>
-           <p>©  copyright by the Messaging, Malware
-       and Mobile Anti-Abuse Working Group (M<sup>3</sup>AAWG)</p>
-         </div>
-            </main>
+<?xml version="1.0" encoding="UTF-8"?>
+<main class="main-section"/>
       OUTPUT
   end
 end

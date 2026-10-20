@@ -1,5 +1,7 @@
 require "metanorma/standoc"
 require "metanorma/generic/converter"
+require "metanorma/generic/cleanup"
+require "metanorma/generic/validate"
 
 module Metanorma
   module M3AAWG
@@ -8,6 +10,16 @@ module Metanorma
       XML_NAMESPACE = "https://www.metanorma.org/ns/m3d".freeze
 
       register_for "m3aawg"
+
+      # The standoc base derives <Namespace>::Cleanup/Validate from the
+      # converter's class name; M3AAWG defines neither.
+      def cleanup_class
+        Metanorma::Generic::Cleanup
+      end
+
+      def validate_class
+        Metanorma::Generic::Validate
+      end
 
       def metadata_committee(node, xml)
         return unless node.attr("technical-committee")

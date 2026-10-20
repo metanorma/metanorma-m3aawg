@@ -4,7 +4,7 @@ module Metanorma
   module M3AAWG
     class Processor < Metanorma::Generic::Processor
       def configuration
-        Metanorma::Ribose.configuration
+        Metanorma::M3AAWG.configuration
       end
 
       def initialize # rubocop:disable Lint/MissingSuper

@@ -2,9 +2,13 @@ require "spec_helper"
 require "fileutils"
 
 RSpec.describe Metanorma::M3AAWG do
+  def err_html
+    File.read("test.err.html").delete("\u200B")
+  end
+
   context "when xref_error.adoc compilation" do
     around do |example|
-      FileUtils.rm_f "spec/assets/xref_error.err"
+      FileUtils.rm_f "spec/assets/xref_error.err.html"
       example.run
       Dir["spec/assets/xref_error*"].each do |file|
         next if file.match?(/adoc$/)
@@ -19,13 +23,13 @@ RSpec.describe Metanorma::M3AAWG do
         Metanorma::Compile
           .new
           .compile("spec/assets/xref_error.adoc", type: "m3aawg", no_install_fonts: true)
-      end.to(change { File.exist?("spec/assets/xref_error.err") }
+      end.to(change { File.exist?("spec/assets/xref_error.err.html") }
               .from(false).to(true))
     end
   end
 
   it "Warns of illegal doctype" do
-    FileUtils.rm_f "test.err"
+    FileUtils.rm_f "test.err.html"
     Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
       = Document title
       Author
@@ -36,11 +40,11 @@ RSpec.describe Metanorma::M3AAWG do
 
       text
     INPUT
-    expect(File.read("test.err")).to include "pizza is not a legal document type"
+    expect(err_html).to include "pizza is not a legal document type"
   end
 
   it "Warns of illegal status" do
-    FileUtils.rm_f "test.err"
+    FileUtils.rm_f "test.err.html"
     Asciidoctor.convert(<<~"INPUT", backend: :m3aawg, header_footer: true)
       = Document title
       Author
@@ -51,6 +55,6 @@ RSpec.describe Metanorma::M3AAWG do
 
       text
     INPUT
-    expect(File.read("test.err")).to include "pizza is not a recognised status"
+    expect(err_html).to include "pizza is not a recognised status"
   end
 end
