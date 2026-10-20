@@ -35,6 +35,12 @@ def metadata(xml)
   end
 end
 
+# Hash#inspect changed format in Ruby 3.4; canonicalise the older
+# symbol-key form so the fixtures compare on every supported Ruby.
+def metadata_str(xml)
+  metadata(xml).to_s.gsub(/:([a-z_]\w*)=>/, '\1: ').gsub(/ => /, "=>")
+end
+
 def presxml_options
   { semanticxmlinsert: "false" }
 end
