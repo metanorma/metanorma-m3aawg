@@ -1,4 +1,4 @@
-require "metanorma/standoc/converter"
+require "metanorma/standoc"
 require "metanorma/generic/converter"
 
 module Metanorma
