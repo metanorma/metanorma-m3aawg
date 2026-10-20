@@ -17,3 +17,6 @@ gem "relaton-bib", "2.2.0.pre.alpha.1"
 gem "pubid", github: "pubid/pubid", branch: "main"
 
 eval_gemfile("Gemfile.devel") rescue nil
+
+# isodoc compiles its embedded SCSS at render time
+gem "sassc-embedded", "~> 1.80"
