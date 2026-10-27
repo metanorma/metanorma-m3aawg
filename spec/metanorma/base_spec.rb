@@ -12,7 +12,7 @@ RSpec.describe Metanorma::M3AAWG do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Document title</title>
     <docidentifier primary="true" type="M3AAWG">:2026</docidentifier>
@@ -97,7 +97,7 @@ RSpec.describe Metanorma::M3AAWG do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Document title</title>
     <docidentifier primary="true" type="M3AAWG">:2026</docidentifier>
@@ -209,7 +209,7 @@ RSpec.describe Metanorma::M3AAWG do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Main Title</title>
     <uri>http://www.m3aawg.org/BlocklistHelp</uri>
@@ -313,7 +313,7 @@ RSpec.describe Metanorma::M3AAWG do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Main Title</title>
     <docidentifier primary="true" type="M3AAWG">1000(cd):2026</docidentifier>
@@ -416,7 +416,7 @@ RSpec.describe Metanorma::M3AAWG do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Main Title</title>
     <docidentifier primary="true" type="M3AAWG">1000(d):2026</docidentifier>
@@ -520,7 +520,7 @@ RSpec.describe Metanorma::M3AAWG do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Main Title</title>
     <docidentifier primary="true" type="M3AAWG">1000:2001</docidentifier>
@@ -613,7 +613,7 @@ RSpec.describe Metanorma::M3AAWG do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Document title</title>
     <docidentifier primary="true" type="M3AAWG">:2026</docidentifier>

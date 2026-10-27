@@ -27,7 +27,7 @@ RSpec.describe Metanorma::M3AAWG::Processor do
     INPUT
     output = <<~OUTPUT
 <?xml version="1.0" encoding="UTF-8"?>
-<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.2.5" flavor="m3aawg">
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="#{Metanorma::M3AAWG::VERSION}" flavor="m3aawg">
   <bibdata type="standard">
     <title language="en" type="main">Document title</title>
     <docidentifier primary="true" type="M3AAWG">:2026</docidentifier>
