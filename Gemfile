@@ -10,7 +10,7 @@ gem "metanorma", "~> 2.5.6.pre.alpha"
 gem "metanorma-standoc", "~> 3.5.1.pre.alpha"
 gem "metanorma-document", "~> 0.5.2.pre.alpha"
 gem "metanorma-iso", github: "metanorma/metanorma-iso", branch: "main"
-gem "metanorma-core", github: "metanorma/metanorma-core", branch: "main"
+gem "metanorma-core", "~> 0.2.5.pre.alpha" # published flavor/taste table (metanorma-core#18)
 gem "isodoc", "~> 3.7.4.pre.alpha"
 gem "relaton", "~> 3.0"
 gem "relaton-bib", "2.2.0.pre.alpha.1"
