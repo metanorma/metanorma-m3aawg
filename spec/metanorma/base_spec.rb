@@ -80,7 +80,7 @@ RSpec.describe Metanorma::M3AAWG do
 </metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
   end
 
   it "converts a blank document" do
@@ -169,7 +169,7 @@ RSpec.describe Metanorma::M3AAWG do
 </metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
     expect(File.exist?("test.html")).to be true
     expect(File.exist?("test.doc")).to be true
     expect(File.exist?("test.pdf")).to be true
@@ -291,7 +291,7 @@ RSpec.describe Metanorma::M3AAWG do
 </metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
   end
 
   it "processes committee-draft" do
@@ -394,7 +394,7 @@ RSpec.describe Metanorma::M3AAWG do
 </metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
   end
 
   it "processes draft-standard" do
@@ -497,7 +497,7 @@ RSpec.describe Metanorma::M3AAWG do
 </metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
   end
 
   it "ignores unrecognised status" do
@@ -601,7 +601,7 @@ RSpec.describe Metanorma::M3AAWG do
 </metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
   end
 
   it "strips inline header" do
@@ -691,7 +691,7 @@ RSpec.describe Metanorma::M3AAWG do
 </metanorma>
     OUTPUT
     expect(xmlpp(strip_guid(Asciidoctor.convert(input, *OPTIONS))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
   end
 
   it "uses default fonts" do

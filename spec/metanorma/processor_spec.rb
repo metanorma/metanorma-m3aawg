@@ -12,9 +12,9 @@ RSpec.describe Metanorma::M3AAWG::Processor do
   end
 
   it "registers output formats against metanorma" do
-    expect(processor.output_formats.sort.to_s).to be_equivalent_to <<~"OUTPUT"
-      [[:doc, "doc"], [:html, "html"], [:pdf, "pdf"], [:presentation, "presentation.xml"], [:rxl, "rxl"], [:xml, "xml"]]
-    OUTPUT
+    expect(processor.output_formats.sort).to eq [[:doc, "doc"], [:html, "html"],
+                                                 [:pdf, "pdf"], [:presentation, "presentation.xml"],
+                                                 [:rxl, "rxl"], [:xml, "xml"]]
   end
 
   it "registers version against metanorma" do
@@ -96,7 +96,7 @@ RSpec.describe Metanorma::M3AAWG::Processor do
     OUTPUT
     expect(xmlpp(strip_guid(processor
       .input_to_isodoc(input, nil))))
-      .to be_equivalent_to xmlpp(output)
+      .to be_xml_equivalent_to xmlpp(output)
   end
 
   it "generates HTML from IsoDoc XML" do
@@ -116,7 +116,7 @@ RSpec.describe Metanorma::M3AAWG::Processor do
     expect(xmlpp(strip_guid(File.read("test.html", encoding: "utf-8")
       .gsub(%r{^.*<main}m, "<main")
       .gsub(%r{</main>.*}m, "</main>"))))
-      .to be_equivalent_to xmlpp(strip_guid(<<~"OUTPUT"))
+      .to be_xml_equivalent_to xmlpp(strip_guid(<<~"OUTPUT"))
 <?xml version="1.0" encoding="UTF-8"?>
 <main class="main-section"/>
       OUTPUT
