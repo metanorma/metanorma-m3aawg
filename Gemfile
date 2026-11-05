@@ -13,7 +13,6 @@ gem "metanorma-iso", github: "metanorma/metanorma-iso", branch: "main"
 gem "metanorma-core", "~> 0.2.5.pre.alpha" # published flavor/taste table (metanorma-core#18)
 gem "isodoc", "~> 3.7.4.pre.alpha"
 gem "relaton", "~> 3.0"
-gem "relaton-bib", "2.2.0.pre.alpha.1"
 gem "pubid", "~> 2.0"
 
 eval_gemfile("Gemfile.devel") rescue nil
